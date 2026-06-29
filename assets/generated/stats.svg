@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">BlackSpirits' GitHub Stats, Rank: B+</title>
-        <desc id="descId">Total Stars Earned: 7, Total Commits  : 4772, Total PRs: 243, Total Issues: 33, Contributed to (last year): 27</desc>
+        <desc id="descId">Total Stars Earned: 7, Total Commits  : 4782, Total PRs: 243, Total Issues: 33, Contributed to (last year): 27</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 109.10928382547324;
+        stroke-dashoffset: 109.09869385740795;
       }
     }
   
