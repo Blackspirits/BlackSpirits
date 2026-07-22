@@ -16,89 +16,8 @@
   <g clip-path="url(#rc)">
     <rect width="900" height="220" fill="#11111b"/>
     
-  <!-- Card: Agent Kim Reactivated -->
-  <g transform="translate(20,20)">
-    <rect width="278.6666666666667" height="84" rx="10" fill="#181825"/>
-    <rect width="3" height="84" rx="1.5" fill="#fab387" opacity=".7"/>
-
-    <rect x="12" y="10" width="52" height="18" rx="6" fill="#fab387" opacity=".12"/>
-    <rect x="12" y="10" width="52" height="18" rx="6" fill="none" stroke="#fab387" stroke-width=".6" opacity=".4"/>
-    <text x="38" y="23" text-anchor="middle"
-          font-family="system-ui,-apple-system,sans-serif"
-          font-size="10" font-weight="700" fill="#fab387">📺 Show</text>
-
-    <text x="12" y="52"
-          font-family="system-ui,-apple-system,sans-serif"
-          font-size="13" font-weight="700" fill="#cdd6f4">Agent Kim Reactivated</text>
-
-    <text x="12" y="68"
-          font-family="'SFMono-Regular',Consolas,monospace"
-          font-size="11" font-weight="600" fill="#bac2de">2026</text>
-
-    <text x="268.6666666666667" y="68" text-anchor="end"
-          font-family="system-ui,-apple-system,sans-serif"
-          font-size="10.5" font-weight="600" fill="#9399b2">today</text>
-
-    <rect width="278.6666666666667" height="84" rx="10" fill="none"
-          stroke="#fab387" stroke-width=".6" stroke-opacity=".18"/>
-  </g>
-
-  <!-- Card: The East Palace -->
-  <g transform="translate(310.6666666666667,20)">
-    <rect width="278.6666666666667" height="84" rx="10" fill="#181825"/>
-    <rect width="3" height="84" rx="1.5" fill="#fab387" opacity=".7"/>
-
-    <rect x="12" y="10" width="52" height="18" rx="6" fill="#fab387" opacity=".12"/>
-    <rect x="12" y="10" width="52" height="18" rx="6" fill="none" stroke="#fab387" stroke-width=".6" opacity=".4"/>
-    <text x="38" y="23" text-anchor="middle"
-          font-family="system-ui,-apple-system,sans-serif"
-          font-size="10" font-weight="700" fill="#fab387">📺 Show</text>
-
-    <text x="12" y="52"
-          font-family="system-ui,-apple-system,sans-serif"
-          font-size="13" font-weight="700" fill="#cdd6f4">The East Palace</text>
-
-    <text x="12" y="68"
-          font-family="'SFMono-Regular',Consolas,monospace"
-          font-size="11" font-weight="600" fill="#bac2de">2026</text>
-
-    <text x="268.6666666666667" y="68" text-anchor="end"
-          font-family="system-ui,-apple-system,sans-serif"
-          font-size="10.5" font-weight="600" fill="#9399b2">today</text>
-
-    <rect width="278.6666666666667" height="84" rx="10" fill="none"
-          stroke="#fab387" stroke-width=".6" stroke-opacity=".18"/>
-  </g>
-
-  <!-- Card: Legend of The Female General -->
-  <g transform="translate(601.3333333333334,20)">
-    <rect width="278.6666666666667" height="84" rx="10" fill="#181825"/>
-    <rect width="3" height="84" rx="1.5" fill="#fab387" opacity=".7"/>
-
-    <rect x="12" y="10" width="52" height="18" rx="6" fill="#fab387" opacity=".12"/>
-    <rect x="12" y="10" width="52" height="18" rx="6" fill="none" stroke="#fab387" stroke-width=".6" opacity=".4"/>
-    <text x="38" y="23" text-anchor="middle"
-          font-family="system-ui,-apple-system,sans-serif"
-          font-size="10" font-weight="700" fill="#fab387">📺 Show</text>
-
-    <text x="12" y="52"
-          font-family="system-ui,-apple-system,sans-serif"
-          font-size="13" font-weight="700" fill="#cdd6f4">Legend of The Female General</text>
-
-    <text x="12" y="68"
-          font-family="'SFMono-Regular',Consolas,monospace"
-          font-size="11" font-weight="600" fill="#bac2de">2025</text>
-
-    <text x="268.6666666666667" y="68" text-anchor="end"
-          font-family="system-ui,-apple-system,sans-serif"
-          font-size="10.5" font-weight="600" fill="#9399b2">4d ago</text>
-
-    <rect width="278.6666666666667" height="84" rx="10" fill="none"
-          stroke="#fab387" stroke-width=".6" stroke-opacity=".18"/>
-  </g>
-
   <!-- Card: The Apartment Job -->
-  <g transform="translate(20,116)">
+  <g transform="translate(20,20)">
     <rect width="278.6666666666667" height="84" rx="10" fill="#181825"/>
     <rect width="3" height="84" rx="1.5" fill="#fab387" opacity=".7"/>
 
@@ -118,13 +37,94 @@
 
     <text x="268.6666666666667" y="68" text-anchor="end"
           font-family="system-ui,-apple-system,sans-serif"
-          font-size="10.5" font-weight="600" fill="#9399b2">1w ago</text>
+          font-size="10.5" font-weight="600" fill="#9399b2">today</text>
 
     <rect width="278.6666666666667" height="84" rx="10" fill="none"
           stroke="#fab387" stroke-width=".6" stroke-opacity=".18"/>
   </g>
 
-  <!-- Card: The First Jasmine -->
+  <!-- Card: Resident Playbook -->
+  <g transform="translate(310.6666666666667,20)">
+    <rect width="278.6666666666667" height="84" rx="10" fill="#181825"/>
+    <rect width="3" height="84" rx="1.5" fill="#fab387" opacity=".7"/>
+
+    <rect x="12" y="10" width="52" height="18" rx="6" fill="#fab387" opacity=".12"/>
+    <rect x="12" y="10" width="52" height="18" rx="6" fill="none" stroke="#fab387" stroke-width=".6" opacity=".4"/>
+    <text x="38" y="23" text-anchor="middle"
+          font-family="system-ui,-apple-system,sans-serif"
+          font-size="10" font-weight="700" fill="#fab387">📺 Show</text>
+
+    <text x="12" y="52"
+          font-family="system-ui,-apple-system,sans-serif"
+          font-size="13" font-weight="700" fill="#cdd6f4">Resident Playbook</text>
+
+    <text x="12" y="68"
+          font-family="'SFMono-Regular',Consolas,monospace"
+          font-size="11" font-weight="600" fill="#bac2de">2025</text>
+
+    <text x="268.6666666666667" y="68" text-anchor="end"
+          font-family="system-ui,-apple-system,sans-serif"
+          font-size="10.5" font-weight="600" fill="#9399b2">today</text>
+
+    <rect width="278.6666666666667" height="84" rx="10" fill="none"
+          stroke="#fab387" stroke-width=".6" stroke-opacity=".18"/>
+  </g>
+
+  <!-- Card: Widows -->
+  <g transform="translate(601.3333333333334,20)">
+    <rect width="278.6666666666667" height="84" rx="10" fill="#181825"/>
+    <rect width="3" height="84" rx="1.5" fill="#89b4fa" opacity=".7"/>
+
+    <rect x="12" y="10" width="52" height="18" rx="6" fill="#89b4fa" opacity=".12"/>
+    <rect x="12" y="10" width="52" height="18" rx="6" fill="none" stroke="#89b4fa" stroke-width=".6" opacity=".4"/>
+    <text x="38" y="23" text-anchor="middle"
+          font-family="system-ui,-apple-system,sans-serif"
+          font-size="10" font-weight="700" fill="#89b4fa">🎬 Movie</text>
+
+    <text x="12" y="52"
+          font-family="system-ui,-apple-system,sans-serif"
+          font-size="13" font-weight="700" fill="#cdd6f4">Widows</text>
+
+    <text x="12" y="68"
+          font-family="'SFMono-Regular',Consolas,monospace"
+          font-size="11" font-weight="600" fill="#bac2de">2018</text>
+
+    <text x="268.6666666666667" y="68" text-anchor="end"
+          font-family="system-ui,-apple-system,sans-serif"
+          font-size="10.5" font-weight="600" fill="#9399b2">today</text>
+
+    <rect width="278.6666666666667" height="84" rx="10" fill="none"
+          stroke="#89b4fa" stroke-width=".6" stroke-opacity=".18"/>
+  </g>
+
+  <!-- Card: Missing -->
+  <g transform="translate(20,116)">
+    <rect width="278.6666666666667" height="84" rx="10" fill="#181825"/>
+    <rect width="3" height="84" rx="1.5" fill="#89b4fa" opacity=".7"/>
+
+    <rect x="12" y="10" width="52" height="18" rx="6" fill="#89b4fa" opacity=".12"/>
+    <rect x="12" y="10" width="52" height="18" rx="6" fill="none" stroke="#89b4fa" stroke-width=".6" opacity=".4"/>
+    <text x="38" y="23" text-anchor="middle"
+          font-family="system-ui,-apple-system,sans-serif"
+          font-size="10" font-weight="700" fill="#89b4fa">🎬 Movie</text>
+
+    <text x="12" y="52"
+          font-family="system-ui,-apple-system,sans-serif"
+          font-size="13" font-weight="700" fill="#cdd6f4">Missing</text>
+
+    <text x="12" y="68"
+          font-family="'SFMono-Regular',Consolas,monospace"
+          font-size="11" font-weight="600" fill="#bac2de">2023</text>
+
+    <text x="268.6666666666667" y="68" text-anchor="end"
+          font-family="system-ui,-apple-system,sans-serif"
+          font-size="10.5" font-weight="600" fill="#9399b2">today</text>
+
+    <rect width="278.6666666666667" height="84" rx="10" fill="none"
+          stroke="#89b4fa" stroke-width=".6" stroke-opacity=".18"/>
+  </g>
+
+  <!-- Card: Spooky in Love -->
   <g transform="translate(310.6666666666667,116)">
     <rect width="278.6666666666667" height="84" rx="10" fill="#181825"/>
     <rect width="3" height="84" rx="1.5" fill="#fab387" opacity=".7"/>
@@ -137,7 +137,7 @@
 
     <text x="12" y="52"
           font-family="system-ui,-apple-system,sans-serif"
-          font-size="13" font-weight="700" fill="#cdd6f4">The First Jasmine</text>
+          font-size="13" font-weight="700" fill="#cdd6f4">Spooky in Love</text>
 
     <text x="12" y="68"
           font-family="'SFMono-Regular',Consolas,monospace"
@@ -145,13 +145,13 @@
 
     <text x="268.6666666666667" y="68" text-anchor="end"
           font-family="system-ui,-apple-system,sans-serif"
-          font-size="10.5" font-weight="600" fill="#9399b2">1w ago</text>
+          font-size="10.5" font-weight="600" fill="#9399b2">today</text>
 
     <rect width="278.6666666666667" height="84" rx="10" fill="none"
           stroke="#fab387" stroke-width=".6" stroke-opacity=".18"/>
   </g>
 
-  <!-- Card: Time (TH) -->
+  <!-- Card: Agent Kim Reactivated -->
   <g transform="translate(601.3333333333334,116)">
     <rect width="278.6666666666667" height="84" rx="10" fill="#181825"/>
     <rect width="3" height="84" rx="1.5" fill="#fab387" opacity=".7"/>
@@ -164,15 +164,15 @@
 
     <text x="12" y="52"
           font-family="system-ui,-apple-system,sans-serif"
-          font-size="13" font-weight="700" fill="#cdd6f4">Time (TH)</text>
+          font-size="13" font-weight="700" fill="#cdd6f4">Agent Kim Reactivated</text>
 
     <text x="12" y="68"
           font-family="'SFMono-Regular',Consolas,monospace"
-          font-size="11" font-weight="600" fill="#bac2de">2024</text>
+          font-size="11" font-weight="600" fill="#bac2de">2026</text>
 
     <text x="268.6666666666667" y="68" text-anchor="end"
           font-family="system-ui,-apple-system,sans-serif"
-          font-size="10.5" font-weight="600" fill="#9399b2">1w ago</text>
+          font-size="10.5" font-weight="600" fill="#9399b2">yesterday</text>
 
     <rect width="278.6666666666667" height="84" rx="10" fill="none"
           stroke="#fab387" stroke-width=".6" stroke-opacity=".18"/>
@@ -182,5 +182,5 @@
   <rect x=".5" y=".5" width="899" height="219" rx="14" ry="14"
         fill="none" stroke="#cdd6f4" stroke-opacity=".08" stroke-width="1"/>
 
-  <!-- generated: 2026-07-21T06:53:43.952Z -->
+  <!-- generated: 2026-07-22T06:54:25.703Z -->
 </svg>
