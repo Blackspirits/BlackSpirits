@@ -182,7 +182,7 @@ Contributing as a moderator, helping maintain the accuracy and completeness of T
 <br/>
 
 <a href="https://open.spotify.com/user/11175393066" target="_blank" rel="noopener noreferrer">
-  <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=11175393066&cover_image=true&theme=default&bar_color=53b14f&bar_color_cover=false" alt="Spotify Now Playing" />
+  <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=11175393066&cover_image=true&theme=default&background_color=1e1e2e&bar_color=89b4fa&bar_color_cover=false&border_radius=10&show_offline=true" alt="Spotify Now Playing" />
 </a>
 
 <br/><br/>
