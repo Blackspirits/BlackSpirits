@@ -8,8 +8,8 @@
         role="img"
         aria-labelledby="descId"
       >
-        <title id="titleId">BlackSpirits&#39; GitHub Stats, Rank: B+</title>
-        <desc id="descId">Total Stars Earned: 8, Total Commits  : 7142, Total PRs: 286, Total Issues: 33, Contributed to (last year): 30</desc>
+        <title id="titleId">BlackSpirits&#39; GitHub Stats, Rank: B</title>
+        <desc id="descId">Total Stars Earned: 8, Total Commits  : 0, Total PRs: 286, Total Issues: 33, Contributed to (last year): 30</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 105.63416753354728;
+        stroke-dashoffset: 147.22549605563108;
       }
     }
   
@@ -143,7 +143,7 @@
         <g class="rank-text">
           
         <text x="-5" y="3" alignment-baseline="central" dominant-baseline="central" text-anchor="middle" data-testid="level-rank-icon">
-          B+
+          B
         </text>
       
         </g>
@@ -177,7 +177,7 @@
         x="224.01"
         y="12.5"
         data-testid="commits"
-      >7.1k</text>
+      >0</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
