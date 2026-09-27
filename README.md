@@ -189,8 +189,8 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="./assets/generated/stats.svg" alt="GitHub Stats" width="49%" />
-  <img src="./assets/generated/top-langs.svg" alt="Top Languages" width="41%" />
+  <img src="./assets/generated/stats.svg" alt="GitHub Stats" width="48%" />
+  <img src="./assets/generated/top-langs.svg" alt="Top Languages" width="48%" />
 </p>
 
 <p align="center">
