@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="44" viewBox="0 0 760 44" role="img"><g font-family="Segoe UI, Ubuntu, Arial, sans-serif"><g transform="translate(57.0 4)">
+      <rect width="126" height="36" rx="9" fill="#232334" stroke="#45475a" stroke-width="1.2"/>
+      <circle cx="17" cy="18" r="4.5" fill="#f1e05a"/>
+      <text x="29" y="22.5" fill="#cdd6f4" font-size="12.5" font-weight="650">JavaScript</text>
+    </g><g transform="translate(193.0 4)">
+      <rect width="126" height="36" rx="9" fill="#232334" stroke="#45475a" stroke-width="1.2"/>
+      <circle cx="17" cy="18" r="4.5" fill="#3178c6"/>
+      <text x="29" y="22.5" fill="#cdd6f4" font-size="12.5" font-weight="650">TypeScript</text>
+    </g><g transform="translate(329.0 4)">
+      <rect width="100" height="36" rx="9" fill="#232334" stroke="#45475a" stroke-width="1.2"/>
+      <circle cx="17" cy="18" r="4.5" fill="#3572A5"/>
+      <text x="29" y="22.5" fill="#cdd6f4" font-size="12.5" font-weight="650">Python</text>
+    </g><g transform="translate(439.0 4)">
+      <rect width="68" height="36" rx="9" fill="#232334" stroke="#45475a" stroke-width="1.2"/>
+      <circle cx="17" cy="18" r="4.5" fill="#a6e3a1"/>
+      <text x="29" y="22.5" fill="#cdd6f4" font-size="12.5" font-weight="650">C#</text>
+    </g><g transform="translate(517.0 4)">
+      <rect width="92" height="36" rx="9" fill="#232334" stroke="#45475a" stroke-width="1.2"/>
+      <circle cx="17" cy="18" r="4.5" fill="#e34c26"/>
+      <text x="29" y="22.5" fill="#cdd6f4" font-size="12.5" font-weight="650">HTML5</text>
+    </g><g transform="translate(619.0 4)">
+      <rect width="84" height="36" rx="9" fill="#232334" stroke="#45475a" stroke-width="1.2"/>
+      <circle cx="17" cy="18" r="4.5" fill="#663399"/>
+      <text x="29" y="22.5" fill="#cdd6f4" font-size="12.5" font-weight="650">CSS3</text>
+    </g></g></svg>
