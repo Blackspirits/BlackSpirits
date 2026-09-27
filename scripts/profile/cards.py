@@ -101,67 +101,86 @@ def streak(d,username):
     created=d["created"]
     ring=163 if d["current"] else 0
     desc=f'{d["total"]} total contributions, current streak {d["current"]} days, longest streak {d["longest"]} days.'
-    return _head(956,195,f"{username} Contribution Streak",desc)+_frame(956,195)+f'''
+    return _head(956,235,f"{username} Contribution Streak",desc)+_frame(956,235)+f'''
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">Contribution Streak</text>
     <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Consistency across your GitHub history</text>
-    <text x="934" y="48" text-anchor="end" fill="{PEACH}" font-size="11" font-weight="700">31d · {d["active_days_31"]} active · {d["average_31"]:.1f}/day</text>
-    <line x1="318.5" y1="91" x2="318.5" y2="170" stroke="{SURFACE}"/><line x1="637.5" y1="91" x2="637.5" y2="170" stroke="{SURFACE}"/>
+    <line x1="318.5" y1="88" x2="318.5" y2="166" stroke="{SURFACE}"/>
+    <line x1="637.5" y1="88" x2="637.5" y2="166" stroke="{SURFACE}"/>
     <g text-anchor="middle">
       <g transform="translate(159 0)">
-        <text x="0" y="119" fill="{TEXT}" font-size="30" font-weight="800">{compact(d["total"])}</text>
-        <text x="0" y="143" fill="{SUBTEXT}" font-size="13" font-weight="600">Total Contributions</text>
-        <text x="0" y="164" fill="{MUTED}" font-size="10.5">{created.day} {created.strftime("%b %Y")} · Present</text>
+        <text x="0" y="116" fill="{TEXT}" font-size="30" font-weight="800">{compact(d["total"])}</text>
+        <text x="0" y="140" fill="{SUBTEXT}" font-size="13" font-weight="600">Total Contributions</text>
+        <text x="0" y="159" fill="{MUTED}" font-size="10.5">{created.day} {created.strftime("%b %Y")} · Present</text>
       </g>
       <g transform="translate(478 0)">
-        <circle cx="0" cy="109" r="31" fill="{BG_DEEP}" stroke="{SURFACE}" stroke-width="6"/>
-        <circle cx="0" cy="109" r="31" fill="none" stroke="{PEACH}" stroke-width="6" stroke-linecap="round" stroke-dasharray="{ring} {195-ring}" transform="rotate(-90 0 109)"/>
-        <path d="M0 73 C-5 78 -7 83 -4 88 C-1 84 2 82 4 77 C8 82 9 87 6 91 C12 88 14 82 11 76 C8 72 4 69 4 65 C1 67 -1 70 0 73Z" fill="{PEACH}"/>
-        <text x="0" y="117" fill="{TEXT}" font-size="27" font-weight="800">{d["current"]}</text>
-        <text x="0" y="166" fill="{PURPLE}" font-size="12.5" font-weight="700">Current Streak</text>
-        <text x="0" y="181" fill="{MUTED}" font-size="10.5">{_range(d["current_start"],d["current_end"])}</text>
+        <circle cx="0" cy="108" r="31" fill="{BG_DEEP}" stroke="{SURFACE}" stroke-width="6"/>
+        <circle cx="0" cy="108" r="31" fill="none" stroke="{PEACH}" stroke-width="6" stroke-linecap="round" stroke-dasharray="{ring} {195-ring}" transform="rotate(-90 0 108)"/>
+        <path d="M0 72 C-5 77 -7 82 -4 87 C-1 83 2 81 4 76 C8 81 9 86 6 90 C12 87 14 81 11 75 C8 71 4 68 4 64 C1 66 -1 69 0 72Z" fill="{PEACH}"/>
+        <text x="0" y="116" fill="{TEXT}" font-size="27" font-weight="800">{d["current"]}</text>
+        <text x="0" y="158" fill="{PURPLE}" font-size="12.5" font-weight="700">Current Streak</text>
+        <text x="0" y="174" fill="{MUTED}" font-size="10.5">{_range(d["current_start"],d["current_end"])}</text>
       </g>
       <g transform="translate(797 0)">
-        <text x="0" y="119" fill="{TEXT}" font-size="30" font-weight="800">{d["longest"]}</text>
-        <text x="0" y="143" fill="{SUBTEXT}" font-size="13" font-weight="600">Longest Streak</text>
-        <text x="0" y="164" fill="{MUTED}" font-size="10.5">{_range(d["longest_start"],d["longest_end"])}</text>
+        <text x="0" y="116" fill="{TEXT}" font-size="30" font-weight="800">{d["longest"]}</text>
+        <text x="0" y="140" fill="{SUBTEXT}" font-size="13" font-weight="600">Longest Streak</text>
+        <text x="0" y="159" fill="{MUTED}" font-size="10.5">{_range(d["longest_start"],d["longest_end"])}</text>
+      </g>
+    </g>
+    <line x1="22" y1="184" x2="934" y2="184" stroke="{SURFACE}"/>
+    <g text-anchor="middle">
+      <g transform="translate(118 0)">
+        <text x="0" y="207" fill="{BLUE}" font-size="15" font-weight="800">{d["activity_total_31"]:,}</text>
+        <text x="0" y="222" fill="{MUTED}" font-size="9.5">Last 31 days</text>
+      </g>
+      <g transform="translate(358 0)">
+        <text x="0" y="207" fill="{TEAL}" font-size="15" font-weight="800">{d["active_days_31"]}/31</text>
+        <text x="0" y="222" fill="{MUTED}" font-size="9.5">Active days</text>
+      </g>
+      <g transform="translate(598 0)">
+        <text x="0" y="207" fill="{PURPLE}" font-size="15" font-weight="800">{d["average_31"]:.1f}</text>
+        <text x="0" y="222" fill="{MUTED}" font-size="9.5">Contributions / day</text>
+      </g>
+      <g transform="translate(838 0)">
+        <text x="0" y="207" fill="{PEACH}" font-size="15" font-weight="800">{d["peak_31"]}</text>
+        <text x="0" y="222" fill="{MUTED}" font-size="9.5">Peak · {_fmt(d["peak_date_31"])}</text>
       </g>
     </g>
   </g></svg>'''
-
 def trophies(d,username):
     trophy_defs=[
         ("Committer",d["commits"],(100,500,1000,5000,10000),compact(d["commits"])),
         ("Pull Requests",d["prs"],(10,50,100,500,1000),compact(d["prs"])),
         ("Contributor",d["total"],(250,1000,2500,5000,10000),compact(d["total"])),
+        ("Reviewer",d["reviews"],(1,10,50,200,500),compact(d["reviews"])),
+        ("Open Source",d["contrib_repos"],(5,15,30,60,100),f'{d["contrib_repos"]} repos'),
         ("Code Veteran",d["account_years"],(1,3,5,10,15),f'{d["account_years"]} yrs'),
     ]
     cells=[]
-    xs=(22,248,474,700)
+    positions=((22,82),(332,82),(642,82),(22,172),(332,172),(642,172))
     cup='''<path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/>'''
-    for x,(title,value,thresholds,metric) in zip(xs,trophy_defs):
+    for (x,y),(title,value,thresholds,metric) in zip(positions,trophy_defs):
         tier,color,progress=_tier(value,thresholds)
-        cells.append(f'''<g transform="translate({x} 82)">
-      <rect width="214" height="90" rx="10" fill="{BG_DEEP}" stroke="{BORDER}"/>
-      <g transform="translate(14 14) scale(.72)" fill="none" stroke="{color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{cup}</g>
-      <text x="50" y="27" fill="{TEXT}" font-size="13" font-weight="700">{escape(title)}</text>
-      <text x="50" y="49" fill="{color}" font-size="20" font-weight="800">{escape(metric)}</text>
-      <text x="50" y="67" fill="{MUTED}" font-size="10.5">{tier}</text>
-      <rect x="14" y="77" width="186" height="4" rx="2" fill="{SURFACE}"/>
-      <rect x="14" y="77" width="{186*progress:.1f}" height="4" rx="2" fill="{color}"/>
+        cells.append(f'''<g transform="translate({x} {y})">
+      <rect width="292" height="80" rx="10" fill="{BG_DEEP}" stroke="{BORDER}"/>
+      <g transform="translate(14 13) scale(.70)" fill="none" stroke="{color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{cup}</g>
+      <text x="49" y="25" fill="{TEXT}" font-size="12.5" font-weight="700">{escape(title)}</text>
+      <text x="49" y="48" fill="{color}" font-size="20" font-weight="800">{escape(metric)}</text>
+      <text x="196" y="48" fill="{MUTED}" font-size="10.5">{tier}</text>
+      <rect x="14" y="66" width="264" height="4" rx="2" fill="{SURFACE}"/>
+      <rect x="14" y="66" width="{264*progress:.1f}" height="4" rx="2" fill="{color}"/>
     </g>''')
-    desc="Custom live milestones plus visible GitHub achievements."
-    return _head(956,220,f"{username} GitHub Trophies",desc)+_frame(956,220)+f'''
+    return _head(956,330,f"{username} GitHub Trophies","Custom live milestones and visible GitHub achievements.")+_frame(956,330)+f'''
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">GitHub Trophies</text>
-    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Custom live milestones + visible GitHub achievements</text>
+    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Custom live milestones · updated from your GitHub activity</text>
     {"".join(cells)}
-    <text x="22" y="202" fill="{MUTED}" font-size="10.5">GitHub achievements</text>
-    <text x="136" y="202" fill="{PURPLE}" font-size="10.5" font-weight="700">YOLO ×3</text>
-    <text x="205" y="202" fill="{BLUE}" font-size="10.5" font-weight="700">Quickdraw ×3</text>
-    <text x="300" y="202" fill="{PEACH}" font-size="10.5" font-weight="700">Arctic Code Vault Contributor</text>
+    <text x="22" y="278" fill="{SUBTEXT}" font-size="11" font-weight="700">GitHub achievements</text>
+    <g transform="translate(22 290)"><rect width="112" height="26" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="14" cy="13" r="4" fill="{PURPLE}"/><text x="26" y="17" fill="{TEXT}" font-size="10.5" font-weight="700">YOLO ×3</text></g>
+    <g transform="translate(144 290)"><rect width="132" height="26" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="14" cy="13" r="4" fill="{BLUE}"/><text x="26" y="17" fill="{TEXT}" font-size="10.5" font-weight="700">Quickdraw ×3</text></g>
+    <g transform="translate(286 290)"><rect width="236" height="26" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="14" cy="13" r="4" fill="{PEACH}"/><text x="26" y="17" fill="{TEXT}" font-size="10.5" font-weight="700">Arctic Code Vault Contributor</text></g>
+    <text x="934" y="306" text-anchor="end" fill="{MUTED}" font-size="9.5">Milestone tiers are custom to this profile</text>
   </g></svg>'''
-
 def activity(d,username):
     data=d["activity"]
     W,H=956,330

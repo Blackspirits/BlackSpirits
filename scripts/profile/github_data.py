@@ -214,6 +214,7 @@ def build_data():
         "commits":commits,
         "prs":prs,
         "issues":issues,
+        "reviews":reviews,
         "followers":followers,
         "public_repos":public_repos,
         "contrib_repos":len(contrib_repos),

@@ -30,12 +30,12 @@
 
 ## <sub><img src="./assets/icons/about.svg" alt="" width="22" /></sub> About Me
 
-<img src="./assets/icons/pt.svg" alt="Portugal" width="18" /> Portuguese developer, open-source contributor and technology enthusiast  
-<img src="./assets/icons/localization.svg" alt="" width="16" /> European Portuguese (pt-PT) translator & reviewer with contributions across 100+ projects  
-<img src="./assets/icons/tech.svg" alt="" width="16" /> Focused on automation, localization, media tooling and practical software  
-<img src="./assets/icons/recent.svg" alt="" width="16" /> Contributor to media, subtitles and metadata communities  
-<img src="./assets/icons/location.svg" alt="" width="16" /> <img src="./assets/icons/pt.svg" alt="Portugal" width="16" /> From Portugal · <img src="./assets/icons/fr.svg" alt="France" width="16" /> Currently based in France  
-<img src="./assets/icons/travel.svg" alt="" width="16" /> Dreaming of exploring the world, one country at a time
+<img src="./assets/icons/userscripts.svg" alt="" width="17" /> Portuguese developer, open-source contributor and technology enthusiast  
+<img src="./assets/icons/localization.svg" alt="" width="17" /> European Portuguese (pt-PT) translator & reviewer with contributions across 100+ projects  
+<img src="./assets/icons/tech.svg" alt="" width="17" /> Focused on automation, localization, media tooling and practical software  
+<img src="./assets/icons/recent.svg" alt="" width="17" /> Contributor to media, subtitles and metadata communities  
+<img src="./assets/icons/location.svg" alt="" width="17" /> <img src="./assets/location/portugal.svg" alt="Portugal" height="26" /> → <img src="./assets/location/france.svg" alt="France" height="26" />  
+<img src="./assets/icons/travel.svg" alt="" width="17" /> Dreaming of exploring the world, one country at a time
 
 <img src="./assets/icons/link.svg" alt="" width="15" /> **[Explore my work at blackspirits.github.io](https://blackspirits.github.io)**
 
@@ -59,7 +59,9 @@ My approach goes beyond literal translation:
 
 Selected projects include:
 
-**Mozilla · Proton · Bitwarden · Notepad++ · Subtitle Edit · AntennaPod · Stremio · MagicMirror²**
+<p align="center">
+  <img src="./assets/localization/projects.svg" alt="Mozilla · Proton · Bitwarden · Notepad++ · Subtitle Edit · AntennaPod · Stremio · MagicMirror²" />
+</p>
 
 > Good localization should feel as if the product was originally written for its users — not translated for them.
 
@@ -69,22 +71,8 @@ Selected projects include:
 
 ## <sub><img src="./assets/icons/tech.svg" alt="" width="22" /></sub> Tech & Focus
 
-**Languages**
-
 <p align="center">
-  <img src="./assets/tech/languages.svg" alt="JavaScript · TypeScript · Python · C# · HTML5 · CSS3" />
-</p>
-
-**Tools & Platforms**
-
-<p align="center">
-  <img src="./assets/tech/tools.svg" alt="Vue.js · Node.js · Git · GitHub Actions · Tampermonkey · VS Code" />
-</p>
-
-**Areas of Work**
-
-<p align="center">
-  <img src="./assets/tech/focus.svg" alt="Automation · Localization · Media & Metadata · Open Source · Web Tooling" />
+  <img src="./assets/tech/stack.svg" alt="Languages, tools, platforms and areas of work" />
 </p>
 
 <div align="center">
@@ -173,10 +161,12 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
 
 ## <sub><img src="./assets/icons/idea.svg" alt="" width="22" /></sub> Did you know?
 
-- <img src="./assets/icons/recent.svg" alt="" width="16" /> I watch over 100 movies and TV series every year — from timeless classics to fresh releases
-- <img src="./assets/icons/userscripts.svg" alt="" width="16" /> I love tweaking code for fun — the best bugs are the ones you make yourself
-- <img src="./assets/icons/localization.svg" alt="" width="16" /> I'm obsessed with perfect localization (pt-PT)
-- <img src="./assets/icons/korean.svg" alt="" width="16" /> Currently learning Korean — <img src="./assets/icons/kr.svg" width="18" alt="South Korea" /> 한글 배우는 중!
+<p>
+  <img src="./assets/icons/recent.svg" alt="" width="17" /> I watch over 100 movies and TV series every year — from timeless classics to fresh releases<br/>
+  <img src="./assets/icons/userscripts.svg" alt="" width="17" /> I love tweaking code for fun — the best bugs are the ones you make yourself<br/>
+  <img src="./assets/icons/localization.svg" alt="" width="17" /> I'm obsessed with perfect localization (pt-PT)<br/>
+  <img src="./assets/icons/korean.svg" alt="" width="17" /> Currently learning Korean — <img src="./assets/location/korean.svg" alt="Korean" height="26" /> 한글 배우는 중!
+</p>
 
 <div align="center">
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
@@ -184,10 +174,7 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
 
 ## <sub><img src="./assets/icons/stats.svg" alt="" width="22" /></sub> GitHub Stats
 
-<p align="center">
-  <img src="./assets/generated/profile-overview.svg" alt="GitHub Overview" width="49%" />
-  <img src="./assets/generated/profile-languages.svg" alt="Top Languages" width="49%" />
-</p>
+<p align="center"><img src="./assets/generated/profile-overview.svg" alt="GitHub Overview" width="48.8%" /><img src="./assets/spacer.svg" alt="" width="2.4%" height="1" /><img src="./assets/generated/profile-languages.svg" alt="Top Languages" width="48.8%" /></p>
 
 <p align="center">
   <img src="./assets/generated/profile-streak.svg" alt="GitHub Contribution Streak" width="100%" />

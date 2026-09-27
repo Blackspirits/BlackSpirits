@@ -100,13 +100,13 @@ async function fetchHistory() {
 }
 
 const W = 956
-const H = 260
+const H = 278
 const PAD = 22
 const TOP = 88
 const COLS = 3
-const GAP = 10
+const GAP = 12
 const CARD_W = (W - PAD * 2 - GAP * 2) / COLS
-const CARD_H = 70
+const CARD_H = 78
 
 function typeIcon(type, color) {
   if (type === 'movie') {
@@ -134,8 +134,8 @@ function buildCard(item, col, row) {
     ${typeIcon(item.type, color)}
     <text x="38" y="24" fill="${color}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="10.5" font-weight="700">${typeLabel}</text>
     <text x="14" y="46" fill="${C.text}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="13" font-weight="700">${title}</text>
-    <text x="14" y="61" fill="${C.subtext}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="10.5">${year}</text>
-    <text x="${CARD_W - 12}" y="61" text-anchor="end" fill="${C.muted}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="10.5">${when}</text>
+    <text x="14" y="67" fill="${C.subtext}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="10.5">${year}</text>
+    <text x="${CARD_W - 12}" y="67" text-anchor="end" fill="${C.muted}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="10.5">${when}</text>
   </g>`
 }
 
