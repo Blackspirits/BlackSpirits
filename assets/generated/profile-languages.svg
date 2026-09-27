@@ -1,5 +1,5 @@
 <svg width="467" height="195" viewBox="0 0 467 195" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Blackspirits Languages</title><desc id="desc">JavaScript 66.99 percent, Python 13.79 percent, CSS 10.16 percent, HTML 9.06 percent</desc>
+  <title id="title">Blackspirits Languages</title><desc id="desc">JavaScript 66.98 percent, Python 13.80 percent, CSS 10.16 percent, HTML 9.06 percent</desc>
   <defs><linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
     <stop offset="0" stop-color="#cba6f7"/><stop offset=".55" stop-color="#89b4fa"/><stop offset="1" stop-color="#fab387"/>
   </linearGradient></defs>
@@ -9,11 +9,11 @@
     <text x="22" y="48" fill="#cdd6f4" font-size="20" font-weight="700">Languages</text>
     <text x="22" y="67" fill="#7f849c" font-size="11.5" font-weight="500">Top 4 of 4 detected languages</text>
     <text x="445" y="67" text-anchor="end" fill="#7f849c" font-size="10.5">100.0% coverage</text>
-    <g clip-path="url(#bar)"><rect x="22.00" y="80" width="283.36" height="10" fill="#f1e05a"/><rect x="305.36" y="80" width="58.33" height="10" fill="#3572A5"/><rect x="363.69" y="80" width="42.97" height="10" fill="#663399"/><rect x="406.66" y="80" width="38.34" height="10" fill="#e34c26"/></g><circle cx="27" cy="117" r="5" fill="#f1e05a"/>
+    <g clip-path="url(#bar)"><rect x="22.00" y="80" width="283.33" height="10" fill="#f1e05a"/><rect x="305.33" y="80" width="58.37" height="10" fill="#3572A5"/><rect x="363.70" y="80" width="42.97" height="10" fill="#663399"/><rect x="406.67" y="80" width="38.33" height="10" fill="#e34c26"/></g><circle cx="27" cy="117" r="5" fill="#f1e05a"/>
     <text x="40" y="121" fill="#cdd6f4" font-size="13" font-weight="650">JavaScript</text>
-    <text x="154" y="121" fill="#7f849c" font-size="12">66.99%</text><circle cx="247" cy="117" r="5" fill="#3572A5"/>
+    <text x="154" y="121" fill="#7f849c" font-size="12">66.98%</text><circle cx="247" cy="117" r="5" fill="#3572A5"/>
     <text x="260" y="121" fill="#cdd6f4" font-size="13" font-weight="650">Python</text>
-    <text x="374" y="121" fill="#7f849c" font-size="12">13.79%</text><circle cx="27" cy="153" r="5" fill="#663399"/>
+    <text x="374" y="121" fill="#7f849c" font-size="12">13.80%</text><circle cx="27" cy="153" r="5" fill="#663399"/>
     <text x="40" y="157" fill="#cdd6f4" font-size="13" font-weight="650">CSS</text>
     <text x="154" y="157" fill="#7f849c" font-size="12">10.16%</text><circle cx="247" cy="153" r="5" fill="#e34c26"/>
     <text x="260" y="157" fill="#cdd6f4" font-size="13" font-weight="650">HTML</text>
