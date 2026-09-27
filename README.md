@@ -3,7 +3,11 @@
 <p align="center">
   <picture>
     <source srcset="./assets/profile-hero.svg" type="image/svg+xml" />
-    <img src="./assets/profile-hero.webp" alt="BlackSpirits — Developer, translator &amp; open-source contributor from Portugal" width="100%" />
+    <img
+      src="./assets/profile-hero.webp"
+      alt="BlackSpirits — Portuguese developer, open-source contributor and pt-PT translator & reviewer"
+      width="100%"
+    />
   </picture>
 </p>
 
@@ -24,20 +28,46 @@
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
 </div>
 
-## 🧑‍💻 Who I Am
+## 🧑‍💻 About Me
 
-🎯 Programmer, technology enthusiast and open-source contributor  
-📝 Translator and reviewer for several projects in **European Portuguese (pt-PT)**  
-🎬 Passionate about the Seventh Art — from classic cinema to modern streaming series  
-📍 Based in **Portugal**
+🇵🇹 Portuguese developer, open-source contributor and technology enthusiast  
+🌐 European Portuguese (pt-PT) translator & reviewer with contributions across 100+ projects  
+🛠️ Focused on automation, localization, media tooling and practical software  
+🎬 Contributor to media, subtitles and metadata communities  
+📍 From Portugal · Currently based in France  
+🌍 Dreaming of exploring the world, one country at a time
 
-👉 **[Visit my personal site: blackspirits.github.io](https://blackspirits.github.io)**
+👉 **[Explore my work at blackspirits.github.io](https://blackspirits.github.io)**
 
 <div align="center">
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
 </div>
 
-## 🔨 What I Build
+## 🌐 Localization & Review
+
+I contribute to software localization and linguistic review in **European Portuguese (pt-PT)**, with work across **100+ open-source and software projects**.
+
+My approach goes beyond literal translation:
+
+- Natural and idiomatic European Portuguese
+- UI and functional context
+- Consistent terminology
+- pt-PT / pt-BR distinction
+- Technical terminology and software conventions
+- Proofreading and linguistic QA
+- Accessibility and user-facing clarity
+
+Selected projects include:
+
+**Mozilla · Proton · Bitwarden · Notepad++ · Subtitle Edit · AntennaPod · Stremio · MagicMirror²**
+
+> Good localization should feel as if the product was originally written for its users — not translated for them.
+
+<div align="center">
+  <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
+</div>
+
+## 🛠️ Tech & Focus
 
 **Languages**
 
@@ -48,7 +78,7 @@
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
 
-**Frameworks & Tools**
+**Tools & Platforms**
 
 ![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
@@ -57,43 +87,61 @@
 ![Tampermonkey](https://img.shields.io/badge/Tampermonkey-00485B?style=flat-square&logo=tampermonkey&logoColor=white)
 ![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white)
 
-**Core Focus**
+**Areas of Work**
 
-![Automation](https://img.shields.io/badge/Automation%20%26%20Scripting-313244?style=flat-square&logo=gnubash&logoColor=a6e3a1)
-![Media Metadata](https://img.shields.io/badge/Media%20Platforms%20%26%20Metadata-313244?style=flat-square&logo=themoviedatabase&logoColor=89b4fa)
-![Localization](https://img.shields.io/badge/Localization%20pt--PT-313244?style=flat-square&logo=googletranslate&logoColor=fab387)
-![Open Source](https://img.shields.io/badge/Open--Source%20Tooling-313244?style=flat-square&logo=opensourceinitiative&logoColor=cba6f7)
+`Automation & Scripting` · `Localization & i18n` · `Media & Metadata` · `Open Source` · `Web Tooling`
 
 <div align="center">
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
 </div>
 
-## 🧩 Featured Projects & Contributions
+## 🚀 Selected Work & Contributions
 
-🧠 **UserScripts & UserStyles**  
-A collection of userscripts and userstyles created and maintained by me — focused on automation, media workflows, UX improvements, and productivity.
+### 🧩 UserScripts & UserStyles
+
+A collection of browser tools I build and maintain for automation, media workflows, productivity and UX improvements.
 
 <p align="center">
-  <a href="https://github.com/BlackSpirits/UserScripts-UserStyles" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/UserScripts%20%26%20UserStyles-cba6f7?style=for-the-badge&logo=github&logoColor=11111b" alt="UserScripts & UserStyles repo" />
+  <a href="https://github.com/BlackSpirits/UserScripts-UserStyles">
+    <img src="https://img.shields.io/badge/View%20Repository-313244?style=for-the-badge&logo=github&logoColor=cdd6f4" alt="View Repository">
   </a>
 </p>
 
-<sub><img src="./assets/pipocas.png" alt="" width="16" /></sub> <strong>Pipocas.tv</strong><br/>
-Portuguese subtitles community platform — I develop, maintain, and moderate this community-driven project.
+---
+
+### <sub><img src="./assets/pipocas.png" alt="" width="22" /></sub> Pipocas.tv
+
+Portuguese subtitles community platform that I own and administer, while contributing to its development, moderation and subtitle workflows.
 
 <p align="center">
-  <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/Pipocas.tv-FBB150?style=for-the-badge&color=FBB150" alt="Pipocas.tv" />
+  <a href="https://pipocas.tv">
+    <img src="https://img.shields.io/badge/Visit%20Pipocas.tv-FBB150?style=for-the-badge&logoColor=11111b" alt="Visit Pipocas.tv">
   </a>
 </p>
 
-📺 **TheTVDB Moderation**  
-Contributing as a moderator, helping maintain the accuracy and completeness of TV metadata for Portuguese titles.
+---
+
+### 📺 TheTVDB
+
+Moderator and metadata contributor, helping improve the accuracy, consistency and completeness of metadata in Portuguese.
 
 <p align="center">
-  <a href="https://www.thetvdb.com" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/TheTVDB-1B2626?style=for-the-badge&logo=thetvdb&logoColor=6CD591" alt="TheTVDB" />
+  <a href="https://www.thetvdb.com">
+    <img src="https://img.shields.io/badge/Visit%20TheTVDB-1B2626?style=for-the-badge&logo=thetvdb&logoColor=6CD591" alt="Visit TheTVDB">
+  </a>
+</p>
+
+---
+
+### 🌐 Open-source Localization
+
+European Portuguese translation and review across a broad range of software and open-source projects, with particular attention to terminology, UI context and linguistic consistency.
+
+Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle Edit, AntennaPod, Stremio and MagicMirror²**.
+
+<p align="center">
+  <a href="https://blackspirits.github.io/">
+    <img src="https://img.shields.io/badge/Localization%20Portfolio-cba6f7?style=for-the-badge&logo=googletranslate&logoColor=11111b" alt="Localization Portfolio">
   </a>
 </p>
 
@@ -157,17 +205,18 @@ Contributing as a moderator, helping maintain the accuracy and completeness of T
   </a>
 </p>
 
-<p align="center">
-  <img src="./assets/generated/trophy-card.svg" alt="GitHub Trophies" />
-</p>
-
 <div align="center">
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
 </div>
 
 ## 📈 GitHub Activity
 
-[![BlackSpirits GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=BlackSpirits&bg_color=1e1e2e&border_color=313244&color=cdd6f4&title_color=cba6f7&line=89b4fa&point=fab387&area=true&area_color=89b4fa&hide_border=false)](https://github.com/ashutosh00710/github-readme-activity-graph)
+<p align="center">
+  <img
+    src="https://raw.githubusercontent.com/Blackspirits/BlackSpirits/output/activity-graph.svg"
+    alt="BlackSpirits GitHub Activity Graph"
+  />
+</p>
 
 <div align="center">
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
