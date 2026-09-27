@@ -203,6 +203,10 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
   <img src="./assets/generated/profile-trophies.svg" alt="BlackSpirits GitHub Trophies and milestones" width="100%" />
 </p>
 
+<div align="center">
+  <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
+</div>
+
 ## <sub><img src="./assets/icons/activity.svg" alt="" width="22" /></sub> GitHub Activity
 
 <p align="center">
