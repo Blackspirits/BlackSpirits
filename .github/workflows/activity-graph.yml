@@ -21,12 +21,12 @@ jobs:
           username: Blackspirits
           options: >-
             bg_color=1e1e2e&
-            color=cdd6f4&
+            color=fab387&
             title_color=cba6f7&
-            line=89b4fa&
+            line=cba6f7&
             point=fab387&
             area=true&
-            area_color=89b4fa&
+            area_color=cba6f7&
             border_color=313244&
             radius=8
           output_path: dist/activity-graph.svg
