@@ -77,6 +77,15 @@ function render({ artist = 'Spotify', song = 'Nothing playing right now', status
     '<circle cx="0" cy="0" r="26" fill="' + C.green + '"/>' +
     '<path d="M-14 -6c10-3 22-2 31 2M-12 2c8-2 18-1 25 2M-10 10c6-1 13-.5 19 2" fill="none" stroke="' + C.deep + '" stroke-width="3.2" stroke-linecap="round"/>'
 
+  const heights = [9,16,12,24,18,31,20,27,13,22,29,15,25,12,19,28,16,23,10,18,26,14,22,12,18,24,13,21,16,11]
+  const waveform = status === 'Now playing'
+    ? heights.map((h, i) => {
+        const color = i % 3 === 0 ? C.purple : i % 3 === 1 ? C.blue : C.peach
+        return '<rect x="' + (224 + i * 13) + '" y="' + (220 - h) + '" width="5" height="' + h +
+          '" rx="2.5" fill="' + color + '" opacity="' + (0.55 + (i % 4) * 0.1) + '"/>'
+      }).join('')
+    : '<line x1="224" y1="205" x2="610" y2="205" stroke="' + C.surface + '"/>'
+
   return '<svg width="956" height="260" viewBox="0 0 956 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Spotify ' +
     esc(status) + ': ' + esc(song) + ' by ' + esc(artist) + '">' +
     '<defs><linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="' + C.purple + '"/><stop offset=".55" stop-color="' + C.blue + '"/><stop offset="1" stop-color="' + C.peach + '"/></linearGradient></defs>' +
@@ -89,8 +98,8 @@ function render({ artist = 'Spotify', song = 'Nothing playing right now', status
     '<text x="224" y="104" fill="' + C.green + '" font-size="10.5" font-weight="800">' + esc(status).toUpperCase() + '</text>' +
     '<text x="224" y="146" fill="' + C.text + '" font-size="32" font-weight="800">' + esc(song) + '</text>' +
     '<text x="224" y="176" fill="' + C.sub + '" font-size="18" font-weight="650">' + esc(artist) + '</text>' +
-    '<line x1="224" y1="198" x2="740" y2="198" stroke="' + C.surface + '"/>' +
-    '<text x="224" y="221" fill="' + C.muted + '" font-size="10.5">Click the card to open my Spotify profile</text>' +
+    waveform +
+    '<text x="224" y="239" fill="' + C.muted + '" font-size="10.5">Click the card to open my Spotify profile</text>' +
     '<g transform="translate(846 137)">' + spotifyLogo + '</g>' +
     '<text x="846" y="188" text-anchor="middle" fill="' + C.green + '" font-size="10.5" font-weight="700">SPOTIFY</text>' +
     '</g></svg>'

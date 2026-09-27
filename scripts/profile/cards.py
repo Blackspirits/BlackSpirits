@@ -180,29 +180,42 @@ def streak(d,username):
   </g></svg>'''
 def trophies(d,username):
     cup='''<path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/>'''
+
+    def progress(value,targets):
+        lower=0
+        for target in targets:
+            if value < target:
+                span=max(1,target-lower)
+                return max(.05,min(1.0,(value-lower)/span)),target
+            lower=target
+        return 1.0,targets[-1]
+
     items=[
-        ("Commits",compact(d["commits"]),PURPLE,"Lifetime"),
-        ("Pull Requests",compact(d["prs"]),BLUE,"Lifetime"),
-        ("Contributions",compact(d["total"]),YELLOW,"Lifetime"),
-        ("Reviews",compact(d["reviews"]),TEAL,"Pull-request reviews"),
-        ("Open Source",f'{d["contrib_repos"]} repos',PEACH,"Contributed last year"),
-        ("GitHub Veteran",f'{d["account_years"]} yrs',PURPLE,f'Since {d["created"].year}'),
+        ("Commits",d["commits"],compact(d["commits"]),PURPLE,(1000,5000,10000,25000)),
+        ("Pull Requests",d["prs"],compact(d["prs"]),BLUE,(100,500,1000,2500)),
+        ("Contributions",d["total"],compact(d["total"]),YELLOW,(1000,2500,5000,10000)),
+        ("Reviews",d["reviews"],compact(d["reviews"]),TEAL,(25,50,100,250,500)),
+        ("Open Source",d["contrib_repos"],f'{d["contrib_repos"]} repos',PEACH,(10,25,50,100)),
+        ("GitHub Veteran",d["account_years"],f'{d["account_years"]} yrs',PURPLE,(5,10,15,20)),
     ]
     positions=((22,86),(332,86),(642,86),(22,180),(332,180),(642,180))
     trophy_cards=[]
-    for (x,y),(label,value,color,subtitle) in zip(positions,items):
+    for (x,y),(label,value,metric,color,targets) in zip(positions,items):
+        frac,target=progress(value,targets)
+        next_label=("Milestone reached" if frac>=1 else f'Next · {compact(target)}')
         trophy_cards.append(f'''<g transform="translate({x} {y})">
       <rect width="292" height="82" rx="11" fill="{BG_DEEP}" stroke="{BORDER}"/>
-      <circle cx="44" cy="41" r="24" fill="{color}" fill-opacity=".10" stroke="{color}" stroke-width="1.3"/>
-      <g transform="translate(32 29) scale(.52)" fill="none" stroke="{color}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">{cup}</g>
-      <text x="82" y="27" fill="{SUBTEXT}" font-size="10.5" font-weight="700">{escape(label)}</text>
-      <text x="82" y="52" fill="{TEXT}" font-size="22" font-weight="800">{escape(value)}</text>
-      <text x="82" y="68" fill="{MUTED}" font-size="9.5">{escape(subtitle)}</text>
+      <g transform="translate(15 13) scale(.72)" fill="none" stroke="{color}" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">{cup}</g>
+      <text x="50" y="25" fill="{SUBTEXT}" font-size="10.5" font-weight="700">{escape(label)}</text>
+      <text x="50" y="50" fill="{TEXT}" font-size="22" font-weight="800">{escape(metric)}</text>
+      <text x="278" y="25" text-anchor="end" fill="{MUTED}" font-size="9.2">{escape(next_label)}</text>
+      <rect x="14" y="68" width="264" height="4" rx="2" fill="{SURFACE}"/>
+      <rect x="14" y="68" width="{264*frac:.1f}" height="4" rx="2" fill="{color}"/>
     </g>''')
-    return _head(956,320,f"{username} GitHub Trophies & Achievements","Custom live trophies plus official GitHub achievements.")+_frame(956,320)+f'''
+    return _head(956,320,f"{username} GitHub Trophies & Achievements","Live milestone trophies plus official GitHub achievements.")+_frame(956,320)+f'''
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">GitHub Trophies &amp; Achievements</text>
-    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Live trophies from your GitHub activity · official achievements below</text>
+    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Live milestones from your GitHub activity · official achievements below</text>
     {"".join(trophy_cards)}
     <line x1="22" y1="270" x2="934" y2="270" stroke="{SURFACE}"/>
     <text x="22" y="292" fill="{SUBTEXT}" font-size="10.5" font-weight="700">Official GitHub achievements</text>
