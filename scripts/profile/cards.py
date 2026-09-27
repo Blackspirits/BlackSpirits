@@ -73,35 +73,34 @@ def languages(d,username):
   </g></svg>'''
 
 def streak(d,username):
-    created=d["created"]; ring=184 if d["current"] else 0
+    created=d["created"]; ring=163 if d["current"] else 0
     desc=f'{d["total"]} total contributions, current streak {d["current"]} days, longest streak {d["longest"]} days.'
-    return _head(467,195,f"{username} Contribution Streak",desc)+_frame(467,195)+f'''
+    return _head(956,195,f"{username} Contribution Streak",desc)+_frame(956,195)+f'''
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">Contribution Streak</text>
     <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Consistency across your GitHub history</text>
-    <line x1="155.5" y1="91" x2="155.5" y2="170" stroke="{SURFACE}"/><line x1="311.5" y1="91" x2="311.5" y2="170" stroke="{SURFACE}"/>
+    <line x1="318.5" y1="91" x2="318.5" y2="170" stroke="{SURFACE}"/><line x1="637.5" y1="91" x2="637.5" y2="170" stroke="{SURFACE}"/>
     <g text-anchor="middle">
-      <g transform="translate(79 0)">
-        <text x="0" y="119" fill="{TEXT}" font-size="28" font-weight="800">{compact(d["total"])}</text>
-        <text x="0" y="142" fill="{SUBTEXT}" font-size="12.5" font-weight="600">Total Contributions</text>
-        <text x="0" y="163" fill="{MUTED}" font-size="10.5">{created.day} {created.strftime("%b %Y")} · Present</text>
+      <g transform="translate(159 0)">
+        <text x="0" y="119" fill="{TEXT}" font-size="30" font-weight="800">{compact(d["total"])}</text>
+        <text x="0" y="143" fill="{SUBTEXT}" font-size="13" font-weight="600">Total Contributions</text>
+        <text x="0" y="164" fill="{MUTED}" font-size="10.5">{created.day} {created.strftime("%b %Y")} · Present</text>
       </g>
-      <g transform="translate(234 0)">
-        <circle cx="0" cy="117" r="35" fill="{BG_DEEP}" stroke="{SURFACE}" stroke-width="7"/>
-        <circle cx="0" cy="117" r="35" fill="none" stroke="{PEACH}" stroke-width="7" stroke-linecap="round" stroke-dasharray="{ring} {220-ring}" transform="rotate(-90 0 117)"/>
-        <path d="M0 75 C-6 81 -8 87 -5 92 C-2 88 2 86 4 80 C8 86 9 91 6 96 C13 92 16 85 12 78 C9 73 4 70 4 65 C1 68 -1 71 0 75Z" fill="{PEACH}"/>
-        <text x="0" y="125" fill="{TEXT}" font-size="27" font-weight="800">{d["current"]}</text>
-        <text x="0" y="164" fill="{PURPLE}" font-size="12.5" font-weight="700">Current Streak</text>
-        <text x="0" y="182" fill="{MUTED}" font-size="10.5">{_range(d["current_start"],d["current_end"])}</text>
+      <g transform="translate(478 0)">
+        <circle cx="0" cy="109" r="31" fill="{BG_DEEP}" stroke="{SURFACE}" stroke-width="6"/>
+        <circle cx="0" cy="109" r="31" fill="none" stroke="{PEACH}" stroke-width="6" stroke-linecap="round" stroke-dasharray="{ring} {195-ring}" transform="rotate(-90 0 109)"/>
+        <path d="M0 73 C-5 78 -7 83 -4 88 C-1 84 2 82 4 77 C8 82 9 87 6 91 C12 88 14 82 11 76 C8 72 4 69 4 65 C1 67 -1 70 0 73Z" fill="{PEACH}"/>
+        <text x="0" y="117" fill="{TEXT}" font-size="27" font-weight="800">{d["current"]}</text>
+        <text x="0" y="166" fill="{PURPLE}" font-size="12.5" font-weight="700">Current Streak</text>
+        <text x="0" y="181" fill="{MUTED}" font-size="10.5">{_range(d["current_start"],d["current_end"])}</text>
       </g>
-      <g transform="translate(389 0)">
-        <text x="0" y="119" fill="{TEXT}" font-size="28" font-weight="800">{d["longest"]}</text>
-        <text x="0" y="142" fill="{SUBTEXT}" font-size="12.5" font-weight="600">Longest Streak</text>
-        <text x="0" y="163" fill="{MUTED}" font-size="10.5">{_range(d["longest_start"],d["longest_end"])}</text>
+      <g transform="translate(797 0)">
+        <text x="0" y="119" fill="{TEXT}" font-size="30" font-weight="800">{d["longest"]}</text>
+        <text x="0" y="143" fill="{SUBTEXT}" font-size="13" font-weight="600">Longest Streak</text>
+        <text x="0" y="164" fill="{MUTED}" font-size="10.5">{_range(d["longest_start"],d["longest_end"])}</text>
       </g>
     </g>
   </g></svg>'''
-
 def activity(d,username):
     data=d["activity"]; W,H=956,330; left,right,top,bottom=62,25,95,50
     pw=W-left-right; ph=H-top-bottom; peak=max((x["count"] for x in data),default=0)

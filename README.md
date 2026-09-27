@@ -83,7 +83,9 @@ Selected projects include:
 
 **Areas of Work**
 
-`Automation & Scripting` · `Localization & i18n` · `Media & Metadata` · `Open Source` · `Web Tooling`
+<p align="center">
+  <img src="./assets/tech/focus.svg" alt="Automation · Localization · Media & Metadata · Open Source · Web Tooling" />
+</p>
 
 <div align="center">
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
@@ -188,7 +190,7 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
 </p>
 
 <p align="center">
-  <img src="./assets/generated/profile-streak.svg" alt="GitHub Contribution Streak" width="48%" />
+  <img src="./assets/generated/profile-streak.svg" alt="GitHub Contribution Streak" width="100%" />
 </p>
 
 <div align="center">
