@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="112" height="38" viewBox="0 0 112 38" role="img" aria-label="PayPal">
   <rect x=".75" y=".75" width="110.5" height="36.5" rx="9" fill="#232334" stroke="#45475a" stroke-width="1.5"/>
   <path d="M9 1.5a7.5 7.5 0 0 0-7.5 7.5v20A7.5 7.5 0 0 0 9 36.5" fill="none" stroke="#89b4fa" stroke-width="3" stroke-linecap="round"/>
-  <g transform="translate(12 11)" fill="none" stroke="#89b4fa" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h10a3 3 0 0 1 0 6H7l-1 5H2L4 3Z"/><path d="M7 9h5a3 3 0 0 1 0 6H6"/></g>
+  <g transform="translate(11.5 10.5) scale(.68)" fill="#89b4fa"><path d="M15.607 4.653H8.941L6.645 19.251H1.82L4.862 0h7.995c3.754 0 6.375 2.294 6.473 5.513-.648-.478-2.105-.86-3.722-.86m6.57 5.546c0 3.41-3.01 6.853-6.958 6.853h-2.493L11.595 24H6.74l1.845-11.538h3.592c4.208 0 7.346-3.634 7.153-6.949a5.24 5.24 0 0 1 2.848 4.686M9.653 5.546h6.408c.907 0 1.942.222 2.363.541-.195 2.741-2.655 5.483-6.441 5.483H8.714Z"/></g>
   <text x="36" y="23" fill="#cdd6f4" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="13" font-weight="650">PayPal</text>
   <path d="M86 15l4 4-4 4M89 19h7" fill="none" stroke="#89b4fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

@@ -30,14 +30,14 @@
 
 ## <sub><img src="./assets/icons/about.svg" alt="" width="22" /></sub> About Me
 
- <img src="./assets/icons/pt.svg" alt="Portugal" width="18" /> Portuguese developer, open-source contributor and technology enthusiast  
-🌐 European Portuguese (pt-PT) translator & reviewer with contributions across 100+ projects  
-🛠️ Focused on automation, localization, media tooling and practical software  
-🎬 Contributor to media, subtitles and metadata communities  
-📍 From Portugal · Currently based in France  
-🌍 Dreaming of exploring the world, one country at a time
+<img src="./assets/icons/pt.svg" alt="Portugal" width="18" /> Portuguese developer, open-source contributor and technology enthusiast  
+<img src="./assets/icons/localization.svg" alt="" width="16" /> European Portuguese (pt-PT) translator & reviewer with contributions across 100+ projects  
+<img src="./assets/icons/tech.svg" alt="" width="16" /> Focused on automation, localization, media tooling and practical software  
+<img src="./assets/icons/recent.svg" alt="" width="16" /> Contributor to media, subtitles and metadata communities  
+<img src="./assets/icons/location.svg" alt="" width="16" /> <img src="./assets/icons/pt.svg" alt="Portugal" width="16" /> From Portugal · <img src="./assets/icons/fr.svg" alt="France" width="16" /> Currently based in France  
+<img src="./assets/icons/travel.svg" alt="" width="16" /> Dreaming of exploring the world, one country at a time
 
-👉 **[Explore my work at blackspirits.github.io](https://blackspirits.github.io)**
+<img src="./assets/icons/link.svg" alt="" width="15" /> **[Explore my work at blackspirits.github.io](https://blackspirits.github.io)**
 
 <div align="center">
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
@@ -173,10 +173,10 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
 
 ## <sub><img src="./assets/icons/idea.svg" alt="" width="22" /></sub> Did you know?
 
-- 🎬 I watch over 100 movies and TV series every year — from timeless classics to fresh releases
-- 💻 I love tweaking code for fun — the best bugs are the ones you make yourself
-- 🌍 I'm obsessed with perfect localization (pt-PT ❤️)
-- 🗣️ Currently learning Korean — <img src="https://flagcdn.com/w40/kr.png" width="18" alt="🇰🇷" /> 한글 배우는 중!
+- <img src="./assets/icons/recent.svg" alt="" width="16" /> I watch over 100 movies and TV series every year — from timeless classics to fresh releases
+- <img src="./assets/icons/userscripts.svg" alt="" width="16" /> I love tweaking code for fun — the best bugs are the ones you make yourself
+- <img src="./assets/icons/localization.svg" alt="" width="16" /> I'm obsessed with perfect localization (pt-PT)
+- <img src="./assets/icons/korean.svg" alt="" width="16" /> Currently learning Korean — <img src="./assets/icons/kr.svg" width="18" alt="South Korea" /> 한글 배우는 중!
 
 <div align="center">
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
