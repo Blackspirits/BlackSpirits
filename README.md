@@ -189,17 +189,12 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
 ## <sub><img src="./assets/icons/stats.svg" alt="" width="22" /></sub> GitHub Stats
 
 <p align="center">
-  <img src="./assets/generated/stats.svg" alt="GitHub Stats" width="48%" />
-  <img src="./assets/generated/top-langs.svg" alt="Top Languages" width="48%" />
+  <img src="./assets/generated/profile-overview.svg" alt="GitHub Overview" width="48%" />
+  <img src="./assets/generated/profile-languages.svg" alt="Top Languages" width="48%" />
 </p>
 
 <p align="center">
-  <a href="https://git.io/streak-stats">
-    <img
-      src="https://streak-stats.demolab.com?user=BlackSpirits&theme=catppuccin-mocha&hide_border=false&background=1e1e2e&stroke=313244&ring=fab387&fire=fab387&currStreakNum=cdd6f4&sideNums=cdd6f4&currStreakLabel=cba6f7&sideLabels=bac2de&dates=9399b2&date_format=j%20M%5B%20Y%5D"
-      alt="GitHub Streak"
-    />
-  </a>
+  <img src="./assets/generated/profile-streak.svg" alt="GitHub Contribution Streak" width="48%" />
 </p>
 
 <div align="center">
@@ -210,9 +205,14 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
 
 <p align="center">
   <img
-    src="https://raw.githubusercontent.com/Blackspirits/BlackSpirits/output/activity-graph.svg"
+    src="./assets/generated/profile-activity.svg"
     alt="BlackSpirits GitHub Activity Graph"
+    width="100%"
   />
+</p>
+
+<p align="center">
+  <sub>Auto-updated daily via GitHub Actions · <a href="./.github/workflows/profile-cards.yml">workflow</a></sub>
 </p>
 
 <div align="center">
