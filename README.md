@@ -189,11 +189,8 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="./assets/generated/stats.svg" alt="GitHub Stats" />
-</p>
-
-<p align="center">
-  <img src="./assets/generated/top-langs.svg" alt="Top Languages" />
+  <img src="./assets/generated/stats.svg" alt="GitHub Stats" width="49%" />
+  <img src="./assets/generated/top-langs.svg" alt="Top Languages" width="41%" />
 </p>
 
 <p align="center">
@@ -226,17 +223,17 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
 
 <div align="center">
 
-*Stay creative. Keep coding.*
-
-<br/>
+<em>Stay creative. Keep coding.</em>
 
 <a href="https://open.spotify.com/user/11175393066" target="_blank" rel="noopener noreferrer">
   <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=11175393066&cover_image=true&theme=default&background_color=1e1e2e&bar_color=89b4fa&bar_color_cover=false&border_radius=10&show_offline=false" alt="Spotify Now Playing" />
 </a>
 
-<br/><br/>
+<br/>
 
-If you find my work useful, a coffee goes a long way ☕
+<sub>If you find my work useful, a coffee goes a long way ☕</sub>
+
+<br/>
 
 <a href="https://donate.stripe.com/00w14peB0gBx1tBeOz3Nm00" target="_blank" rel="noopener noreferrer">
   <img src="https://img.shields.io/badge/Stripe-635bff?style=for-the-badge&logo=stripe&logoColor=white" alt="Stripe" /></a>
