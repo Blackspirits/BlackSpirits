@@ -1,0 +1,55 @@
+name: Update custom profile cards
+
+on:
+  schedule:
+    - cron: "10 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: custom-profile-cards
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - name: Generate custom profile cards
+        env:
+          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
+          PROFILE_USERNAME: \${{ github.repository_owner }}
+        run: python3 scripts/profile/generate.py
+
+      - name: Validate generated SVGs
+        run: |
+          test -s assets/generated/profile-overview.svg
+          test -s assets/generated/profile-languages.svg
+          test -s assets/generated/profile-streak.svg
+          test -s assets/generated/profile-activity.svg
+
+      - name: Commit generated cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add \
+            assets/generated/profile-overview.svg \
+            assets/generated/profile-languages.svg \
+            assets/generated/profile-streak.svg \
+            assets/generated/profile-activity.svg
+
+          if git diff --cached --quiet; then
+            echo "No profile-card changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore(readme): update custom profile cards"
+          git pull --rebase origin main
+          git push origin HEAD:main
