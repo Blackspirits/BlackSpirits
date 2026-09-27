@@ -1,64 +1,77 @@
-<svg width="956" height="330" viewBox="0 0 956 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Blackspirits GitHub Trophies</title><desc id="desc">Custom live milestones and visible GitHub achievements.</desc>
+<svg width="956" height="370" viewBox="0 0 956 370" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Blackspirits GitHub Trophies</title><desc id="desc">Five-tier custom milestones plus official GitHub achievements.</desc>
   <defs><linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
     <stop offset="0" stop-color="#cba6f7"/><stop offset=".55" stop-color="#89b4fa"/><stop offset="1" stop-color="#fab387"/>
-  </linearGradient></defs><rect x=".75" y=".75" width="954.5" height="328.5" rx="12" fill="#1e1e2e" stroke="#45475a" stroke-width="1.5"/>
+  </linearGradient></defs><rect x=".75" y=".75" width="954.5" height="368.5" rx="12" fill="#1e1e2e" stroke="#45475a" stroke-width="1.5"/>
   <rect x="22" y="20" width="88" height="3" rx="1.5" fill="url(#accent)"/>
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
-    <text x="22" y="48" fill="#cdd6f4" font-size="20" font-weight="700">GitHub Trophies</text>
-    <text x="22" y="67" fill="#7f849c" font-size="11.5" font-weight="500">Custom live milestones · updated from your GitHub activity</text>
-    <g transform="translate(22 82)">
-      <rect width="292" height="80" rx="10" fill="#181825" stroke="#45475a"/>
-      <g transform="translate(14 13) scale(.70)" fill="none" stroke="#cba6f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></g>
-      <text x="49" y="25" fill="#cdd6f4" font-size="12.5" font-weight="700">Committer</text>
-      <text x="49" y="48" fill="#cba6f7" font-size="20" font-weight="800">9.9k</text>
-      <text x="196" y="48" fill="#7f849c" font-size="10.5">Platinum</text>
-      <rect x="14" y="66" width="264" height="4" rx="2" fill="#313244"/>
-      <rect x="14" y="66" width="258.2" height="4" rx="2" fill="#cba6f7"/>
-    </g><g transform="translate(332 82)">
-      <rect width="292" height="80" rx="10" fill="#181825" stroke="#45475a"/>
-      <g transform="translate(14 13) scale(.70)" fill="none" stroke="#cba6f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></g>
-      <text x="49" y="25" fill="#cdd6f4" font-size="12.5" font-weight="700">Pull Requests</text>
-      <text x="49" y="48" fill="#cba6f7" font-size="20" font-weight="800">751</text>
-      <text x="196" y="48" fill="#7f849c" font-size="10.5">Platinum</text>
-      <rect x="14" y="66" width="264" height="4" rx="2" fill="#313244"/>
-      <rect x="14" y="66" width="132.5" height="4" rx="2" fill="#cba6f7"/>
-    </g><g transform="translate(642 82)">
-      <rect width="292" height="80" rx="10" fill="#181825" stroke="#45475a"/>
-      <g transform="translate(14 13) scale(.70)" fill="none" stroke="#f9e2af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></g>
-      <text x="49" y="25" fill="#cdd6f4" font-size="12.5" font-weight="700">Contributor</text>
-      <text x="49" y="48" fill="#f9e2af" font-size="20" font-weight="800">3.4k</text>
-      <text x="196" y="48" fill="#7f849c" font-size="10.5">Gold</text>
-      <rect x="14" y="66" width="264" height="4" rx="2" fill="#313244"/>
-      <rect x="14" y="66" width="95.6" height="4" rx="2" fill="#f9e2af"/>
-    </g><g transform="translate(22 172)">
-      <rect width="292" height="80" rx="10" fill="#181825" stroke="#45475a"/>
-      <g transform="translate(14 13) scale(.70)" fill="none" stroke="#f9e2af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></g>
-      <text x="49" y="25" fill="#cdd6f4" font-size="12.5" font-weight="700">Reviewer</text>
-      <text x="49" y="48" fill="#f9e2af" font-size="20" font-weight="800">75</text>
-      <text x="196" y="48" fill="#7f849c" font-size="10.5">Gold</text>
-      <rect x="14" y="66" width="264" height="4" rx="2" fill="#313244"/>
-      <rect x="14" y="66" width="44.0" height="4" rx="2" fill="#f9e2af"/>
-    </g><g transform="translate(332 172)">
-      <rect width="292" height="80" rx="10" fill="#181825" stroke="#45475a"/>
-      <g transform="translate(14 13) scale(.70)" fill="none" stroke="#f9e2af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></g>
-      <text x="49" y="25" fill="#cdd6f4" font-size="12.5" font-weight="700">Open Source</text>
-      <text x="49" y="48" fill="#f9e2af" font-size="20" font-weight="800">44 repos</text>
-      <text x="196" y="48" fill="#7f849c" font-size="10.5">Gold</text>
-      <rect x="14" y="66" width="264" height="4" rx="2" fill="#313244"/>
-      <rect x="14" y="66" width="123.2" height="4" rx="2" fill="#f9e2af"/>
-    </g><g transform="translate(642 172)">
-      <rect width="292" height="80" rx="10" fill="#181825" stroke="#45475a"/>
-      <g transform="translate(14 13) scale(.70)" fill="none" stroke="#cba6f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></g>
-      <text x="49" y="25" fill="#cdd6f4" font-size="12.5" font-weight="700">Code Veteran</text>
-      <text x="49" y="48" fill="#cba6f7" font-size="20" font-weight="800">11 yrs</text>
-      <text x="196" y="48" fill="#7f849c" font-size="10.5">Platinum</text>
-      <rect x="14" y="66" width="264" height="4" rx="2" fill="#313244"/>
-      <rect x="14" y="66" width="52.8" height="4" rx="2" fill="#cba6f7"/>
+    <text x="22" y="48" fill="#cdd6f4" font-size="20" font-weight="700">GitHub Milestones</text>
+    <text x="22" y="67" fill="#7f849c" font-size="11.5" font-weight="500">5 custom tiers · Bronze → Silver → Gold → Platinum → Diamond</text>
+    <g transform="translate(22 86)">
+      <rect width="292" height="92" rx="11" fill="#181825" stroke="#45475a"/>
+      <text x="16" y="25" fill="#a6adc8" font-size="11" font-weight="700">Committer</text>
+      <text x="16" y="54" fill="#cdd6f4" font-size="24" font-weight="800">9.9k</text>
+      <circle cx="250" cy="33" r="23" fill="#cba6f7" fill-opacity=".10" stroke="#cba6f7" stroke-width="1.4"/>
+      <g transform="translate(238 21) scale(.52)" fill="none" stroke="#cba6f7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></g>
+      <text x="250" y="70" text-anchor="middle" fill="#cba6f7" font-size="10.5" font-weight="800">Platinum</text>
+      <text x="16" y="72" fill="#7f849c" font-size="9.2">98% to Diamond</text>
+      <rect x="16" y="80" width="196" height="4" rx="2" fill="#313244"/>
+      <rect x="16" y="80" width="191.8" height="4" rx="2" fill="#cba6f7"/>
+    </g><g transform="translate(332 86)">
+      <rect width="292" height="92" rx="11" fill="#181825" stroke="#45475a"/>
+      <text x="16" y="25" fill="#a6adc8" font-size="11" font-weight="700">Pull Requests</text>
+      <text x="16" y="54" fill="#cdd6f4" font-size="24" font-weight="800">751</text>
+      <circle cx="250" cy="33" r="23" fill="#cba6f7" fill-opacity=".10" stroke="#cba6f7" stroke-width="1.4"/>
+      <g transform="translate(238 21) scale(.52)" fill="none" stroke="#cba6f7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></g>
+      <text x="250" y="70" text-anchor="middle" fill="#cba6f7" font-size="10.5" font-weight="800">Platinum</text>
+      <text x="16" y="72" fill="#7f849c" font-size="9.2">50% to Diamond</text>
+      <rect x="16" y="80" width="196" height="4" rx="2" fill="#313244"/>
+      <rect x="16" y="80" width="98.4" height="4" rx="2" fill="#cba6f7"/>
+    </g><g transform="translate(642 86)">
+      <rect width="292" height="92" rx="11" fill="#181825" stroke="#45475a"/>
+      <text x="16" y="25" fill="#a6adc8" font-size="11" font-weight="700">Contributor</text>
+      <text x="16" y="54" fill="#cdd6f4" font-size="24" font-weight="800">3.4k</text>
+      <circle cx="250" cy="33" r="23" fill="#f9e2af" fill-opacity=".10" stroke="#f9e2af" stroke-width="1.4"/>
+      <g transform="translate(238 21) scale(.52)" fill="none" stroke="#f9e2af" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></g>
+      <text x="250" y="70" text-anchor="middle" fill="#f9e2af" font-size="10.5" font-weight="800">Gold</text>
+      <text x="16" y="72" fill="#7f849c" font-size="9.2">36% to Platinum</text>
+      <rect x="16" y="80" width="196" height="4" rx="2" fill="#313244"/>
+      <rect x="16" y="80" width="71.2" height="4" rx="2" fill="#f9e2af"/>
+    </g><g transform="translate(22 188)">
+      <rect width="292" height="92" rx="11" fill="#181825" stroke="#45475a"/>
+      <text x="16" y="25" fill="#a6adc8" font-size="11" font-weight="700">Reviewer</text>
+      <text x="16" y="54" fill="#cdd6f4" font-size="24" font-weight="800">75</text>
+      <circle cx="250" cy="33" r="23" fill="#f9e2af" fill-opacity=".10" stroke="#f9e2af" stroke-width="1.4"/>
+      <g transform="translate(238 21) scale(.52)" fill="none" stroke="#f9e2af" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></g>
+      <text x="250" y="70" text-anchor="middle" fill="#f9e2af" font-size="10.5" font-weight="800">Gold</text>
+      <text x="16" y="72" fill="#7f849c" font-size="9.2">17% to Platinum</text>
+      <rect x="16" y="80" width="196" height="4" rx="2" fill="#313244"/>
+      <rect x="16" y="80" width="32.7" height="4" rx="2" fill="#f9e2af"/>
+    </g><g transform="translate(332 188)">
+      <rect width="292" height="92" rx="11" fill="#181825" stroke="#45475a"/>
+      <text x="16" y="25" fill="#a6adc8" font-size="11" font-weight="700">Open Source</text>
+      <text x="16" y="54" fill="#cdd6f4" font-size="24" font-weight="800">44 repos</text>
+      <circle cx="250" cy="33" r="23" fill="#f9e2af" fill-opacity=".10" stroke="#f9e2af" stroke-width="1.4"/>
+      <g transform="translate(238 21) scale(.52)" fill="none" stroke="#f9e2af" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></g>
+      <text x="250" y="70" text-anchor="middle" fill="#f9e2af" font-size="10.5" font-weight="800">Gold</text>
+      <text x="16" y="72" fill="#7f849c" font-size="9.2">47% to Platinum</text>
+      <rect x="16" y="80" width="196" height="4" rx="2" fill="#313244"/>
+      <rect x="16" y="80" width="91.5" height="4" rx="2" fill="#f9e2af"/>
+    </g><g transform="translate(642 188)">
+      <rect width="292" height="92" rx="11" fill="#181825" stroke="#45475a"/>
+      <text x="16" y="25" fill="#a6adc8" font-size="11" font-weight="700">Code Veteran</text>
+      <text x="16" y="54" fill="#cdd6f4" font-size="24" font-weight="800">11 yrs</text>
+      <circle cx="250" cy="33" r="23" fill="#cba6f7" fill-opacity=".10" stroke="#cba6f7" stroke-width="1.4"/>
+      <g transform="translate(238 21) scale(.52)" fill="none" stroke="#cba6f7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></g>
+      <text x="250" y="70" text-anchor="middle" fill="#cba6f7" font-size="10.5" font-weight="800">Platinum</text>
+      <text x="16" y="72" fill="#7f849c" font-size="9.2">20% to Diamond</text>
+      <rect x="16" y="80" width="196" height="4" rx="2" fill="#313244"/>
+      <rect x="16" y="80" width="39.2" height="4" rx="2" fill="#cba6f7"/>
     </g>
-    <text x="22" y="278" fill="#a6adc8" font-size="11" font-weight="700">GitHub achievements</text>
-    <g transform="translate(22 290)"><rect width="112" height="26" rx="8" fill="#181825" stroke="#45475a"/><circle cx="14" cy="13" r="4" fill="#cba6f7"/><text x="26" y="17" fill="#cdd6f4" font-size="10.5" font-weight="700">YOLO ×3</text></g>
-    <g transform="translate(144 290)"><rect width="132" height="26" rx="8" fill="#181825" stroke="#45475a"/><circle cx="14" cy="13" r="4" fill="#89b4fa"/><text x="26" y="17" fill="#cdd6f4" font-size="10.5" font-weight="700">Quickdraw ×3</text></g>
-    <g transform="translate(286 290)"><rect width="236" height="26" rx="8" fill="#181825" stroke="#45475a"/><circle cx="14" cy="13" r="4" fill="#fab387"/><text x="26" y="17" fill="#cdd6f4" font-size="10.5" font-weight="700">Arctic Code Vault Contributor</text></g>
-    <text x="934" y="306" text-anchor="end" fill="#7f849c" font-size="9.5">Milestone tiers are custom to this profile</text>
+    <line x1="22" y1="294" x2="934" y2="294" stroke="#313244"/>
+    <text x="22" y="316" fill="#a6adc8" font-size="11" font-weight="700">Official GitHub achievements</text>
+    <g transform="translate(22 328)"><rect width="118" height="28" rx="8" fill="#181825" stroke="#45475a"/><circle cx="14" cy="14" r="4" fill="#cba6f7"/><text x="26" y="18" fill="#cdd6f4" font-size="10.5" font-weight="700">YOLO ×3</text></g>
+    <g transform="translate(150 328)"><rect width="138" height="28" rx="8" fill="#181825" stroke="#45475a"/><circle cx="14" cy="14" r="4" fill="#89b4fa"/><text x="26" y="18" fill="#cdd6f4" font-size="10.5" font-weight="700">Quickdraw ×3</text></g>
+    <g transform="translate(298 328)"><rect width="246" height="28" rx="8" fill="#181825" stroke="#45475a"/><circle cx="14" cy="14" r="4" fill="#fab387"/><text x="26" y="18" fill="#cdd6f4" font-size="10.5" font-weight="700">Arctic Code Vault Contributor</text></g>
+    <text x="934" y="346" text-anchor="end" fill="#7f849c" font-size="9.5">GitHub achievements are official · milestone tiers are custom</text>
   </g></svg>
