@@ -4,6 +4,10 @@ on:
   schedule:
     - cron: "10 4 * * *"
   workflow_dispatch:
+  push:
+    paths:
+      - "scripts/profile/**"
+      - ".github/workflows/profile-cards.yml"
 
 permissions:
   contents: write
