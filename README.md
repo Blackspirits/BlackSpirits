@@ -14,14 +14,7 @@
 <h3 align="center">Born to explore. Coded to connect. 🌍</h3>
 
 <p align="center">
-  <img alt="Profile Visits" src="https://komarev.com/ghpvc/?username=blackspirits&label=Profile%20Visits&color=cba6f7&abbreviated=true&style=flat-square&labelColor=313244&logo=github&logoColor=cdd6f4" />
-  <a href="https://github.com/BlackSpirits?tab=followers" target="_blank" rel="noopener noreferrer">
-    <img alt="Followers" src="https://img.shields.io/github/followers/BlackSpirits?label=Followers&style=flat-square&labelColor=313244&color=f9e2af&logo=github&logoColor=cdd6f4" /></a>
-  <a href="https://github.com/BlackSpirits/BlackSpirits" target="_blank" rel="noopener noreferrer">
-    <img alt="Last Update" src="https://img.shields.io/github/last-commit/BlackSpirits/BlackSpirits?style=flat-square&label=Last%20Update&labelColor=313244&color=94e2d5&logo=github&logoColor=cdd6f4" /></a>
-  <a href="https://blackspirits.github.io" target="_blank" rel="noopener noreferrer">
-  <img alt="Personal Site" src="https://img.shields.io/badge/Personal%20Site-blackspirits.github.io-a6e3a1?style=flat-square&labelColor=313244&logoColor=cdd6f4" /></a>
-  <img alt="Open Source" src="https://img.shields.io/badge/Open%20Source-%E2%9D%A4%EF%B8%8F-f2cdcd?style=flat-square&labelColor=313244&logo=opensourceinitiative&logoColor=cba6f7" />
+  <img src="./assets/generated/profile-meta.svg" alt="Profile views, followers, last update, personal site and open-source activity" width="100%" />
 </p>
 
 <div align="center">
@@ -34,7 +27,7 @@
 <img src="./assets/icons/localization.svg" alt="" width="17" /> European Portuguese (pt-PT) translator & reviewer with contributions across 100+ projects  
 <img src="./assets/icons/tech.svg" alt="" width="17" /> Focused on automation, localization, media tooling and practical software  
 <img src="./assets/icons/recent.svg" alt="" width="17" /> Contributor to media, subtitles and metadata communities  
-<img src="./assets/icons/location.svg" alt="" width="17" /> <img src="./assets/location/portugal.svg" alt="Portugal" height="26" /> → <img src="./assets/location/france.svg" alt="France" height="26" />  
+<img src="./assets/icons/location.svg" alt="" width="17" /> <img src="./assets/flags/pt.svg" alt="Portugal" width="24" /> From Portugal · <img src="./assets/flags/fr.svg" alt="France" width="24" /> Currently based in France  
 <img src="./assets/icons/travel.svg" alt="" width="17" /> Dreaming of exploring the world, one country at a time
 
 <img src="./assets/icons/link.svg" alt="" width="15" /> **[Explore my work at blackspirits.github.io](https://blackspirits.github.io)**
@@ -165,7 +158,7 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
   <img src="./assets/icons/recent.svg" alt="" width="17" /> I watch over 100 movies and TV series every year — from timeless classics to fresh releases<br/>
   <img src="./assets/icons/userscripts.svg" alt="" width="17" /> I love tweaking code for fun — the best bugs are the ones you make yourself<br/>
   <img src="./assets/icons/localization.svg" alt="" width="17" /> I'm obsessed with perfect localization (pt-PT)<br/>
-  <img src="./assets/icons/korean.svg" alt="" width="17" /> Currently learning Korean — <img src="./assets/location/korean.svg" alt="Korean" height="26" /> 한글 배우는 중!
+  <img src="./assets/icons/korean.svg" alt="" width="17" /> Currently learning Korean — <img src="./assets/flags/kr.svg" alt="South Korea" width="24" /> 한글 배우는 중!
 </p>
 
 <div align="center">
@@ -184,7 +177,7 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
 </div>
 
-## <sub><img src="./assets/icons/trophy.svg" alt="" width="22" /></sub> GitHub Trophies
+## <sub><img src="./assets/icons/trophy.svg" alt="" width="22" /></sub> GitHub Milestones & Achievements
 
 <p align="center">
   <img src="./assets/generated/profile-trophies.svg" alt="BlackSpirits GitHub Trophies and milestones" width="100%" />
@@ -219,10 +212,10 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
 <em>Stay creative. Keep coding.</em>
 
 <a href="https://open.spotify.com/user/11175393066" target="_blank" rel="noopener noreferrer">
-  <img src="./assets/generated/spotify-card.svg" alt="Spotify now playing or recently played" width="100%" />
+  <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=11175393066&cover_image=true&theme=default&background_color=1e1e2e&bar_color=cba6f7&bar_color_cover=false&border_radius=12&show_offline=false" alt="Spotify now playing or recently played" />
 </a>
 
-<sub>Auto-updated every 30 minutes · <a href="./.github/workflows/spotify-card.yml">workflow</a></sub>
+<sub>Live Spotify widget · a custom live endpoint is prepared in <code>spotify-live/</code></sub>
 
 <br/>
 

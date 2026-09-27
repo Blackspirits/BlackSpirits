@@ -1,0 +1,8 @@
+{
+  "name": "blackspirits-live-spotify-card",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {"start":"node server.mjs"},
+  "engines":{"node":">=20"}
+}

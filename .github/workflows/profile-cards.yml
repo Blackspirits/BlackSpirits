@@ -33,6 +33,7 @@ jobs:
 
       - name: Validate generated SVGs
         run: |
+          test -s assets/generated/profile-meta.svg
           test -s assets/generated/profile-overview.svg
           test -s assets/generated/profile-languages.svg
           test -s assets/generated/profile-streak.svg
@@ -44,7 +45,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add             assets/generated/profile-overview.svg             assets/generated/profile-languages.svg             assets/generated/profile-streak.svg             assets/generated/profile-trophies.svg             assets/generated/profile-activity.svg
+          git add             assets/generated/profile-meta.svg             assets/generated/profile-overview.svg             assets/generated/profile-languages.svg             assets/generated/profile-streak.svg             assets/generated/profile-trophies.svg             assets/generated/profile-activity.svg
 
           if git diff --cached --quiet; then
             echo "No profile-card changes to commit."
