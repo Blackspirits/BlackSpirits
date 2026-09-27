@@ -27,7 +27,7 @@
 <img src="./assets/icons/localization.svg" alt="" width="17" /> European Portuguese (pt-PT) translator & reviewer with contributions across 100+ projects  
 <img src="./assets/icons/tech.svg" alt="" width="17" /> Focused on automation, localization, media tooling and practical software  
 <img src="./assets/icons/recent.svg" alt="" width="17" /> Contributor to media, subtitles and metadata communities  
-<img src="./assets/location/route.svg" alt="From Portugal, currently based in France" height="30" />  
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg" alt="Portugal" width="24" /> From Portugal · <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="France" width="24" /> Currently based in France  
 <img src="./assets/icons/travel.svg" alt="" width="17" /> Dreaming of exploring the world, one country at a time
 
 <img src="./assets/icons/link.svg" alt="" width="15" /> **[Explore my work at blackspirits.github.io](https://blackspirits.github.io)**
@@ -158,7 +158,7 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
   <img src="./assets/icons/recent.svg" alt="" width="17" /> I watch over 100 movies and TV series every year — from timeless classics to fresh releases<br/>
   <img src="./assets/icons/userscripts.svg" alt="" width="17" /> I love tweaking code for fun — the best bugs are the ones you make yourself<br/>
   <img src="./assets/icons/localization.svg" alt="" width="17" /> I'm obsessed with perfect localization (pt-PT)<br/>
-  <img src="./assets/icons/korean.svg" alt="" width="17" /> Currently learning <img src="./assets/location/korean.svg" alt="Korean" height="28" /> — 한글 배우는 중!
+  <img src="./assets/icons/korean.svg" alt="" width="17" /> Currently learning Korean — <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg" alt="South Korea" width="24" /> 한글 배우는 중!
 </p>
 
 <div align="center">
@@ -177,10 +177,10 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
 </div>
 
-## <sub><img src="./assets/icons/trophy.svg" alt="" width="22" /></sub> GitHub Achievements
+## <sub><img src="./assets/icons/trophy.svg" alt="" width="22" /></sub> GitHub Trophies & Achievements
 
 <p align="center">
-  <img src="./assets/generated/profile-trophies.svg" alt="BlackSpirits official GitHub achievements" width="100%" />
+  <img src="./assets/generated/profile-trophies.svg" alt="BlackSpirits GitHub trophies and achievements" width="100%" />
 </p>
 
 <div align="center">

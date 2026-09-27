@@ -39,22 +39,35 @@ def _tier(value,thresholds):
 
 def profile_meta(d,username):
     updated=d["last_update"].strftime("%d %b")
-    return f'''<svg width="956" height="32" viewBox="0 0 956 32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{escape(username)} profile summary">
-  <g font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="11">
-    <g transform="translate(280 16)">
-      <circle cx="0" cy="0" r="3.5" fill="{PURPLE}"/>
-      <text x="12" y="4" fill="{SUBTEXT}" font-weight="600">{escape(str(d["profile_views"]))} views</text>
-    </g>
-    <g transform="translate(430 16)">
-      <circle cx="0" cy="0" r="3.5" fill="{YELLOW}"/>
-      <text x="12" y="4" fill="{SUBTEXT}" font-weight="600">{d["followers"]} followers</text>
-    </g>
-    <g transform="translate(590 16)">
-      <circle cx="0" cy="0" r="3.5" fill="{TEAL}"/>
-      <text x="12" y="4" fill="{SUBTEXT}" font-weight="600">Updated {updated}</text>
-    </g>
-  </g>
+    eye='''<path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/>'''
+    users='''<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>'''
+    clock='''<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'''
+    globe='''<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>'''
+    code='''<path d="m8 9-3 3 3 3M16 9l3 3-3 3M14 5l-4 14"/>'''
+    items=[
+        ("Views",str(d["profile_views"]),PURPLE,eye,164),
+        ("Followers",str(d["followers"]),YELLOW,users,164),
+        ("Updated",updated,TEAL,clock,164),
+        ("Website","blackspirits.github.io",BLUE,globe,218),
+        ("Open Source","100+ projects",PEACH,code,206),
+    ]
+    gap=10
+    total=sum(item[4] for item in items)+gap*(len(items)-1)
+    x=(956-total)/2
+    out=[]
+    for label,value,color,icon,width in items:
+        out.append(f'''<g transform="translate({x:.1f} 5)">
+      <rect width="{width}" height="38" rx="9" fill="{BG_DEEP}" stroke="{BORDER}" stroke-width="1.2"/>
+      <path d="M8 1.5a6.5 6.5 0 0 0-6.5 6.5v22A6.5 6.5 0 0 0 8 36.5" fill="none" stroke="{color}" stroke-width="2.5" stroke-linecap="round"/>
+      <g transform="translate(13 8) scale(.72)" fill="none" stroke="{color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{icon}</g>
+      <text x="40" y="15" fill="{MUTED}" font-size="9.2" font-weight="600">{escape(label)}</text>
+      <text x="40" y="28" fill="{TEXT}" font-size="11.2" font-weight="700">{escape(value)}</text>
+    </g>''')
+        x+=width+gap
+    return f'''<svg width="956" height="48" viewBox="0 0 956 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{escape(username)} profile summary">
+  <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">{"".join(out)}</g>
 </svg>'''
+
 def overview(d,username):
     level=escape(d["rank"])
     frac=max(.08,min(.95,1-d["rank_pct"]/100))
@@ -166,31 +179,37 @@ def streak(d,username):
     </g>
   </g></svg>'''
 def trophies(d,username):
-    pr_icon='''<path d="M7 3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm0 18a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm14-18a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM5 5v14m14-14v4a6 6 0 0 1-6 6H9m0 0 3-3m-3 3 3 3"/>'''
-    pair_icon='''<circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M3 20c.8-4 2.6-6 5-6s4.2 2 5 6M11 20c.8-4 2.6-6 5-6s4.2 2 5 6"/>'''
-    return _head(956,205,f"{username} GitHub Achievements","Official achievements currently visible on the public GitHub profile.")+_frame(956,205)+f'''
+    cup='''<path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/>'''
+    items=[
+        ("Commits",compact(d["commits"]),PURPLE,"Lifetime"),
+        ("Pull Requests",compact(d["prs"]),BLUE,"Lifetime"),
+        ("Contributions",compact(d["total"]),YELLOW,"Lifetime"),
+        ("Reviews",compact(d["reviews"]),TEAL,"Pull-request reviews"),
+        ("Open Source",f'{d["contrib_repos"]} repos',PEACH,"Contributed last year"),
+        ("GitHub Veteran",f'{d["account_years"]} yrs',PURPLE,f'Since {d["created"].year}'),
+    ]
+    positions=((22,86),(332,86),(642,86),(22,180),(332,180),(642,180))
+    trophy_cards=[]
+    for (x,y),(label,value,color,subtitle) in zip(positions,items):
+        trophy_cards.append(f'''<g transform="translate({x} {y})">
+      <rect width="292" height="82" rx="11" fill="{BG_DEEP}" stroke="{BORDER}"/>
+      <circle cx="44" cy="41" r="24" fill="{color}" fill-opacity=".10" stroke="{color}" stroke-width="1.3"/>
+      <g transform="translate(32 29) scale(.52)" fill="none" stroke="{color}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">{cup}</g>
+      <text x="82" y="27" fill="{SUBTEXT}" font-size="10.5" font-weight="700">{escape(label)}</text>
+      <text x="82" y="52" fill="{TEXT}" font-size="22" font-weight="800">{escape(value)}</text>
+      <text x="82" y="68" fill="{MUTED}" font-size="9.5">{escape(subtitle)}</text>
+    </g>''')
+    return _head(956,320,f"{username} GitHub Trophies & Achievements","Custom live trophies plus official GitHub achievements.")+_frame(956,320)+f'''
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
-    <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">GitHub Achievements</text>
-    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Official achievements currently visible on your public GitHub profile</text>
-
-    <g transform="translate(22 86)">
-      <rect width="446" height="94" rx="11" fill="{BG_DEEP}" stroke="{BORDER}"/>
-      <circle cx="52" cy="47" r="28" fill="{PURPLE}" fill-opacity=".10" stroke="{PURPLE}" stroke-width="1.4"/>
-      <g transform="translate(40 35)" fill="none" stroke="{PURPLE}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{pr_icon}</g>
-      <text x="96" y="39" fill="{TEXT}" font-size="15" font-weight="800">Pull Shark</text>
-      <text x="96" y="62" fill="{PURPLE}" font-size="24" font-weight="800">×3</text>
-      <text x="156" y="61" fill="{MUTED}" font-size="10.5">GitHub achievement tier</text>
-    </g>
-
-    <g transform="translate(488 86)">
-      <rect width="446" height="94" rx="11" fill="{BG_DEEP}" stroke="{BORDER}"/>
-      <circle cx="52" cy="47" r="28" fill="{BLUE}" fill-opacity=".10" stroke="{BLUE}" stroke-width="1.4"/>
-      <g transform="translate(40 35)" fill="none" stroke="{BLUE}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{pair_icon}</g>
-      <text x="96" y="39" fill="{TEXT}" font-size="15" font-weight="800">Pair Extraordinaire</text>
-      <text x="96" y="62" fill="{BLUE}" font-size="24" font-weight="800">×3</text>
-      <text x="156" y="61" fill="{MUTED}" font-size="10.5">GitHub achievement tier</text>
-    </g>
+    <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">GitHub Trophies &amp; Achievements</text>
+    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Live trophies from your GitHub activity · official achievements below</text>
+    {"".join(trophy_cards)}
+    <line x1="22" y1="270" x2="934" y2="270" stroke="{SURFACE}"/>
+    <text x="22" y="292" fill="{SUBTEXT}" font-size="10.5" font-weight="700">Official GitHub achievements</text>
+    <g transform="translate(190 278)"><rect width="134" height="28" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="15" cy="14" r="4" fill="{PURPLE}"/><text x="28" y="18" fill="{TEXT}" font-size="10.5" font-weight="700">Pull Shark ×3</text></g>
+    <g transform="translate(334 278)"><rect width="184" height="28" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="15" cy="14" r="4" fill="{BLUE}"/><text x="28" y="18" fill="{TEXT}" font-size="10.5" font-weight="700">Pair Extraordinaire ×3</text></g>
   </g></svg>'''
+
 def activity(d,username):
     data=d["activity"]
     W,H=956,330
