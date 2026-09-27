@@ -15,7 +15,7 @@ const C={bg:'#1e1e2e',deep:'#181825',border:'#45475a',surface:'#313244',text:'#c
 function decodeEntities(s=''){
   return s.replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;|&apos;/g,"'")
     .replace(/&lt;/g,'<').replace(/&gt;/g,'>')
-    .replace(/&#(d+);/g,(_,n)=>String.fromCodePoint(Number(n)))
+    .replace(/&#(\d+);/g,(_,n)=>String.fromCodePoint(Number(n)))
     .replace(/&#x([0-9a-f]+);/gi,(_,n)=>String.fromCodePoint(parseInt(n,16)))
     .replace(/<[^>]+>/g,'').trim()
 }
@@ -54,11 +54,11 @@ async function main(){
   const svg=await response.text()
   if(svg.startsWith('Error:')) throw new Error(svg)
 
-  const artist=match(svg,/<div class="artist">([sS]*?)</div>/i)
-  const song=match(svg,/<div class="song">([sS]*?)</div>/i)
+  const artist=match(svg,/<div class="artist">([\s\S]*?)<\/div>/i)
+  const song=match(svg,/<div class="song">([\s\S]*?)<\/div>/i)
   const status=/Now playing on/i.test(svg)?'Now playing':(/Recently played on/i.test(svg)?'Recently played':'Spotify')
-  const coverMatch=svg.match(/src="data:image/png;base64,s*([^"]+)"[^>]*class="cover"/i)
-  const cover=coverMatch?coverMatch[1].replace(/s+/g,''):''
+  const coverMatch=svg.match(/src="data:image\/png;base64,\s*([^"]+)"[^>]*class="cover"/i)
+  const cover=coverMatch?coverMatch[1].replace(/\s+/g,''):''
 
   writeFileSync(OUT_FILE,render({artist,song,status,cover}),'utf8')
   console.log(`Generated ${OUT_FILE}: ${song || 'offline'} — ${artist || 'Spotify'}`)
