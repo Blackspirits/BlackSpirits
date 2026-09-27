@@ -39,6 +39,25 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fail_on_error: true
 
+      - name: Normalize top languages card
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("assets/generated/top-langs.svg")
+          svg = path.read_text(encoding="utf-8")
+
+          svg = svg.replace('height="140"', 'height="195"', 1)
+          svg = svg.replace('viewBox="0 0 467 140"', 'viewBox="0 0 467 195"', 1)
+          svg = svg.replace("font: 400 11px \"Segoe UI\", Ubuntu, Sans-Serif;", "font: 400 14px \"Segoe UI\", Ubuntu, Sans-Serif;")
+          svg = svg.replace('transform="translate(25, 35)"', 'transform="translate(25, 48)"')
+          svg = svg.replace('transform="translate(0, 55)"', 'transform="translate(0, 82)"')
+          svg = svg.replace('transform="translate(150, 0)"', 'transform="translate(235, 0)"')
+          svg = svg.replace('<circle cx="5" cy="6" r="5"', '<circle cx="5.5" cy="6.5" r="5.5"')
+
+          path.write_text(svg, encoding="utf-8")
+          PY
+
       - name: Commit cards
         run: |
           git config user.name "github-actions[bot]"
