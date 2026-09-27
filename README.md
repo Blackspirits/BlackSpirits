@@ -219,8 +219,10 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
 <em>Stay creative. Keep coding.</em>
 
 <a href="https://open.spotify.com/user/11175393066" target="_blank" rel="noopener noreferrer">
-  <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=11175393066&cover_image=true&theme=default&background_color=1e1e2e&bar_color=89b4fa&bar_color_cover=false&border_radius=10&show_offline=false" alt="Spotify Now Playing" />
+  <img src="./assets/generated/spotify-card.svg" alt="Spotify now playing or recently played" width="100%" />
 </a>
+
+<sub>Auto-updated every 30 minutes · <a href="./.github/workflows/spotify-card.yml">workflow</a></sub>
 
 <br/>
 

@@ -1,0 +1,47 @@
+name: Update Spotify Card
+
+on:
+  schedule:
+    - cron: "17,47 * * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/scripts/generate-spotify-card.mjs"
+      - ".github/workflows/spotify-card.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: spotify-profile-card
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      - name: Generate Spotify card
+        run: node .github/scripts/generate-spotify-card.mjs
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- assets/generated/spotify-card.svg; then
+            echo "Spotify card unchanged."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/generated/spotify-card.svg
+          git commit -m "chore(readme): update Spotify card"
+          git pull --rebase origin main
+          git push origin HEAD:main
