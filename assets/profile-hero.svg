@@ -1,5 +1,5 @@
 <!-- assets/profile-hero.svg -->
-<svg width="1200" height="360" viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BlackSpirits — profile banner">
+<svg width="1200" height="360" viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BlackSpirits — Portuguese developer, open-source contributor and pt-PT translator &amp; reviewer">
   <defs>
     <clipPath id="round">
       <rect x="0" y="0" width="1200" height="360" rx="24" ry="24"/>
@@ -36,58 +36,49 @@
   </defs>
 
   <g clip-path="url(#round)">
-    <!-- background -->
     <rect width="1200" height="360" fill="url(#bg)"/>
 
-    <!-- blobs -->
-    <circle cx="190" cy="70"  r="140" fill="#b4befe" opacity="0.15" filter="url(#soft)"/>
+    <circle cx="190" cy="70" r="140" fill="#b4befe" opacity="0.15" filter="url(#soft)"/>
     <circle cx="1060" cy="300" r="160" fill="#89b4fa" opacity="0.12" filter="url(#soft)"/>
-    <circle cx="760" cy="60"  r="120" fill="#fab387" opacity="0.10" filter="url(#soft)"/>
+    <circle cx="760" cy="60" r="120" fill="#fab387" opacity="0.10" filter="url(#soft)"/>
 
-    <!-- rings -->
     <g transform="translate(1105,95)">
       <circle r="48" fill="none" stroke="url(#ring)" stroke-width="12" opacity=".95"/>
-      <circle r="82" fill="none" stroke="url(#ring)" stroke-width="8"  opacity=".25"/>
+      <circle r="82" fill="none" stroke="url(#ring)" stroke-width="8" opacity=".25"/>
     </g>
 
-    <!-- header (slightly lower) -->
     <g transform="translate(0,-82)">
       <text x="80" y="160" class="title">Hello, World! I’m BlackSpirits</text>
       <text x="80" y="196" class="subtitle">
-        <tspan x="80" dy="0">Developer • Open-source contributor • pt-PT translator</tspan>
+        <tspan x="80" dy="0">Developer • Open-source contributor • pt-PT translator &amp; reviewer</tspan>
         <tspan x="80" dy="22">Cinema, TV &amp; Music • Adventure &amp; Travel • Portugal</tspan>
       </text>
 
-      <!-- pills -->
       <g transform="translate(80,246)">
         <rect rx="12" ry="12" width="148" height="36" fill="#cba6f7"/>
         <text x="74" y="23" text-anchor="middle" class="pill" fill="#1b1b1b">Programmer</text>
       </g>
+
       <g transform="translate(242,246)">
-        <rect rx="12" ry="12" width="196" height="36" fill="#89b4fa"/>
-        <text x="98" y="23" text-anchor="middle" class="pill" fill="#1b1b1b">Admin Pipocas.tv</text>
+        <rect rx="12" ry="12" width="224" height="36" fill="#89b4fa"/>
+        <text x="112" y="23" text-anchor="middle" class="pill" fill="#1b1b1b">Owner / Admin Pipocas.tv</text>
       </g>
-      <g transform="translate(452,246)">
+
+      <g transform="translate(480,246)">
         <rect rx="12" ry="12" width="160" height="36" fill="#fab387"/>
         <text x="80" y="23" text-anchor="middle" class="pill" fill="#1b1b1b">Mod TheTVDB</text>
       </g>
     </g>
 
-    <!-- CTA (raised; centered composition) -->
     <a href="https://github.com/BlackSpirits?tab=followers" target="_blank" rel="noopener noreferrer">
       <g transform="translate(655,194)" filter="url(#btnshadow)" style="cursor:pointer">
-        <!-- box -->
         <rect x="13" y="0" rx="18" ry="18" width="384" height="52" fill="none" stroke="url(#ring)" stroke-width="2"/>
         <rect x="14" y="1" rx="16" ry="16" width="382" height="50" fill="#cdd6f4" opacity=".08"/>
 
-        <!-- left + right text aligned around the exact center -->
-        <!-- center of the box = x 182, y 26 -->
         <text x="255" y="28" dominant-baseline="middle" text-anchor="end" class="cta" fill="url(#ring)">Like what you see?</text>
         <text x="300" y="28" dominant-baseline="middle" text-anchor="start" class="cta" fill="url(#ring)">Follow</text>
 
-        <!-- gradient star perfectly centered between phrases -->
         <g transform="translate(277,22)">
-          <!-- classic 5-point star path, scaled to ~20px -->
           <g transform="translate(-32,-21)">
             <path d="M32 33l-9.4 5 1.8-10.6-7.7-7.5 10.7-1.6L32 9l4.7 9.3 10.7 1.6-7.7 7.5 1.8 10.6z" fill="url(#ring)"/>
           </g>
@@ -95,18 +86,13 @@
       </g>
     </a>
 
-    <!-- meta lines — offset left to visually center against asymmetric rings on the right -->
     <g class="meta" text-anchor="middle" transform="translate(-200,0)">
-      <text x="600" y="300">C++  •  C#  •  Python  •  TypeScript  •  Automation</text>
-      
-      <text x="600" y="324">Userscripts  •  Localization (pt-PT)  •  Visual Storytelling</text>
+      <text x="600" y="300">C++ • C# • Python • TypeScript • Automation</text>
+      <text x="600" y="324">Userscripts • Localization (pt-PT) • Media &amp; Metadata</text>
     </g>
 
-    <!-- handle -->
     <text x="1130" y="336" class="handle" text-anchor="end">@blackspirits</text>
   </g>
 
-  <!-- subtle outline to emphasize the rounded corners on white backgrounds -->
   <rect x="0.5" y="0.5" width="1199" height="359" rx="24" ry="24" fill="none" stroke="rgba(205,214,244,.18)"/>
 </svg>
-
