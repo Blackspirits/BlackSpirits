@@ -212,10 +212,10 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
 <em>Stay creative. Keep coding.</em>
 
 <a href="https://open.spotify.com/user/11175393066" target="_blank" rel="noopener noreferrer">
-  <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=11175393066&cover_image=true&theme=default&background_color=1e1e2e&bar_color=cba6f7&bar_color_cover=false&border_radius=12&show_offline=false" alt="Spotify now playing or recently played" />
+  <img src="https://blackspirits-spotify-card.onrender.com/card.svg" alt="Spotify now playing or recently played" width="100%" />
 </a>
 
-<sub>Live Spotify widget · a custom live endpoint is prepared in <code>spotify-live/</code></sub>
+<sub>Dynamic Spotify card served by my own endpoint · source in <code>spotify-live/</code></sub>
 
 <br/>
 
