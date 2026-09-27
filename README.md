@@ -28,9 +28,9 @@
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
 </div>
 
-## 🧑‍💻 About Me
+## <sub><img src="./assets/icons/about.svg" alt="" width="22" /></sub> About Me
 
-🇵🇹 Portuguese developer, open-source contributor and technology enthusiast  
+ <img src="./assets/icons/pt.svg" alt="Portugal" width="18" /> Portuguese developer, open-source contributor and technology enthusiast  
 🌐 European Portuguese (pt-PT) translator & reviewer with contributions across 100+ projects  
 🛠️ Focused on automation, localization, media tooling and practical software  
 🎬 Contributor to media, subtitles and metadata communities  
@@ -43,7 +43,7 @@
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
 </div>
 
-## 🌐 Localization & Review
+## <sub><img src="./assets/icons/localization.svg" alt="" width="22" /></sub> Localization & Review
 
 I contribute to software localization and linguistic review in **European Portuguese (pt-PT)**, with work across **100+ open-source and software projects**.
 
@@ -67,7 +67,7 @@ Selected projects include:
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
 </div>
 
-## 🛠️ Tech & Focus
+## <sub><img src="./assets/icons/tech.svg" alt="" width="22" /></sub> Tech & Focus
 
 **Languages**
 
@@ -95,9 +95,9 @@ Selected projects include:
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
 </div>
 
-## 🚀 Selected Work & Contributions
+## <sub><img src="./assets/icons/work.svg" alt="" width="22" /></sub> Selected Work & Contributions
 
-### 🧩 UserScripts & UserStyles
+### <sub><img src="./assets/icons/userscripts.svg" alt="" width="19" /></sub> UserScripts & UserStyles
 
 A collection of browser tools I build and maintain for automation, media workflows, productivity and UX improvements.
 
@@ -121,7 +121,7 @@ Portuguese subtitles community platform that I own and administer, while contrib
 
 ---
 
-### 📺 TheTVDB
+### <sub><img src="https://thetvdb.com/images/attribution/logo1.png" alt="" height="18" /></sub> TheTVDB
 
 Moderator and metadata contributor, helping improve the accuracy, consistency and completeness of metadata in Portuguese.
 
@@ -133,7 +133,7 @@ Moderator and metadata contributor, helping improve the accuracy, consistency an
 
 ---
 
-### 🌐 Open-source Localization
+### <sub><img src="./assets/icons/open-source.svg" alt="" width="19" /></sub> Open-source Localization
 
 European Portuguese translation and review across a broad range of software and open-source projects, with particular attention to terminology, UI context and linguistic consistency.
 
@@ -149,7 +149,7 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
 </div>
 
-## 🎞️ Recently Watched
+## <sub><img src="./assets/icons/recent.svg" alt="" width="22" /></sub> Recently Watched
 
 <p align="center">
   <a href="https://simkl.com/598901/dashboard/" target="_blank" rel="noopener noreferrer">
@@ -175,7 +175,7 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
 </div>
 
-## 💡 Did you know?
+## <sub><img src="./assets/icons/idea.svg" alt="" width="22" /></sub> Did you know?
 
 - 🎬 I watch over 100 movies and TV series every year — from timeless classics to fresh releases
 - 💻 I love tweaking code for fun — the best bugs are the ones you make yourself
@@ -186,7 +186,7 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
 </div>
 
-## 📊 GitHub Stats
+## <sub><img src="./assets/icons/stats.svg" alt="" width="22" /></sub> GitHub Stats
 
 <p align="center">
   <img src="./assets/generated/stats.svg" alt="GitHub Stats" width="48%" />
@@ -206,7 +206,7 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
 </div>
 
-## 📈 GitHub Activity
+## <sub><img src="./assets/icons/activity.svg" alt="" width="22" /></sub> GitHub Activity
 
 <p align="center">
   <img
@@ -219,7 +219,7 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
 </div>
 
-## 🎧 Vibe & Support
+## <sub><img src="./assets/icons/vibe.svg" alt="" width="22" /></sub> Vibe & Support
 
 <div align="center">
 
