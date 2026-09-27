@@ -39,28 +39,22 @@ def _tier(value,thresholds):
 
 def profile_meta(d,username):
     updated=d["last_update"].strftime("%d %b")
-    items=[
-        ("Views",str(d["profile_views"]),PURPLE),
-        ("Followers",str(d["followers"]),YELLOW),
-        ("Updated",updated,TEAL),
-        ("Personal Site","blackspirits.github.io",BLUE),
-        ("Open Source","100+ projects",PEACH),
-    ]
-    x=20
-    chips=[]
-    widths=(160,150,150,260,180)
-    for (label,value,color),width in zip(items,widths):
-        chips.append(f'''<g transform="translate({x} 7)">
-      <rect width="{width}" height="34" rx="9" fill="{BG_DEEP}" stroke="{BORDER}"/>
-      <circle cx="16" cy="17" r="4" fill="{color}"/>
-      <text x="28" y="14" fill="{MUTED}" font-size="9.5" font-weight="600">{escape(label)}</text>
-      <text x="28" y="26" fill="{TEXT}" font-size="11.5" font-weight="700">{escape(value)}</text>
-    </g>''')
-        x+=width+9
-    return f'''<svg width="956" height="48" viewBox="0 0 956 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{escape(username)} profile summary">
-  <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">{"".join(chips)}</g>
+    return f'''<svg width="956" height="32" viewBox="0 0 956 32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{escape(username)} profile summary">
+  <g font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="11">
+    <g transform="translate(280 16)">
+      <circle cx="0" cy="0" r="3.5" fill="{PURPLE}"/>
+      <text x="12" y="4" fill="{SUBTEXT}" font-weight="600">{escape(str(d["profile_views"]))} views</text>
+    </g>
+    <g transform="translate(430 16)">
+      <circle cx="0" cy="0" r="3.5" fill="{YELLOW}"/>
+      <text x="12" y="4" fill="{SUBTEXT}" font-weight="600">{d["followers"]} followers</text>
+    </g>
+    <g transform="translate(590 16)">
+      <circle cx="0" cy="0" r="3.5" fill="{TEAL}"/>
+      <text x="12" y="4" fill="{SUBTEXT}" font-weight="600">Updated {updated}</text>
+    </g>
+  </g>
 </svg>'''
-
 def overview(d,username):
     level=escape(d["rank"])
     frac=max(.08,min(.95,1-d["rank_pct"]/100))
@@ -172,45 +166,30 @@ def streak(d,username):
     </g>
   </g></svg>'''
 def trophies(d,username):
-    tier_order=("Bronze","Silver","Gold","Platinum","Diamond")
-    trophy_defs=[
-        ("Committer",d["commits"],(100,500,1000,5000,10000),compact(d["commits"])),
-        ("Pull Requests",d["prs"],(10,50,100,500,1000),compact(d["prs"])),
-        ("Contributor",d["total"],(250,1000,2500,5000,10000),compact(d["total"])),
-        ("Reviewer",d["reviews"],(1,10,50,200,500),compact(d["reviews"])),
-        ("Open Source",d["contrib_repos"],(5,15,30,60,100),f'{d["contrib_repos"]} repos'),
-        ("Code Veteran",d["account_years"],(1,3,5,10,15),f'{d["account_years"]} yrs'),
-    ]
-    cells=[]
-    positions=((22,86),(332,86),(642,86),(22,188),(332,188),(642,188))
-    cup='''<path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/>'''
-    for (x,y),(title,value,thresholds,metric) in zip(positions,trophy_defs):
-        tier,color,progress=_tier(value,thresholds)
-        idx=tier_order.index(tier)
-        next_tier=tier_order[idx+1] if idx<len(tier_order)-1 else None
-        progress_text=("MAX TIER" if next_tier is None else f'{round(progress*100):.0f}% to {next_tier}')
-        cells.append(f'''<g transform="translate({x} {y})">
-      <rect width="292" height="92" rx="11" fill="{BG_DEEP}" stroke="{BORDER}"/>
-      <text x="16" y="25" fill="{SUBTEXT}" font-size="11" font-weight="700">{escape(title)}</text>
-      <text x="16" y="54" fill="{TEXT}" font-size="24" font-weight="800">{escape(metric)}</text>
-      <circle cx="250" cy="33" r="23" fill="{color}" fill-opacity=".10" stroke="{color}" stroke-width="1.4"/>
-      <g transform="translate(238 21) scale(.52)" fill="none" stroke="{color}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">{cup}</g>
-      <text x="250" y="70" text-anchor="middle" fill="{color}" font-size="10.5" font-weight="800">{tier}</text>
-      <text x="16" y="72" fill="{MUTED}" font-size="9.2">{escape(progress_text)}</text>
-      <rect x="16" y="80" width="196" height="4" rx="2" fill="{SURFACE}"/>
-      <rect x="16" y="80" width="{196*progress:.1f}" height="4" rx="2" fill="{color}"/>
-    </g>''')
-    return _head(956,370,f"{username} GitHub Trophies","Five-tier custom milestones plus official GitHub achievements.")+_frame(956,370)+f'''
+    pr_icon='''<path d="M7 3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm0 18a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm14-18a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM5 5v14m14-14v4a6 6 0 0 1-6 6H9m0 0 3-3m-3 3 3 3"/>'''
+    pair_icon='''<circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M3 20c.8-4 2.6-6 5-6s4.2 2 5 6M11 20c.8-4 2.6-6 5-6s4.2 2 5 6"/>'''
+    return _head(956,205,f"{username} GitHub Achievements","Official achievements currently visible on the public GitHub profile.")+_frame(956,205)+f'''
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
-    <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">GitHub Milestones</text>
-    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">5 custom tiers · Bronze → Silver → Gold → Platinum → Diamond</text>
-    {"".join(cells)}
-    <line x1="22" y1="294" x2="934" y2="294" stroke="{SURFACE}"/>
-    <text x="22" y="316" fill="{SUBTEXT}" font-size="11" font-weight="700">Official GitHub achievements</text>
-    <g transform="translate(22 328)"><rect width="118" height="28" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="14" cy="14" r="4" fill="{PURPLE}"/><text x="26" y="18" fill="{TEXT}" font-size="10.5" font-weight="700">YOLO ×3</text></g>
-    <g transform="translate(150 328)"><rect width="138" height="28" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="14" cy="14" r="4" fill="{BLUE}"/><text x="26" y="18" fill="{TEXT}" font-size="10.5" font-weight="700">Quickdraw ×3</text></g>
-    <g transform="translate(298 328)"><rect width="246" height="28" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="14" cy="14" r="4" fill="{PEACH}"/><text x="26" y="18" fill="{TEXT}" font-size="10.5" font-weight="700">Arctic Code Vault Contributor</text></g>
-    <text x="934" y="346" text-anchor="end" fill="{MUTED}" font-size="9.5">GitHub achievements are official · milestone tiers are custom</text>
+    <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">GitHub Achievements</text>
+    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Official achievements currently visible on your public GitHub profile</text>
+
+    <g transform="translate(22 86)">
+      <rect width="446" height="94" rx="11" fill="{BG_DEEP}" stroke="{BORDER}"/>
+      <circle cx="52" cy="47" r="28" fill="{PURPLE}" fill-opacity=".10" stroke="{PURPLE}" stroke-width="1.4"/>
+      <g transform="translate(40 35)" fill="none" stroke="{PURPLE}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{pr_icon}</g>
+      <text x="96" y="39" fill="{TEXT}" font-size="15" font-weight="800">Pull Shark</text>
+      <text x="96" y="62" fill="{PURPLE}" font-size="24" font-weight="800">×3</text>
+      <text x="156" y="61" fill="{MUTED}" font-size="10.5">GitHub achievement tier</text>
+    </g>
+
+    <g transform="translate(488 86)">
+      <rect width="446" height="94" rx="11" fill="{BG_DEEP}" stroke="{BORDER}"/>
+      <circle cx="52" cy="47" r="28" fill="{BLUE}" fill-opacity=".10" stroke="{BLUE}" stroke-width="1.4"/>
+      <g transform="translate(40 35)" fill="none" stroke="{BLUE}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{pair_icon}</g>
+      <text x="96" y="39" fill="{TEXT}" font-size="15" font-weight="800">Pair Extraordinaire</text>
+      <text x="96" y="62" fill="{BLUE}" font-size="24" font-weight="800">×3</text>
+      <text x="156" y="61" fill="{MUTED}" font-size="10.5">GitHub achievement tier</text>
+    </g>
   </g></svg>'''
 def activity(d,username):
     data=d["activity"]
