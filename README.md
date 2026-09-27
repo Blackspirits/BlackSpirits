@@ -103,7 +103,7 @@ A collection of browser tools I build and maintain for automation, media workflo
 
 <p align="center">
   <a href="https://github.com/BlackSpirits/UserScripts-UserStyles">
-    <img src="https://img.shields.io/badge/View%20Repository-313244?style=for-the-badge&logo=github&logoColor=cdd6f4" alt="View Repository">
+    <img src="./assets/buttons/view-repository.svg" alt="View Repository">
   </a>
 </p>
 
@@ -115,7 +115,7 @@ Portuguese subtitles community platform that I own and administer, while contrib
 
 <p align="center">
   <a href="https://pipocas.tv">
-    <img src="https://img.shields.io/badge/Visit%20Pipocas.tv-FBB150?style=for-the-badge&logoColor=11111b" alt="Visit Pipocas.tv">
+    <img src="./assets/buttons/visit-pipocas.svg" alt="Visit Pipocas.tv">
   </a>
 </p>
 
@@ -127,7 +127,7 @@ Moderator and metadata contributor, helping improve the accuracy, consistency an
 
 <p align="center">
   <a href="https://www.thetvdb.com">
-    <img src="https://img.shields.io/badge/Visit%20TheTVDB-1B2626?style=for-the-badge&logo=thetvdb&logoColor=6CD591" alt="Visit TheTVDB">
+    <img src="./assets/buttons/visit-thetvdb.svg" alt="Visit TheTVDB">
   </a>
 </p>
 
@@ -141,7 +141,7 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
 
 <p align="center">
   <a href="https://blackspirits.github.io/">
-    <img src="https://img.shields.io/badge/Localization%20Portfolio-cba6f7?style=for-the-badge&logo=googletranslate&logoColor=11111b" alt="Localization Portfolio">
+    <img src="./assets/buttons/localization-portfolio.svg" alt="Localization Portfolio">
   </a>
 </p>
 
@@ -163,7 +163,7 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
 
 <p align="center">
   <a href="https://simkl.com/598901/dashboard/" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/Full%20History%20on%20Simkl-0B0F10?style=for-the-badge&logo=simkl&logoColor=white" alt="View full history on Simkl" />
+    <img src="./assets/buttons/simkl-history.svg" alt="View full history on Simkl" />
   </a>
 </p>
 
@@ -236,15 +236,15 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
 <br/>
 
 <a href="https://donate.stripe.com/00w14peB0gBx1tBeOz3Nm00" target="_blank" rel="noopener noreferrer">
-  <img src="https://img.shields.io/badge/Stripe-635bff?style=for-the-badge&logo=stripe&logoColor=white" alt="Stripe" /></a>
+  <img src="./assets/buttons/stripe.svg" alt="Stripe" /></a>
 <a href="https://www.paypal.com/paypalme/filipemota" target="_blank" rel="noopener noreferrer">
-  <img src="https://img.shields.io/badge/PayPal-003087?style=for-the-badge&logo=paypal&logoColor=white" alt="PayPal" /></a>
+  <img src="./assets/buttons/paypal.svg" alt="PayPal" /></a>
 <a href="https://ko-fi.com/blackspirits" target="_blank" rel="noopener noreferrer">
-  <img src="https://img.shields.io/badge/Ko--fi-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white" alt="Support on Ko-fi" /></a>
+  <img src="./assets/buttons/kofi.svg" alt="Support on Ko-fi" /></a>
 <a href="https://buymeacoffee.com/blackspirits28" target="_blank" rel="noopener noreferrer">
-  <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=black" alt="Buy Me a Coffee" /></a>
+  <img src="./assets/buttons/buy-me-a-coffee.svg" alt="Buy Me a Coffee" /></a>
 <a href="mailto:blackspirits@gmail.com" target="_blank" rel="noopener noreferrer">
-  <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
+  <img src="./assets/buttons/email.svg" alt="Email" /></a>
 
 </div>
 
