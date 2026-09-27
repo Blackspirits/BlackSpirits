@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import math
-from datetime import date
 from xml.sax.saxutils import escape
 from theme import BG,BG_DEEP,SURFACE,BORDER,TEXT,SUBTEXT,MUTED,PURPLE,BLUE,PEACH,TEAL,YELLOW,compact
 
@@ -20,18 +19,35 @@ def _fmt(d):
     return "—" if not d else f"{d.day} {d.strftime('%b')}"
 
 def _range(a,b):
-    if not a or not b: return "No active streak"
+    if not a or not b:
+        return "No active streak"
     return _fmt(a) if a==b else f"{_fmt(a)} · {_fmt(b)}"
+
+def _tier(value,thresholds):
+    names=("Bronze","Silver","Gold","Platinum","Diamond")
+    colors=("#fab387","#bac2de","#f9e2af","#cba6f7","#89b4fa")
+    idx=0
+    for i,t in enumerate(thresholds):
+        if value>=t:
+            idx=i
+    if idx>=len(thresholds)-1:
+        return names[-1],colors[-1],1.0
+    lo=thresholds[idx]
+    hi=thresholds[idx+1]
+    progress=max(0.0,min(1.0,(value-lo)/(hi-lo)))
+    return names[idx],colors[idx],progress
 
 def overview(d,username):
     level=escape(d["rank"])
     frac=max(.08,min(.95,1-d["rank_pct"]/100))
-    circ=2*math.pi*34; dash=circ*frac; gap=circ-dash
-    desc=f'{d["stars"]} stars, {d["commits"]} commits, {d["prs"]} pull requests, {d["issues"]} issues, rank {level}.'
+    circ=2*math.pi*34
+    dash=circ*frac
+    gap=circ-dash
+    desc=f'{d["stars"]} stars, {d["commits"]} commits, {d["prs"]} pull requests, {d["issues"]} issues, {d["public_repos"]} public repositories, {d["followers"]} followers, rank {level}.'
     return _head(467,195,f"{username} GitHub Overview",desc)+_frame(467,195)+f'''
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">GitHub Overview</text>
-    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">@{escape(username)} · live profile snapshot</text>
+    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">@{escape(username)} · GitHub since {d["created"].year}</text>
     <g transform="translate(22 89)">
       <g><text x="0" y="14" fill="{PURPLE}" font-size="19" font-weight="750">{compact(d["stars"])}</text><text x="0" y="32" fill="{SUBTEXT}" font-size="11.5">Stars</text></g>
       <g transform="translate(82 0)"><text x="0" y="14" fill="{BLUE}" font-size="19" font-weight="750">{compact(d["commits"])}</text><text x="0" y="32" fill="{SUBTEXT}" font-size="11.5">Commits</text></g>
@@ -39,8 +55,11 @@ def overview(d,username):
       <g transform="translate(260 0)"><text x="0" y="14" fill="{YELLOW}" font-size="19" font-weight="750">{compact(d["issues"])}</text><text x="0" y="32" fill="{SUBTEXT}" font-size="11.5">Issues</text></g>
     </g>
     <line x1="22" y1="137.5" x2="330" y2="137.5" stroke="{SURFACE}"/>
-    <text x="22" y="160" fill="{TEXT}" font-size="13" font-weight="600">{d["contrib_repos"]} repositories</text>
-    <text x="121" y="160" fill="{MUTED}" font-size="11.5">contributed to in the last year</text>
+    <g transform="translate(22 146)">
+      <g><text x="0" y="10" fill="{TEXT}" font-size="12.5" font-weight="700">{d["contrib_repos"]}</text><text x="0" y="26" fill="{MUTED}" font-size="9.5">Contributed</text></g>
+      <g transform="translate(100 0)"><text x="0" y="10" fill="{TEXT}" font-size="12.5" font-weight="700">{d["public_repos"]}</text><text x="0" y="26" fill="{MUTED}" font-size="9.5">Public repos</text></g>
+      <g transform="translate(205 0)"><text x="0" y="10" fill="{TEXT}" font-size="12.5" font-weight="700">{d["followers"]}</text><text x="0" y="26" fill="{MUTED}" font-size="9.5">Followers</text></g>
+    </g>
     <g transform="translate(407 98)">
       <circle cx="0" cy="0" r="42" fill="{BG_DEEP}" stroke="{BORDER}" stroke-width="1.5"/>
       <circle cx="0" cy="0" r="34" fill="none" stroke="{SURFACE}" stroke-width="7"/>
@@ -52,33 +71,41 @@ def overview(d,username):
 
 def languages(d,username):
     langs=list(d["languages"][:4])
-    while len(langs)<4: langs.append({"name":"—","pct":0.0,"color":SURFACE})
-    x=22; rects=[]
+    while len(langs)<4:
+        langs.append({"name":"—","pct":0.0,"color":SURFACE})
+    x=22
+    rects=[]
     for lang in langs:
         w=423*lang["pct"]/100
         rects.append(f'<rect x="{x:.2f}" y="80" width="{w:.2f}" height="10" fill="{lang["color"]}"/>')
         x+=w
-    positions=((22,112),(242,112),(22,148),(242,148)); items=[]
+    positions=((22,112),(242,112),(22,148),(242,148))
+    items=[]
     for lang,(x,y) in zip(langs,positions):
         items.append(f'''<circle cx="{x+5}" cy="{y+5}" r="5" fill="{lang["color"]}"/>
     <text x="{x+18}" y="{y+9}" fill="{TEXT}" font-size="13" font-weight="650">{escape(lang["name"])}</text>
     <text x="{x+132}" y="{y+9}" fill="{MUTED}" font-size="12">{lang["pct"]:.2f}%</text>''')
+    coverage=sum(lang["pct"] for lang in langs)
     desc=", ".join(f'{x["name"]} {x["pct"]:.2f} percent' for x in langs if x["name"]!="—")
     return _head(467,195,f"{username} Languages",desc)+f'''
   <clipPath id="bar"><rect x="22" y="80" width="423" height="10" rx="5"/></clipPath>'''+_frame(467,195)+f'''
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">Languages</text>
-    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Repository language distribution</text>
+    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Top 4 of {d["language_count"]} detected languages</text>
+    <text x="445" y="67" text-anchor="end" fill="{MUTED}" font-size="10.5">{coverage:.1f}% coverage</text>
     <g clip-path="url(#bar)">{"".join(rects)}</g>{"".join(items)}
+    <text x="22" y="184" fill="{MUTED}" font-size="10.5">{d["public_repos"]} public repositories · {d["language_count"]} languages detected</text>
   </g></svg>'''
 
 def streak(d,username):
-    created=d["created"]; ring=163 if d["current"] else 0
+    created=d["created"]
+    ring=163 if d["current"] else 0
     desc=f'{d["total"]} total contributions, current streak {d["current"]} days, longest streak {d["longest"]} days.'
     return _head(956,195,f"{username} Contribution Streak",desc)+_frame(956,195)+f'''
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">Contribution Streak</text>
     <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Consistency across your GitHub history</text>
+    <text x="934" y="48" text-anchor="end" fill="{PEACH}" font-size="11" font-weight="700">31d · {d["active_days_31"]} active · {d["average_31"]:.1f}/day</text>
     <line x1="318.5" y1="91" x2="318.5" y2="170" stroke="{SURFACE}"/><line x1="637.5" y1="91" x2="637.5" y2="170" stroke="{SURFACE}"/>
     <g text-anchor="middle">
       <g transform="translate(159 0)">
@@ -101,15 +128,56 @@ def streak(d,username):
       </g>
     </g>
   </g></svg>'''
+
+def trophies(d,username):
+    trophy_defs=[
+        ("Committer",d["commits"],(100,500,1000,5000,10000),compact(d["commits"])),
+        ("Pull Requests",d["prs"],(10,50,100,500,1000),compact(d["prs"])),
+        ("Contributor",d["total"],(250,1000,2500,5000,10000),compact(d["total"])),
+        ("Code Veteran",d["account_years"],(1,3,5,10,15),f'{d["account_years"]} yrs'),
+    ]
+    cells=[]
+    xs=(22,248,474,700)
+    cup='''<path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/>'''
+    for x,(title,value,thresholds,metric) in zip(xs,trophy_defs):
+        tier,color,progress=_tier(value,thresholds)
+        cells.append(f'''<g transform="translate({x} 82)">
+      <rect width="214" height="90" rx="10" fill="{BG_DEEP}" stroke="{BORDER}"/>
+      <g transform="translate(14 14) scale(.72)" fill="none" stroke="{color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{cup}</g>
+      <text x="50" y="27" fill="{TEXT}" font-size="13" font-weight="700">{escape(title)}</text>
+      <text x="50" y="49" fill="{color}" font-size="20" font-weight="800">{escape(metric)}</text>
+      <text x="50" y="67" fill="{MUTED}" font-size="10.5">{tier}</text>
+      <rect x="14" y="77" width="186" height="4" rx="2" fill="{SURFACE}"/>
+      <rect x="14" y="77" width="{186*progress:.1f}" height="4" rx="2" fill="{color}"/>
+    </g>''')
+    desc="Custom live milestones plus visible GitHub achievements."
+    return _head(956,220,f"{username} GitHub Trophies",desc)+_frame(956,220)+f'''
+  <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
+    <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">GitHub Trophies</text>
+    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Custom live milestones + visible GitHub achievements</text>
+    {"".join(cells)}
+    <text x="22" y="202" fill="{MUTED}" font-size="10.5">GitHub achievements</text>
+    <text x="136" y="202" fill="{PURPLE}" font-size="10.5" font-weight="700">YOLO ×3</text>
+    <text x="205" y="202" fill="{BLUE}" font-size="10.5" font-weight="700">Quickdraw ×3</text>
+    <text x="300" y="202" fill="{PEACH}" font-size="10.5" font-weight="700">Arctic Code Vault Contributor</text>
+  </g></svg>'''
+
 def activity(d,username):
-    data=d["activity"]; W,H=956,330; left,right,top,bottom=62,25,95,50
-    pw=W-left-right; ph=H-top-bottom; peak=max((x["count"] for x in data),default=0)
+    data=d["activity"]
+    W,H=956,330
+    left,right,top,bottom=62,25,95,50
+    pw=W-left-right
+    ph=H-top-bottom
+    peak=max((x["count"] for x in data),default=0)
     ymax=max(50,int(math.ceil(peak/50))*50)
-    if peak>500: ymax=int(math.ceil(peak/100))*100
+    if peak>500:
+        ymax=int(math.ceil(peak/100))*100
     pts=[(left+pw*i/(len(data)-1),top+ph*(1-item["count"]/ymax)) for i,item in enumerate(data)]
     line="M "+" L ".join(f"{x:.2f},{y:.2f}" for x,y in pts)
     area=line+f" L {pts[-1][0]:.2f},{top+ph:.2f} L {pts[0][0]:.2f},{top+ph:.2f} Z"
-    step=100 if ymax>=500 else 50; grid=[]; labels=[]
+    step=100 if ymax>=500 else 50
+    grid=[]
+    labels=[]
     for value in range(0,ymax+1,step):
         y=top+ph*(1-value/ymax)
         grid.append(f'<line x1="{left}" x2="{W-right}" y1="{y:.2f}" y2="{y:.2f}" stroke="{SURFACE}" stroke-width="1"/>')
@@ -118,10 +186,12 @@ def activity(d,username):
     for idx in (0,4,8,12,16,20,24,28,30):
         x,_=pts[idx]
         xlabels.append(f'<text x="{x:.2f}" y="{H-24}" text-anchor="middle" fill="{MUTED}" font-size="10.5">{data[idx]["date"].day}</text>')
-    max_idx=max(range(len(data)),key=lambda i:data[i]["count"]); points=[]
+    max_idx=max(range(len(data)),key=lambda i:data[i]["count"])
+    points=[]
     for i,(x,y) in enumerate(pts):
         points.append(f'<circle cx="{x:.2f}" cy="{y:.2f}" r="{3.6 if i==max_idx else 2.4}" fill="{PEACH if i==max_idx else BLUE}" stroke="{BG}" stroke-width="1.5"/>')
-    mx,my=pts[max_idx]; total=sum(x["count"] for x in data)
+    mx,my=pts[max_idx]
+    total=sum(x["count"] for x in data)
     return f'''<svg width="{W}" height="{H}" viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">{escape(username)} Contribution Activity</title><desc id="desc">GitHub contribution activity for the last 31 days. Peak {peak} contributions.</desc>
   <defs><linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{PURPLE}"/><stop offset=".55" stop-color="{BLUE}"/><stop offset="1" stop-color="{PEACH}"/></linearGradient>
@@ -130,9 +200,10 @@ def activity(d,username):
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">Contribution Activity</text>
     <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Last 31 days · {total:,} contributions in this window</text>
+    <text x="{W-right}" y="48" text-anchor="end" fill="{PEACH}" font-size="11.5" font-weight="700">Peak · {peak}</text>
+    <text x="{W-right}" y="66" text-anchor="end" fill="{MUTED}" font-size="10.5">{d["active_days_31"]} active days · {d["average_31"]:.1f}/day avg</text>
     {"".join(grid)}{"".join(labels)}{"".join(xlabels)}
     <path d="{area}" fill="url(#area)"/><path d="{line}" fill="none" stroke="{PURPLE}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     {"".join(points)}
     <g transform="translate({mx:.2f} {my:.2f})"><rect x="-25" y="-34" width="50" height="22" rx="7" fill="{BG_DEEP}" stroke="{PEACH}"/><text x="0" y="-19" text-anchor="middle" fill="{PEACH}" font-size="11" font-weight="700">{peak}</text></g>
-    <text x="{W-right}" y="48" text-anchor="end" fill="{PEACH}" font-size="11.5" font-weight="700">Peak · {peak}</text>
   </g></svg>'''

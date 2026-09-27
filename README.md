@@ -185,8 +185,8 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
 ## <sub><img src="./assets/icons/stats.svg" alt="" width="22" /></sub> GitHub Stats
 
 <p align="center">
-  <img src="./assets/generated/profile-overview.svg" alt="GitHub Overview" width="48%" />
-  <img src="./assets/generated/profile-languages.svg" alt="Top Languages" width="48%" />
+  <img src="./assets/generated/profile-overview.svg" alt="GitHub Overview" width="49%" />
+  <img src="./assets/generated/profile-languages.svg" alt="Top Languages" width="49%" />
 </p>
 
 <p align="center">
@@ -196,6 +196,12 @@ Selected contributions include **Mozilla, Proton, Bitwarden, Notepad++, Subtitle
 <div align="center">
   <img src="./assets/divider.svg" alt="" aria-hidden="true" loading="lazy" />
 </div>
+
+## <sub><img src="./assets/icons/trophy.svg" alt="" width="22" /></sub> GitHub Trophies
+
+<p align="center">
+  <img src="./assets/generated/profile-trophies.svg" alt="BlackSpirits GitHub Trophies and milestones" width="100%" />
+</p>
 
 ## <sub><img src="./assets/icons/activity.svg" alt="" width="22" /></sub> GitHub Activity
 
