@@ -50,10 +50,8 @@ My approach goes beyond literal translation:
 - Proofreading and linguistic QA
 - Accessibility and user-facing clarity
 
-Selected projects include:
-
 <p align="center">
-  <img src="./assets/localization/projects.svg" alt="Mozilla · Proton · Bitwarden · Notepad++ · Subtitle Edit · AntennaPod · Stremio · MagicMirror²" />
+  <img src="./assets/localization/projects.svg" alt="Mozilla · Proton · Bitwarden · Notepad++ · Subtitle Edit · AntennaPod · Stremio · MagicMirror² · Weblate" />
 </p>
 
 > Good localization should feel as if the product was originally written for its users — not translated for them.

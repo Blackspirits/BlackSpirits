@@ -180,47 +180,46 @@ def streak(d,username):
   </g></svg>'''
 def trophies(d,username):
     cup='''<path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/>'''
-
-    def progress(value,targets):
-        lower=0
-        for target in targets:
-            if value < target:
-                span=max(1,target-lower)
-                return max(.05,min(1.0,(value-lower)/span)),target
-            lower=target
-        return 1.0,targets[-1]
-
+    tier_names=("Bronze","Silver","Gold","Platinum","Diamond")
     items=[
-        ("Commits",d["commits"],compact(d["commits"]),PURPLE,(1000,5000,10000,25000)),
-        ("Pull Requests",d["prs"],compact(d["prs"]),BLUE,(100,500,1000,2500)),
-        ("Contributions",d["total"],compact(d["total"]),YELLOW,(1000,2500,5000,10000)),
-        ("Reviews",d["reviews"],compact(d["reviews"]),TEAL,(25,50,100,250,500)),
-        ("Open Source",d["contrib_repos"],f'{d["contrib_repos"]} repos',PEACH,(10,25,50,100)),
-        ("GitHub Veteran",d["account_years"],f'{d["account_years"]} yrs',PURPLE,(5,10,15,20)),
+        ("Commits",d["commits"],compact(d["commits"]),(100,500,1000,5000,10000)),
+        ("Pull Requests",d["prs"],compact(d["prs"]),(10,50,100,500,1000)),
+        ("Contributions",d["total"],compact(d["total"]),(250,1000,2500,5000,10000)),
+        ("Reviews",d["reviews"],compact(d["reviews"]),(1,10,50,200,500)),
+        ("Open Source",d["contrib_repos"],f'{d["contrib_repos"]} repos',(5,15,30,60,100)),
+        ("GitHub Veteran",d["account_years"],f'{d["account_years"]} yrs',(1,3,5,10,15)),
     ]
-    positions=((22,86),(332,86),(642,86),(22,180),(332,180),(642,180))
+    positions=((22,88),(332,88),(642,88),(22,184),(332,184),(642,184))
     trophy_cards=[]
-    for (x,y),(label,value,metric,color,targets) in zip(positions,items):
-        frac,target=progress(value,targets)
-        next_label=("Milestone reached" if frac>=1 else f'Next · {compact(target)}')
+    for (x,y),(label,value,metric,thresholds) in zip(positions,items):
+        tier,color,frac=_tier(value,thresholds)
+        idx=tier_names.index(tier)
+        if idx < len(tier_names)-1:
+            next_tier=tier_names[idx+1]
+            next_value=thresholds[idx+1]
+            detail=f'{round(frac*100):.0f}% → {next_tier} at {compact(next_value)}'
+        else:
+            detail='Top tier reached'
         trophy_cards.append(f'''<g transform="translate({x} {y})">
-      <rect width="292" height="82" rx="11" fill="{BG_DEEP}" stroke="{BORDER}"/>
+      <rect width="292" height="84" rx="11" fill="{BG_DEEP}" stroke="{BORDER}"/>
       <g transform="translate(15 13) scale(.72)" fill="none" stroke="{color}" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">{cup}</g>
-      <text x="50" y="25" fill="{SUBTEXT}" font-size="10.5" font-weight="700">{escape(label)}</text>
-      <text x="50" y="50" fill="{TEXT}" font-size="22" font-weight="800">{escape(metric)}</text>
-      <text x="278" y="25" text-anchor="end" fill="{MUTED}" font-size="9.2">{escape(next_label)}</text>
-      <rect x="14" y="68" width="264" height="4" rx="2" fill="{SURFACE}"/>
-      <rect x="14" y="68" width="{264*frac:.1f}" height="4" rx="2" fill="{color}"/>
+      <text x="50" y="24" fill="{SUBTEXT}" font-size="10.5" font-weight="700">{escape(label)}</text>
+      <text x="50" y="51" fill="{TEXT}" font-size="22" font-weight="800">{escape(metric)}</text>
+      <text x="278" y="24" text-anchor="end" fill="{color}" font-size="10" font-weight="800">{tier}</text>
+      <text x="278" y="48" text-anchor="end" fill="{MUTED}" font-size="8.8">{escape(detail)}</text>
+      <rect x="14" y="70" width="264" height="4" rx="2" fill="{SURFACE}"/>
+      <rect x="14" y="70" width="{264*frac:.1f}" height="4" rx="2" fill="{color}"/>
     </g>''')
-    return _head(956,320,f"{username} GitHub Trophies & Achievements","Live milestone trophies plus official GitHub achievements.")+_frame(956,320)+f'''
+    return _head(956,326,f"{username} GitHub Trophies & Achievements","Custom five-tier trophies plus official GitHub achievements.")+_frame(956,326)+f'''
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">GitHub Trophies &amp; Achievements</text>
-    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Live milestones from your GitHub activity · official achievements below</text>
+    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Custom tiers · Bronze → Silver → Gold → Platinum → Diamond</text>
     {"".join(trophy_cards)}
-    <line x1="22" y1="270" x2="934" y2="270" stroke="{SURFACE}"/>
-    <text x="22" y="292" fill="{SUBTEXT}" font-size="10.5" font-weight="700">Official GitHub achievements</text>
-    <g transform="translate(190 278)"><rect width="134" height="28" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="15" cy="14" r="4" fill="{PURPLE}"/><text x="28" y="18" fill="{TEXT}" font-size="10.5" font-weight="700">Pull Shark ×3</text></g>
-    <g transform="translate(334 278)"><rect width="184" height="28" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="15" cy="14" r="4" fill="{BLUE}"/><text x="28" y="18" fill="{TEXT}" font-size="10.5" font-weight="700">Pair Extraordinaire ×3</text></g>
+    <line x1="22" y1="278" x2="934" y2="278" stroke="{SURFACE}"/>
+    <text x="22" y="301" fill="{SUBTEXT}" font-size="10.5" font-weight="700">Official GitHub achievements</text>
+    <g transform="translate(190 287)"><rect width="134" height="28" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="15" cy="14" r="4" fill="{PURPLE}"/><text x="28" y="18" fill="{TEXT}" font-size="10.5" font-weight="700">Pull Shark ×3</text></g>
+    <g transform="translate(334 287)"><rect width="184" height="28" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="15" cy="14" r="4" fill="{BLUE}"/><text x="28" y="18" fill="{TEXT}" font-size="10.5" font-weight="700">Pair Extraordinaire ×3</text></g>
+    <text x="934" y="305" text-anchor="end" fill="{MUTED}" font-size="9.2">Trophy tiers are custom · achievements are GitHub-issued</text>
   </g></svg>'''
 
 def activity(d,username):
