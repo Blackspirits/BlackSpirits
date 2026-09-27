@@ -9,7 +9,7 @@
     </g><g transform="translate(248.0 3)">
       <rect width="132" height="28" rx="7" fill="#232334" stroke="#45475a" stroke-width="1"/>
       <circle cx="14" cy="14" r="3.5" fill="#89b4fa"/>
-      <text x="24" y="18" fill="#cdd6f4" font-size="11.5" font-weight="650">Media & Metadata</text>
+      <text x="24" y="18" fill="#cdd6f4" font-size="11.5" font-weight="650">Media &amp; Metadata</text>
     </g><g transform="translate(388.0 3)">
       <rect width="100" height="28" rx="7" fill="#232334" stroke="#45475a" stroke-width="1"/>
       <circle cx="14" cy="14" r="3.5" fill="#94e2d5"/>
