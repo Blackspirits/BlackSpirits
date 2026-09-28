@@ -39,19 +39,21 @@ def _tier(value,thresholds):
 
 def profile_meta(d,username):
     updated=d["last_update"].strftime("%d %b")
+    eye='''<path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/>'''
     users='''<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>'''
     clock='''<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'''
     globe='''<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>'''
     code='''<path d="m8 9-3 3 3 3M16 9l3 3-3 3M14 5l-4 14"/>'''
     items=[
-        ("Followers",str(d["followers"]),YELLOW,users,150),
-        ("Updated",updated,TEAL,clock,150),
-        ("Website","blackspirits.github.io",BLUE,globe,220),
-        ("Open Source","100+ projects",PEACH,code,170),
+        ("Views",str(d["profile_views"]),PURPLE,eye,164),
+        ("Followers",str(d["followers"]),YELLOW,users,164),
+        ("Updated",updated,TEAL,clock,164),
+        ("Website","blackspirits.github.io",BLUE,globe,218),
+        ("Open Source","100+ projects",PEACH,code,206),
     ]
     gap=10
     total=sum(item[4] for item in items)+gap*(len(items)-1)
-    x=(720-total)/2
+    x=(956-total)/2
     out=[]
     for label,value,color,icon,width in items:
         out.append(f'''<g transform="translate({x:.1f} 5)">
@@ -62,7 +64,7 @@ def profile_meta(d,username):
       <text x="40" y="28" fill="{TEXT}" font-size="11.2" font-weight="700">{escape(value)}</text>
     </g>''')
         x+=width+gap
-    return f'''<svg width="720" height="48" viewBox="0 0 720 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{escape(username)} followers, latest human profile update, website and open-source work">
+    return f'''<svg width="956" height="48" viewBox="0 0 956 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{escape(username)} profile views, followers, latest human update, website and open-source activity">
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">{"".join(out)}</g>
 </svg>'''
 
@@ -128,7 +130,6 @@ def languages(d,username):
 
 def streak(d,username):
     created=d["created"]
-    ring=163 if d["current"] else 0
     desc=f'{d["total"]} total contributions, current streak {d["current"]} days, longest streak {d["longest"]} days.'
     return _head(956,185,f"{username} Contribution Streak",desc)+_frame(956,185)+f'''
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
@@ -143,10 +144,17 @@ def streak(d,username):
         <text x="0" y="159" fill="{MUTED}" font-size="10.5">{created.day} {created.strftime("%b %Y")} · Present</text>
       </g>
       <g transform="translate(478 0)">
-        <circle cx="0" cy="108" r="31" fill="{BG_DEEP}" stroke="{SURFACE}" stroke-width="6"/>
-        <circle cx="0" cy="108" r="31" fill="none" stroke="{PEACH}" stroke-width="6" stroke-linecap="round" stroke-dasharray="{ring} {195-ring}" transform="rotate(-90 0 108)"/>
-        <path d="M0 72 C-5 77 -7 82 -4 87 C-1 83 2 81 4 76 C8 81 9 86 6 90 C12 87 14 81 11 75 C8 71 4 68 4 64 C1 66 -1 69 0 72Z" fill="{PEACH}"/>
-        <text x="0" y="116" fill="{TEXT}" font-size="27" font-weight="800">{d["current"]}</text>
+        <path d="M0 70
+                 C-13 80 -20 94 -19 110
+                 C-18 128 -10 143 0 148
+                 C11 142 19 128 19 111
+                 C19 98 13 87 7 80
+                 C6 90 2 96 -4 100
+                 C-8 93 -6 80 0 70Z"
+              fill="{BG_DEEP}" stroke="{PEACH}" stroke-width="6"
+              stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M2 77 C1 83 -1 88 -5 92" fill="none" stroke="{PEACH}" stroke-width="3" stroke-linecap="round"/>
+        <text x="0" y="121" fill="{TEXT}" font-size="27" font-weight="800">{d["current"]}</text>
         <text x="0" y="158" fill="{PURPLE}" font-size="12.5" font-weight="700">Current Streak</text>
         <text x="0" y="174" fill="{MUTED}" font-size="10.5">{_range(d["current_start"],d["current_end"])}</text>
       </g>

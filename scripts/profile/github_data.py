@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import urllib.parse
 import urllib.request
 from collections import defaultdict
@@ -32,6 +33,31 @@ def _graphql(query,variables):
     if payload.get("errors"):
         raise RuntimeError("GitHub GraphQL error: "+json.dumps(payload["errors"],ensure_ascii=False))
     return payload["data"]
+
+
+def _profile_views():
+    """Read the profile-view counter value.
+
+    The README contains a 1x1 direct counter image, so real profile loads
+    increment the counter. This function only reads that value for our custom
+    visible card when the scheduled asset workflow runs.
+    """
+    url=(
+        "https://komarev.com/ghpvc/?username="
+        + urllib.parse.quote(USERNAME.lower())
+        + "&label=Profile%20Views&color=cba6f7&style=flat-square"
+    )
+    try:
+        req=urllib.request.Request(
+            url,
+            headers={"User-Agent":"BlackSpirits-profile-cards"},
+        )
+        with urllib.request.urlopen(req,timeout=20) as response:
+            svg=response.read().decode("utf-8","replace")
+        values=re.findall(r">([0-9][0-9.,]*[kKmM]?)</text>",svg)
+        return values[-1] if values else "—"
+    except Exception:
+        return "—"
 
 
 def _profile_last_update():
@@ -241,6 +267,7 @@ def build_data():
     account_years=max(0,(today-created.date()).days//365)
 
     return {
+        "profile_views": _profile_views(),
         "last_update": _profile_last_update(),
         "created":created.date(),
         "account_years":account_years,

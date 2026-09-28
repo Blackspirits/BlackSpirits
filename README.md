@@ -16,9 +16,8 @@
 <h3 align="center">Born to explore. Coded to connect. 🌍</h3>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=blackspirits&label=Profile%20Views&color=cba6f7&style=flat-square" alt="Profile Views" />
-  <br/>
-  <img src="./assets/generated/profile-meta.svg" alt="Followers, latest human profile update, personal site and open-source activity" />
+  <img src="./assets/generated/profile-meta.svg" alt="Profile views, followers, latest human profile update, personal site and open-source activity" width="100%" />
+  <img src="https://komarev.com/ghpvc/?username=blackspirits&label=Profile%20Views&color=cba6f7&style=flat-square" alt="" width="1" height="1" />
 </p>
 
 <p align="center">
@@ -33,9 +32,13 @@
 
 ## <sub><img src="./assets/icons/about.svg" alt="" width="22" /></sub> About Me
 
-<img src="./assets/icons/userscripts.svg" alt="" width="17" /> Portuguese developer and open-source contributor focused on automation, media tooling and practical software.  
-<img src="./assets/icons/localization.svg" alt="" width="17" /> European Portuguese (pt-PT) translator & reviewer across **100+ software and open-source projects**.  
-<img src="./assets/icons/location-route.svg" alt="Portugal to France" height="24" /> From Portugal · currently based in France.
+<img src="./assets/icons/userscripts.svg" alt="" width="17" /> Portuguese developer, open-source contributor and technology enthusiast.  
+<img src="./assets/icons/localization.svg" alt="" width="17" /> European Portuguese (pt-PT) translator & reviewer with contributions across **100+ software and open-source projects**.  
+<img src="./assets/icons/tech.svg" alt="" width="17" /> Focused on automation, localization, media tooling and practical software.  
+<img src="./assets/icons/recent.svg" alt="" width="17" /> Contributor to media, subtitles and metadata communities.  
+<img src="./assets/icons/location-route.svg" alt="Portugal to France" height="24" /> From Portugal · currently based in France.  
+<img src="./assets/icons/travel.svg" alt="" width="17" /> Dreaming of exploring the world, one country at a time.
+
 
 <div align="center"><img src="./assets/divider.svg" alt="" aria-hidden="true" /></div>
 
@@ -114,9 +117,11 @@ Moderator and metadata contributor focused on Portuguese accuracy and consistenc
   </a>
 </p>
 
-<p align="center">
-  🎬 100+ films & series every year · 🇰🇷 Currently learning Korean — 한글 배우는 중!
-</p>
+### <sub><img src="./assets/icons/idea.svg" alt="" width="19" /></sub> Did you know?
+
+- <img src="./assets/icons/recent.svg" alt="" width="16" /> I watch over **100 movies and TV series every year** — from timeless classics to fresh releases.
+- <img src="./assets/icons/userscripts.svg" alt="" width="16" /> I love tweaking code for fun — the best bugs are the ones you make yourself.
+- <img src="./assets/icons/korean-flag.svg" alt="South Korea" width="18" /> Currently learning Korean — **한글 배우는 중!**
 
 <p align="center">
   <a href="https://simkl.com/598901/dashboard/">
@@ -159,8 +164,10 @@ Moderator and metadata contributor focused on Portuguese accuracy and consistenc
 </p>
 
 <p align="center">
+<a href="https://donate.stripe.com/00w14peB0gBx1tBeOz3Nm00"><img src="./assets/buttons/stripe.svg" alt="Stripe" /></a>
 <a href="https://www.paypal.com/paypalme/filipemota"><img src="./assets/buttons/paypal.svg" alt="PayPal" /></a>
 <a href="https://ko-fi.com/blackspirits"><img src="./assets/buttons/kofi.svg" alt="Support on Ko-fi" /></a>
+<a href="https://buymeacoffee.com/blackspirits28"><img src="./assets/buttons/buy-me-a-coffee.svg" alt="Buy Me a Coffee" /></a>
 <a href="mailto:blackspirits@gmail.com"><img src="./assets/buttons/email.svg" alt="Email" /></a>
 </p>
 

@@ -1,0 +1,13 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="South Korea">
+  <rect x=".75" y=".75" width="22.5" height="22.5" rx="6" fill="#ffffff" stroke="#45475a" stroke-width="1.5"/>
+  <g transform="translate(12 12)">
+    <path d="M0-5a5 5 0 0 1 0 10 2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 0 0-5Z" fill="#cd2e3a"/>
+    <path d="M0 5A5 5 0 0 1 0-5a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 0 0 5Z" fill="#0047a0"/>
+  </g>
+  <g stroke="#181825" stroke-width="1.1" stroke-linecap="round">
+    <path d="M5.2 5.8 7.6 3.4M4.2 4.8 6.6 2.4M6.2 6.8 8.6 4.4"/>
+    <path d="m16.4 20.6 2.4-2.4m-3.4 1.4 2.4-2.4m-.4 4.4 2.4-2.4"/>
+    <path d="m17.8 3.3 2.4 2.4m-3.4-1.4 2.4 2.4m-4.4-1.4 2.4 2.4"/>
+    <path d="m3.8 18.2 2.4 2.4m-1.4-3.4 2.4 2.4m-4.4-1.4 2.4 2.4"/>
+  </g>
+</svg>

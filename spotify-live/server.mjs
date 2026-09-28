@@ -83,7 +83,14 @@ function render({ artist = 'Spotify', song = 'Nothing playing right now', status
   const waveform = status === 'Now playing'
     ? heights.map((h, i) => {
         const color = i % 3 === 0 ? C.purple : i % 3 === 1 ? C.blue : C.peach
-        return '<rect x="' + (282 + i * 12) + '" y="' + (252 - h) + '" width="5" height="' + h + '" rx="2.5" fill="' + color + '" opacity="' + (0.52 + (i % 4) * 0.1) + '"/>'
+        const h2 = Math.max(7, Math.round(h * (0.45 + (i % 5) * 0.08)))
+        const h3 = Math.max(8, Math.round(h * (0.65 + (i % 3) * 0.10)))
+        const bottom = 252
+        const dur = (0.72 + (i % 7) * 0.09).toFixed(2)
+        return '<rect x="' + (282 + i * 12) + '" y="' + (bottom - h) + '" width="5" height="' + h + '" rx="2.5" fill="' + color + '" opacity="' + (0.52 + (i % 4) * 0.1) + '">' +
+          '<animate attributeName="height" values="' + h + ';' + h2 + ';' + h3 + ';' + h + '" dur="' + dur + 's" repeatCount="indefinite"/>' +
+          '<animate attributeName="y" values="' + (bottom - h) + ';' + (bottom - h2) + ';' + (bottom - h3) + ';' + (bottom - h) + '" dur="' + dur + 's" repeatCount="indefinite"/>' +
+          '</rect>'
       }).join('')
     : '<line x1="282" y1="234" x2="740" y2="234" stroke="' + C.surface + '"/>'
   const spotifyLogo = '<circle cx="0" cy="0" r="25" fill="' + C.green + '"/>' +
