@@ -39,21 +39,19 @@ def _tier(value,thresholds):
 
 def profile_meta(d,username):
     updated=d["last_update"].strftime("%d %b")
-    eye='''<path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/>'''
     users='''<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>'''
     clock='''<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'''
     globe='''<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>'''
     code='''<path d="m8 9-3 3 3 3M16 9l3 3-3 3M14 5l-4 14"/>'''
     items=[
-        ("Views · 14d",compact(d["views_14d"]),PURPLE,eye,164),
-        ("Followers",str(d["followers"]),YELLOW,users,164),
-        ("Updated",updated,TEAL,clock,164),
-        ("Website","blackspirits.github.io",BLUE,globe,218),
-        ("Open Source","100+ projects",PEACH,code,206),
+        ("Followers",str(d["followers"]),YELLOW,users,150),
+        ("Updated",updated,TEAL,clock,150),
+        ("Website","blackspirits.github.io",BLUE,globe,220),
+        ("Open Source","100+ projects",PEACH,code,170),
     ]
     gap=10
     total=sum(item[4] for item in items)+gap*(len(items)-1)
-    x=(956-total)/2
+    x=(720-total)/2
     out=[]
     for label,value,color,icon,width in items:
         out.append(f'''<g transform="translate({x:.1f} 5)">
@@ -64,7 +62,7 @@ def profile_meta(d,username):
       <text x="40" y="28" fill="{TEXT}" font-size="11.2" font-weight="700">{escape(value)}</text>
     </g>''')
         x+=width+gap
-    return f'''<svg width="956" height="48" viewBox="0 0 956 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{escape(username)} profile summary: repository views over 14 days, followers, latest human profile update, website and open-source work">
+    return f'''<svg width="720" height="48" viewBox="0 0 720 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{escape(username)} followers, latest human profile update, website and open-source work">
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">{"".join(out)}</g>
 </svg>'''
 

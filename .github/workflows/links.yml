@@ -26,5 +26,8 @@ jobs:
             --verbose
             --no-progress
             --accept 200..=299,429
+            --exclude '^https://simkl\.com/598901/dashboard/?
+          fail: true
+
             "./**/*.md"
           fail: true

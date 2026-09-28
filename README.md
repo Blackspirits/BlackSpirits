@@ -16,7 +16,9 @@
 <h3 align="center">Born to explore. Coded to connect. 🌍</h3>
 
 <p align="center">
-  <img src="./assets/generated/profile-meta.svg" alt="Repository views over 14 days, followers, profile update, personal site and open-source activity" width="100%" />
+  <img src="https://komarev.com/ghpvc/?username=blackspirits&label=Profile%20Views&color=cba6f7&style=flat-square" alt="Profile Views" />
+  <br/>
+  <img src="./assets/generated/profile-meta.svg" alt="Followers, latest human profile update, personal site and open-source activity" />
 </p>
 
 <p align="center">

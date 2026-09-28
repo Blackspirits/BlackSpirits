@@ -33,21 +33,6 @@ def _graphql(query,variables):
         raise RuntimeError("GitHub GraphQL error: "+json.dumps(payload["errors"],ensure_ascii=False))
     return payload["data"]
 
-def _repository_views():
-    """Return GitHub's real repository traffic for the last 14 days.
-
-    GitHub does not expose profile-page analytics. For the special profile
-    repository, repository traffic is the closest first-party metric, so the
-    card labels it explicitly as a 14-day repository view count.
-    """
-    try:
-        payload = _request(
-            f"https://api.github.com/repos/{USERNAME}/{USERNAME}/traffic/views?per=day"
-        )
-        return int(payload.get("count", 0)), int(payload.get("uniques", 0))
-    except Exception:
-        return 0, 0
-
 
 def _profile_last_update():
     """Return the latest human-maintained profile commit, ignoring bot refreshes."""
@@ -255,11 +240,7 @@ def build_data():
     peak_item=max(activity,key=lambda item:item["count"])
     account_years=max(0,(today-created.date()).days//365)
 
-    views_14d, unique_views_14d = _repository_views()
-
     return {
-        "views_14d": views_14d,
-        "unique_views_14d": unique_views_14d,
         "last_update": _profile_last_update(),
         "created":created.date(),
         "account_years":account_years,
