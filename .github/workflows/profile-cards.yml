@@ -52,7 +52,7 @@ jobs:
 
       - name: Validate generated SVGs
         run: |
-          for file in             profile-meta.svg             profile-overview.svg             profile-languages.svg             profile-streak.svg             profile-trophies.svg             profile-activity.svg             recently-watched.svg; do
+          for file in             profile-meta.svg             profile-overview.svg             profile-streak.svg             profile-trophies.svg             profile-activity.svg             recently-watched.svg; do
             test -s "assets/generated/$file"
           done
 

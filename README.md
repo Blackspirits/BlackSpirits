@@ -16,7 +16,7 @@
 <h3 align="center">Born to explore. Coded to connect. 🌍</h3>
 
 <p align="center">
-  <img src="./assets/generated/profile-meta.svg" alt="Profile views, followers, latest human profile update, personal site and open-source activity" width="100%" />
+  <img src="./assets/generated/profile-meta.svg" alt="Profile views, followers, latest profile update and open-source role" width="100%" />
   <img src="https://komarev.com/ghpvc/?username=blackspirits&label=Profile%20Views&color=cba6f7&style=flat-square" alt="" width="1" height="1" />
 </p>
 
@@ -44,7 +44,7 @@ I contribute to software localization and linguistic review in **European Portug
 - Proofreading, linguistic QA, accessibility and user-facing clarity
 
 <p align="center">
-  <img src="./assets/localization/projects.svg" alt="Mozilla · Proton · Bitwarden · Notepad++ · Subtitle Edit · AntennaPod · Stremio · MagicMirror² · Weblate" />
+  <img src="./assets/localization/projects.svg" alt="Mozilla · Proton · Bitwarden · Notepad++ · Subtitle Edit · AntennaPod · Stremio · MagicMirror² · Weblate" width="100%" />
 </p>
 
 > Good localization should feel as if the product were originally written for its users — not translated for them.
@@ -60,7 +60,7 @@ I contribute to software localization and linguistic review in **European Portug
 ## <sub><img src="./assets/icons/tech.svg" alt="" width="22" /></sub> Tech & Focus
 
 <p align="center">
-  <img src="./assets/tech/stack.svg" alt="Languages, tools, platforms and areas of work" />
+  <img src="./assets/tech/stack.svg" alt="Languages, tools and areas of work" width="100%" />
 </p>
 
 <div align="center"><img src="./assets/divider.svg" alt="" aria-hidden="true" /></div>
@@ -68,13 +68,9 @@ I contribute to software localization and linguistic review in **European Portug
 ## <sub><img src="./assets/icons/work.svg" alt="" width="22" /></sub> Selected Work
 
 <p align="center">
-  <img src="./assets/work/selected-work.svg" alt="Featured work: UserScripts, Pipocas.tv and TheTVDB" />
-</p>
-
-<p align="center">
-  <a href="https://github.com/BlackSpirits/UserScripts-UserStyles"><img src="./assets/buttons/view-repository.svg" alt="View UserScripts repository" /></a>
-  <a href="https://pipocas.tv"><img src="./assets/buttons/visit-pipocas.svg" alt="Visit Pipocas.tv" /></a>
-  <a href="https://www.thetvdb.com"><img src="./assets/buttons/visit-thetvdb.svg" alt="Visit TheTVDB" /></a>
+  <a href="https://github.com/BlackSpirits/UserScripts-UserStyles"><img src="./assets/work/userscripts.svg" alt="UserScripts — browser tools for automation, media and everyday UX. View repository." width="32%" /></a>
+  <a href="https://pipocas.tv"><img src="./assets/work/pipocas.svg" alt="Pipocas.tv — owner and admin of a Portuguese subtitle community. Visit pipocas.tv." width="32%" /></a>
+  <a href="https://www.thetvdb.com"><img src="./assets/work/thetvdb.svg" alt="TheTVDB — moderator keeping Portuguese metadata accurate and consistent. Visit thetvdb.com." width="32%" /></a>
 </p>
 
 <div align="center"><img src="./assets/divider.svg" alt="" aria-hidden="true" /></div>
@@ -93,30 +89,24 @@ I contribute to software localization and linguistic review in **European Portug
   </a>
 </p>
 
-### <sub><img src="./assets/icons/idea.svg" alt="" width="19" /></sub> Did you know?
-
-- <img src="./assets/icons/recent.svg" alt="" width="16" /> I watch over **100 movies and TV series every year** — from timeless classics to fresh releases.
-- <img src="./assets/icons/userscripts.svg" alt="" width="16" /> I love tweaking code for fun — the best bugs are the ones you make yourself.
-- <img src="./assets/icons/korean-flag.svg" alt="South Korea" width="18" /> Currently learning Korean — **한글 배우는 중!**
-
-<p align="center"><em>Stay creative. Keep coding.</em></p>
-
 <p align="center">
   <a href="https://open.spotify.com/user/11175393066">
     <img src="https://blackspirits-spotify-card.onrender.com/card.svg" alt="Spotify now playing or recently played" width="100%" />
   </a>
 </p>
 
+### <sub><img src="./assets/icons/idea.svg" alt="" width="19" /></sub> Did you know?
+
+- <img src="./assets/icons/recent.svg" alt="" width="16" /> I watch over **100 movies and TV series every year** — from timeless classics to fresh releases.
+- <img src="./assets/icons/userscripts.svg" alt="" width="16" /> I love tweaking code for fun — the best bugs are the ones you make yourself.
+- <img src="./assets/icons/korean-flag.svg" alt="South Korea" width="18" /> Currently learning Korean — **한글 배우는 중!**
+
 <div align="center"><img src="./assets/divider.svg" alt="" aria-hidden="true" /></div>
 
 ## <sub><img src="./assets/icons/stats.svg" alt="" width="22" /></sub> GitHub
 
 <p align="center">
-  <img src="./assets/generated/profile-overview.svg" alt="GitHub Overview" />
-</p>
-
-<p align="center">
-  <img src="./assets/generated/profile-languages.svg" alt="Top Languages" />
+  <img src="./assets/generated/profile-overview.svg" alt="GitHub overview: stars, commits, pull requests, issues, profile rank and top languages" width="100%" />
 </p>
 
 <p align="center">
@@ -133,7 +123,7 @@ I contribute to software localization and linguistic review in **European Portug
 
 <div align="center"><img src="./assets/divider.svg" alt="" aria-hidden="true" /></div>
 
-## <sub><img src="./assets/icons/vibe.svg" alt="" width="22" /></sub> Support & Contact
+## <sub><img src="./assets/icons/support.svg" alt="" width="22" /></sub> Support & Contact
 
 <p align="center">
   If you find my work useful, a coffee goes a long way ☕
@@ -148,7 +138,8 @@ I contribute to software localization and linguistic review in **European Portug
 </p>
 
 <p align="center">
-  Thanks for visiting! Feel free to explore, contribute — or just say hi 👋
+  Thanks for visiting! Feel free to explore, contribute — or just say hi 👋<br/>
+  <sub><em>Stay creative. Keep coding.</em></sub>
 </p>
 
 <p align="right"><a href="#top">↑ Back to top</a></p>

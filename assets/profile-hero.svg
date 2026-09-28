@@ -60,17 +60,17 @@
       </g>
 
       <g transform="translate(242,246)">
-        <rect rx="12" ry="12" width="224" height="36" fill="#89b4fa"/>
-        <text x="112" y="23" text-anchor="middle" class="pill" fill="#1b1b1b">Owner / Admin Pipocas.tv</text>
+        <rect rx="12" ry="12" width="262" height="36" fill="#89b4fa"/>
+        <text x="131" y="23" text-anchor="middle" class="pill" fill="#1b1b1b">Owner / Admin Pipocas.tv</text>
       </g>
 
-      <g transform="translate(480,246)">
+      <g transform="translate(518,246)">
         <rect rx="12" ry="12" width="160" height="36" fill="#fab387"/>
         <text x="80" y="23" text-anchor="middle" class="pill" fill="#1b1b1b">Mod TheTVDB</text>
       </g>
     </g>
 
-    <g transform="translate(668,198)">
+    <g transform="translate(700,198)">
       <text x="0" y="22" class="subtitle" fill="#cba6f7">Portfolio · Open Source · Localization · Media</text>
       <text x="0" y="48" class="handle">blackspirits.github.io</text>
     </g>

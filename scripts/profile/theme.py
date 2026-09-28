@@ -14,6 +14,13 @@ BLUE = "#89b4fa"
 PEACH = "#fab387"
 TEAL = "#94e2d5"
 YELLOW = "#f9e2af"
+GREEN = "#a6e3a1"
+PINK = "#f5c2e7"
+
+FONT = "Segoe UI, Ubuntu, Arial, sans-serif"
+
+# Every card shares one canvas width so GitHub scales them identically.
+CARD_W = 720
 
 LANG_FALLBACK = {
     "JavaScript": "#f1e05a",
@@ -67,3 +74,24 @@ def calculate_rank(commits, prs, issues, reviews, stars, followers):
         (100, "C"),
     ]
     return next((level for threshold, level in levels if pct <= threshold), "C"), pct
+
+
+# Advance widths of Arial Bold (per 1000 em). Segoe UI Semibold and Ubuntu Bold
+# are slightly narrower, so layouts sized with this table never clip text.
+_BOLD_WIDTHS = {
+    " ": 278, "!": 333, "&": 722, "'": 238, "(": 333, ")": 333, "+": 584, ",": 278,
+    "-": 333, ".": 278, "/": 278, ":": 333, "@": 975, "?": 611, "#": 556, "%": 889,
+    "A": 722, "B": 722, "C": 722, "D": 722, "E": 667, "F": 611, "G": 778, "H": 722,
+    "I": 278, "J": 556, "K": 722, "L": 611, "M": 833, "N": 722, "O": 778, "P": 667,
+    "Q": 778, "R": 722, "S": 667, "T": 611, "U": 722, "V": 667, "W": 944, "X": 667,
+    "Y": 667, "Z": 611, "a": 556, "b": 611, "c": 556, "d": 611, "e": 556, "f": 333,
+    "g": 611, "h": 611, "i": 278, "j": 278, "k": 556, "l": 278, "m": 889, "n": 611,
+    "o": 611, "p": 611, "q": 611, "r": 389, "s": 556, "t": 333, "u": 611, "v": 556,
+    "w": 778, "x": 556, "y": 556, "z": 500, "·": 333, "→": 1000, "²": 333, "—": 1000,
+    "×": 584,
+}
+
+
+def text_width(text: str, size: float) -> float:
+    """Conservative rendered width of bold text at the given font size."""
+    return sum(_BOLD_WIDTHS.get(ch, 556) for ch in text) * size / 1000
