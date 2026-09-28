@@ -1,5 +1,5 @@
 <svg width="956" height="235" viewBox="0 0 956 235" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Blackspirits Contribution Streak</title><desc id="desc">3417 total contributions, current streak 19 days, longest streak 19 days.</desc>
+  <title id="title">Blackspirits Contribution Streak</title><desc id="desc">3418 total contributions, current streak 20 days, longest streak 20 days.</desc>
   <defs><linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
     <stop offset="0" stop-color="#cba6f7"/><stop offset=".55" stop-color="#89b4fa"/><stop offset="1" stop-color="#fab387"/>
   </linearGradient></defs><rect x=".75" y=".75" width="954.5" height="233.5" rx="12" fill="#1e1e2e" stroke="#45475a" stroke-width="1.5"/>
@@ -19,20 +19,20 @@
         <circle cx="0" cy="108" r="31" fill="#181825" stroke="#313244" stroke-width="6"/>
         <circle cx="0" cy="108" r="31" fill="none" stroke="#fab387" stroke-width="6" stroke-linecap="round" stroke-dasharray="163 32" transform="rotate(-90 0 108)"/>
         <path d="M0 72 C-5 77 -7 82 -4 87 C-1 83 2 81 4 76 C8 81 9 86 6 90 C12 87 14 81 11 75 C8 71 4 68 4 64 C1 66 -1 69 0 72Z" fill="#fab387"/>
-        <text x="0" y="116" fill="#cdd6f4" font-size="27" font-weight="800">19</text>
+        <text x="0" y="116" fill="#cdd6f4" font-size="27" font-weight="800">20</text>
         <text x="0" y="158" fill="#cba6f7" font-size="12.5" font-weight="700">Current Streak</text>
-        <text x="0" y="174" fill="#7f849c" font-size="10.5">9 Sep · 27 Sep</text>
+        <text x="0" y="174" fill="#7f849c" font-size="10.5">9 Sep · 28 Sep</text>
       </g>
       <g transform="translate(797 0)">
-        <text x="0" y="116" fill="#cdd6f4" font-size="30" font-weight="800">19</text>
+        <text x="0" y="116" fill="#cdd6f4" font-size="30" font-weight="800">20</text>
         <text x="0" y="140" fill="#a6adc8" font-size="13" font-weight="600">Longest Streak</text>
-        <text x="0" y="159" fill="#7f849c" font-size="10.5">9 Sep · 27 Sep</text>
+        <text x="0" y="159" fill="#7f849c" font-size="10.5">9 Sep · 28 Sep</text>
       </g>
     </g>
     <line x1="22" y1="184" x2="934" y2="184" stroke="#313244"/>
     <g text-anchor="middle">
       <g transform="translate(118 0)">
-        <text x="0" y="207" fill="#89b4fa" font-size="15" font-weight="800">1,913</text>
+        <text x="0" y="207" fill="#89b4fa" font-size="15" font-weight="800">1,912</text>
         <text x="0" y="222" fill="#7f849c" font-size="9.5">Last 31 days</text>
       </g>
       <g transform="translate(358 0)">
