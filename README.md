@@ -35,7 +35,7 @@
 
 <img src="./assets/icons/userscripts.svg" alt="" width="17" /> Portuguese developer and open-source contributor focused on automation, media tooling and practical software.  
 <img src="./assets/icons/localization.svg" alt="" width="17" /> European Portuguese (pt-PT) translator & reviewer across **100+ software and open-source projects**.  
-<img src="./assets/icons/location-route.svg" alt="From Portugal, currently based in France" height="24" /> Currently based in France.
+<img src="./assets/icons/location-route.svg" alt="Portugal to France" height="24" /> From Portugal · currently based in France.
 
 <div align="center"><img src="./assets/divider.svg" alt="" aria-hidden="true" /></div>
 
