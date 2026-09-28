@@ -2,11 +2,15 @@ name: Check links
 
 on:
   push:
-    branches: [main]
-    paths: ["**/*.md"]
+    branches:
+      - main
+    paths:
+      - "**/*.md"
   pull_request:
-    branches: [main]
-    paths: ["**/*.md"]
+    branches:
+      - main
+    paths:
+      - "**/*.md"
   schedule:
     - cron: "0 9 * * 1"
 
@@ -17,17 +21,11 @@ jobs:
   check-links:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v6
+      - name: Checkout
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
 
       - name: Check Markdown links
-        uses: lycheeverse/lychee-action@v2
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8
         with:
-          args: >-
-            --verbose
-            --no-progress
-            --accept 200..=299,429
-            --exclude '^https://simkl\.com/598901/dashboard/?
-          fail: true
-
-            "./**/*.md"
+          args: '--config lychee.toml --verbose --no-progress "./**/*.md"'
           fail: true

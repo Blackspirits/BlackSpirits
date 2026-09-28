@@ -1,0 +1,8 @@
+accept = [200, 206, 429]
+max_retries = 3
+timeout = 15
+
+exclude = [
+  "^mailto:",
+  "^https://simkl\\.com/598901/dashboard/?$",
+]
