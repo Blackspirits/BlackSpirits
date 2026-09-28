@@ -10,7 +10,7 @@ const OUT_FILE = join(OUT_DIR, 'recently-watched.svg')
 
 const CLIENT_ID = process.env.SIMKL_CLIENT_ID
 const ACCESS_TOKEN = process.env.SIMKL_ACCESS_TOKEN
-const LIMIT = 4
+const LIMIT = 5
 
 const C = {
   base: '#1e1e2e',
@@ -120,20 +120,20 @@ async function fetchHistory() {
   })))
 }
 
-const W = 720
-const H = 328
+const W = 956
+const H = 370
 const PAD = 20
-const GAP = 10
+const GAP = 12
 const TOP = 82
-const CARD_W = (W - PAD * 2 - GAP * 3) / 4
-const POSTER_W = 126
-const POSTER_H = 186
+const CARD_W = (W - PAD * 2 - GAP * 4) / 5
+const POSTER_W = 142
+const POSTER_H = 210
 
 function card(item, index) {
   const x = PAD + index * (CARD_W + GAP)
   const posterX = (CARD_W - POSTER_W) / 2
   const color = item.type === 'movie' ? C.blue : C.peach
-  const title = escapeXml(truncate(item.title, 23))
+  const title = escapeXml(truncate(item.title, 20))
   const meta = escapeXml(`${item.type === 'movie' ? 'Movie' : 'Series'}${item.year ? ` · ${item.year}` : ''}`)
   const when = escapeXml(relativeDate(item.watchedAt))
   const clipId = `poster-${index}`
@@ -148,9 +148,9 @@ function card(item, index) {
     ${artwork}
     <rect x="${posterX}" width="${POSTER_W}" height="${POSTER_H}" rx="9" fill="none" stroke="${C.grid}"/>
     <circle cx="${posterX + 10}" cy="12" r="4" fill="${color}"/>
-    <text x="${CARD_W / 2}" y="207" text-anchor="middle" fill="${C.text}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="12" font-weight="700">${title}</text>
-    <text x="${CARD_W / 2}" y="225" text-anchor="middle" fill="${C.subtext}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="9.5">${meta}</text>
-    <text x="${CARD_W / 2}" y="241" text-anchor="middle" fill="${C.muted}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="9.5">${when}</text>
+    <text x="${CARD_W / 2}" y="233" text-anchor="middle" fill="${C.text}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="12" font-weight="700">${title}</text>
+    <text x="${CARD_W / 2}" y="252" text-anchor="middle" fill="${C.subtext}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="9.5">${meta}</text>
+    <text x="${CARD_W / 2}" y="270" text-anchor="middle" fill="${C.muted}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="9.5">${when}</text>
   </g>`
 }
 
@@ -173,7 +173,7 @@ function build(items) {
   <rect x=".75" y=".75" width="${W - 1.5}" height="${H - 1.5}" rx="12" fill="${C.base}" stroke="${C.border}" stroke-width="1.5"/>
   <rect x="20" y="18" width="78" height="3" rx="1.5" fill="url(#accent)"/>
   <text x="20" y="46" fill="${C.text}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="19" font-weight="700">Recently Watched</text>
-  <text x="20" y="64" fill="${C.muted}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="10.5">Latest 4 items from Simkl</text>
+  <text x="20" y="64" fill="${C.muted}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="10.5">Latest 5 items from Simkl</text>
   <text x="${W - 20}" y="46" text-anchor="end" fill="${C.blue}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="10" font-weight="700">Auto-updated daily</text>
   ${items.map(card).join('\n')}
 </svg>`

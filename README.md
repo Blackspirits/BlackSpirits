@@ -20,13 +20,6 @@
   <img src="https://komarev.com/ghpvc/?username=blackspirits&label=Profile%20Views&color=cba6f7&style=flat-square" alt="" width="1" height="1" />
 </p>
 
-<p align="center">
-  <a href="https://github.com/BlackSpirits/UserScripts-UserStyles">UserScripts</a> ·
-  <a href="https://pipocas.tv">Pipocas.tv</a> ·
-  <a href="https://www.thetvdb.com">TheTVDB</a> ·
-  <a href="mailto:blackspirits@gmail.com">Email</a>
-</p>
-
 <div align="center"><img src="./assets/divider.svg" alt="" aria-hidden="true" /></div>
 
 ## <sub><img src="./assets/icons/about.svg" alt="" width="22" /></sub> About Me
@@ -74,37 +67,15 @@ I contribute to software localization and linguistic review in **European Portug
 
 ## <sub><img src="./assets/icons/work.svg" alt="" width="22" /></sub> Selected Work
 
-<table>
-<tr>
-<td width="33%" valign="top">
+<p align="center">
+  <img src="./assets/work/selected-work.svg" alt="Featured work: UserScripts, Pipocas.tv and TheTVDB" />
+</p>
 
-### <sub><img src="./assets/icons/userscripts.svg" alt="" width="19" /></sub> UserScripts
-
-Browser tools for automation, media workflows, productivity and UX improvements.
-
-<a href="https://github.com/BlackSpirits/UserScripts-UserStyles"><img src="./assets/buttons/view-repository.svg" alt="View Repository" /></a>
-
-</td>
-<td width="33%" valign="top">
-
-### <sub><img src="./assets/pipocas.png" alt="" width="22" /></sub> Pipocas.tv
-
-Owner/admin, contributing to development, moderation and Portuguese subtitle workflows.
-
-<a href="https://pipocas.tv"><img src="./assets/buttons/visit-pipocas.svg" alt="Visit Pipocas.tv" /></a>
-
-</td>
-<td width="33%" valign="top">
-
-### <sub><img src="./assets/icons/thetvdb.svg" alt="" width="20" /></sub> TheTVDB
-
-Moderator and metadata contributor focused on Portuguese accuracy and consistency.
-
-<a href="https://www.thetvdb.com"><img src="./assets/buttons/visit-thetvdb.svg" alt="Visit TheTVDB" /></a>
-
-</td>
-</tr>
-</table>
+<p align="center">
+  <a href="https://github.com/BlackSpirits/UserScripts-UserStyles"><img src="./assets/buttons/view-repository.svg" alt="View UserScripts repository" /></a>
+  <a href="https://pipocas.tv"><img src="./assets/buttons/visit-pipocas.svg" alt="Visit Pipocas.tv" /></a>
+  <a href="https://www.thetvdb.com"><img src="./assets/buttons/visit-thetvdb.svg" alt="Visit TheTVDB" /></a>
+</p>
 
 <div align="center"><img src="./assets/divider.svg" alt="" aria-hidden="true" /></div>
 
@@ -112,7 +83,7 @@ Moderator and metadata contributor focused on Portuguese accuracy and consistenc
 
 <p align="center">
   <a href="https://simkl.com/598901/dashboard/">
-    <img src="./assets/generated/recently-watched.svg" alt="BlackSpirits recently watched on Simkl" />
+    <img src="./assets/generated/recently-watched.svg" alt="BlackSpirits recently watched on Simkl" width="100%" />
   </a>
 </p>
 

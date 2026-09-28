@@ -42,14 +42,16 @@ def profile_meta(d,username):
     eye='''<path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/>'''
     users='''<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>'''
     clock='''<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'''
+    code='''<path d="m8 9-3 3 3 3M16 9l3 3-3 3M14 5l-4 14"/>'''
     items=[
-        ("Views",str(d["profile_views"]),PURPLE,eye,180),
-        ("Followers",str(d["followers"]),YELLOW,users,180),
-        ("Updated",updated,TEAL,clock,180),
+        ("Views",str(d["profile_views"]),PURPLE,eye,164),
+        ("Followers",str(d["followers"]),YELLOW,users,164),
+        ("Updated",updated,TEAL,clock,164),
+        ("Open Source","Contributor",PEACH,code,190),
     ]
-    gap=12
+    gap=10
     total=sum(item[4] for item in items)+gap*(len(items)-1)
-    x=(600-total)/2
+    x=(720-total)/2
     out=[]
     for label,value,color,icon,width in items:
         out.append(f'''<g transform="translate({x:.1f} 5)">
@@ -60,7 +62,7 @@ def profile_meta(d,username):
       <text x="44" y="31" fill="{TEXT}" font-size="13" font-weight="700">{escape(value)}</text>
     </g>''')
         x+=width+gap
-    return f'''<svg width="600" height="52" viewBox="0 0 600 52" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{escape(username)} profile views, followers and latest human update">
+    return f'''<svg width="720" height="52" viewBox="0 0 720 52" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{escape(username)} profile views, followers, latest human update and open-source identity">
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">{"".join(out)}</g>
 </svg>'''
 
