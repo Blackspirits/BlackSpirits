@@ -1,24 +1,30 @@
-name: Check Links
+name: Check links
 
 on:
   push:
     branches: [main]
-    paths: ['**/*.md']
+    paths: ["**/*.md"]
   pull_request:
     branches: [main]
-    paths: ['**/*.md']
+    paths: ["**/*.md"]
   schedule:
-    - cron: '0 9 * * 1' # Every Monday at 09:00 UTC
+    - cron: "0 9 * * 1"
+
+permissions:
+  contents: read
 
 jobs:
   check-links:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Check Markdown links
-        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        uses: lycheeverse/lychee-action@v2
         with:
-          use-quiet-mode: 'yes'
-          use-verbose-mode: 'yes'
-          config-file: '.github/mlc-config.json'
+          args: >-
+            --verbose
+            --no-progress
+            --accept 200..=299,429
+            "./**/*.md"
+          fail: true

@@ -70,24 +70,13 @@
       </g>
     </g>
 
-    <a href="https://github.com/BlackSpirits?tab=followers" target="_blank" rel="noopener noreferrer">
-      <g transform="translate(655,194)" filter="url(#btnshadow)" style="cursor:pointer">
-        <rect x="13" y="0" rx="18" ry="18" width="384" height="52" fill="none" stroke="url(#ring)" stroke-width="2"/>
-        <rect x="14" y="1" rx="16" ry="16" width="382" height="50" fill="#cdd6f4" opacity=".08"/>
-
-        <text x="255" y="28" dominant-baseline="middle" text-anchor="end" class="cta" fill="url(#ring)">Like what you see?</text>
-        <text x="300" y="28" dominant-baseline="middle" text-anchor="start" class="cta" fill="url(#ring)">Follow</text>
-
-        <g transform="translate(277,22)">
-          <g transform="translate(-32,-21)">
-            <path d="M32 33l-9.4 5 1.8-10.6-7.7-7.5 10.7-1.6L32 9l4.7 9.3 10.7 1.6-7.7 7.5 1.8 10.6z" fill="url(#ring)"/>
-          </g>
-        </g>
-      </g>
-    </a>
+    <g transform="translate(668,198)">
+      <text x="0" y="22" class="subtitle" fill="#cba6f7">Portfolio · Open Source · Localization · Media</text>
+      <text x="0" y="48" class="handle">blackspirits.github.io</text>
+    </g>
 
     <g class="meta" text-anchor="middle" transform="translate(-200,0)">
-      <text x="600" y="300">C++ • C# • Python • TypeScript • Automation</text>
+      <text x="600" y="300">JavaScript • TypeScript • Python • C# • Automation</text>
       <text x="600" y="324">Userscripts • Localization (pt-PT) • Media &amp; Metadata</text>
     </g>
 

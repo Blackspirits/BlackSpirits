@@ -1,8 +1,4 @@
 #!/usr/bin/env node
-/**
- * Fetch the latest Simkl history and render it using the BlackSpirits
- * profile design system.
- */
 import { writeFileSync, mkdirSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
@@ -14,7 +10,7 @@ const OUT_FILE = join(OUT_DIR, 'recently-watched.svg')
 
 const CLIENT_ID = process.env.SIMKL_CLIENT_ID
 const ACCESS_TOKEN = process.env.SIMKL_ACCESS_TOKEN
-const LIMIT = 6
+const LIMIT = 4
 
 const C = {
   base: '#1e1e2e',
@@ -64,10 +60,28 @@ async function simklGet(path) {
       'Content-Type': 'application/json',
     },
   })
-  if (!res.ok) {
-    throw new Error(`Simkl API ${res.status} on ${path}: ${await res.text()}`)
-  }
+  if (!res.ok) throw new Error(`Simkl API ${res.status} on ${path}: ${await res.text()}`)
   return res.json()
+}
+
+function posterUrl(poster) {
+  if (!poster) return ''
+  const source = `https://simkl.in/posters/${poster}_c.webp`
+  return `https://wsrv.nl/?url=${encodeURIComponent(source)}&w=170&h=250&fit=cover&output=webp`
+}
+
+async function imageDataUrl(poster) {
+  const url = posterUrl(poster)
+  if (!url) return ''
+  try {
+    const res = await fetch(url)
+    if (!res.ok) return ''
+    const type = res.headers.get('content-type') || 'image/webp'
+    const bytes = Buffer.from(await res.arrayBuffer())
+    return `data:${type};base64,${bytes.toString('base64')}`
+  } catch {
+    return ''
+  }
 }
 
 async function fetchHistory() {
@@ -82,6 +96,7 @@ async function fetchHistory() {
       type: 'movie',
       title: m.movie?.title ?? 'Unknown',
       year: m.movie?.year ?? '',
+      poster: m.movie?.poster ?? '',
       watchedAt: m.last_watched_at,
     }))
 
@@ -91,65 +106,63 @@ async function fetchHistory() {
       type: 'show',
       title: s.show?.title ?? 'Unknown',
       year: s.show?.year ?? '',
+      poster: s.show?.poster ?? '',
       watchedAt: s.last_watched_at,
     }))
 
-  return [...normalisedMovies, ...normalisedShows]
+  const items = [...normalisedMovies, ...normalisedShows]
     .sort((a, b) => new Date(b.watchedAt) - new Date(a.watchedAt))
     .slice(0, LIMIT)
+
+  return Promise.all(items.map(async (item) => ({
+    ...item,
+    posterData: await imageDataUrl(item.poster),
+  })))
 }
 
-const W = 956
-const H = 278
-const PAD = 22
-const TOP = 88
-const COLS = 3
-const GAP = 12
-const CARD_W = (W - PAD * 2 - GAP * 2) / COLS
-const CARD_H = 78
+const W = 720
+const H = 328
+const PAD = 20
+const GAP = 10
+const TOP = 82
+const CARD_W = (W - PAD * 2 - GAP * 3) / 4
+const POSTER_W = 126
+const POSTER_H = 186
 
-function typeIcon(type, color) {
-  if (type === 'movie') {
-    return `<g transform="translate(17 14)" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="m0 2 13-3 1 4-13 3z"/><path d="M1 6h13v9H1z"/><path d="m4 1 2 4m3-5 2 4"/>
-    </g>`
-  }
-  return `<g transform="translate(17 14)" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0" y="1" width="14" height="11" rx="2"/><path d="m4-2 3 3 3-3M4 15h6"/>
-  </g>`
-}
-
-function buildCard(item, col, row) {
-  const x = PAD + col * (CARD_W + GAP)
-  const y = TOP + row * (CARD_H + GAP)
+function card(item, index) {
+  const x = PAD + index * (CARD_W + GAP)
+  const posterX = (CARD_W - POSTER_W) / 2
   const color = item.type === 'movie' ? C.blue : C.peach
-  const typeLabel = item.type === 'movie' ? 'Movie' : 'Show'
-  const title = escapeXml(truncate(item.title, 30))
-  const year = escapeXml(String(item.year || ''))
+  const title = escapeXml(truncate(item.title, 23))
+  const meta = escapeXml(`${item.type === 'movie' ? 'Movie' : 'Series'}${item.year ? ` · ${item.year}` : ''}`)
   const when = escapeXml(relativeDate(item.watchedAt))
+  const clipId = `poster-${index}`
 
-  return `<g transform="translate(${x},${y})">
-    <rect width="${CARD_W}" height="${CARD_H}" rx="9" fill="${C.deep}" stroke="${C.grid}" stroke-width="1"/>
-    <rect width="3" height="${CARD_H}" rx="1.5" fill="${color}"/>
-    ${typeIcon(item.type, color)}
-    <text x="38" y="24" fill="${color}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="10.5" font-weight="700">${typeLabel}</text>
-    <text x="14" y="46" fill="${C.text}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="13" font-weight="700">${title}</text>
-    <text x="14" y="67" fill="${C.subtext}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="10.5">${year}</text>
-    <text x="${CARD_W - 12}" y="67" text-anchor="end" fill="${C.muted}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="10.5">${when}</text>
+  const artwork = item.posterData
+    ? `<image href="${item.posterData}" x="${posterX}" y="0" width="${POSTER_W}" height="${POSTER_H}" preserveAspectRatio="xMidYMid slice" clip-path="url(#${clipId})"/>`
+    : `<rect x="${posterX}" width="${POSTER_W}" height="${POSTER_H}" rx="9" fill="${C.grid}"/>
+       <text x="${CARD_W / 2}" y="94" text-anchor="middle" fill="${C.muted}" font-size="11">No poster</text>`
+
+  return `<g transform="translate(${x},${TOP})">
+    <defs><clipPath id="${clipId}"><rect x="${posterX}" width="${POSTER_W}" height="${POSTER_H}" rx="9"/></clipPath></defs>
+    ${artwork}
+    <rect x="${posterX}" width="${POSTER_W}" height="${POSTER_H}" rx="9" fill="none" stroke="${C.grid}"/>
+    <circle cx="${posterX + 10}" cy="12" r="4" fill="${color}"/>
+    <text x="${CARD_W / 2}" y="207" text-anchor="middle" fill="${C.text}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="12" font-weight="700">${title}</text>
+    <text x="${CARD_W / 2}" y="225" text-anchor="middle" fill="${C.subtext}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="9.5">${meta}</text>
+    <text x="${CARD_W / 2}" y="241" text-anchor="middle" fill="${C.muted}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="9.5">${when}</text>
   </g>`
 }
 
-function buildFallbackSVG(message = 'No recent history available') {
-  return `<svg width="${W}" height="120" viewBox="0 0 ${W} 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Recently watched unavailable">
-  <rect x=".75" y=".75" width="${W - 1.5}" height="118.5" rx="12" fill="${C.base}" stroke="${C.border}" stroke-width="1.5"/>
-  <text x="${W / 2}" y="65" text-anchor="middle" fill="${C.muted}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="14">${escapeXml(message)}</text>
-</svg>`
+function fallback(message = 'No recent history available') {
+  return `<svg width="${W}" height="120" viewBox="0 0 ${W} 120" xmlns="http://www.w3.org/2000/svg">
+    <rect x=".75" y=".75" width="${W - 1.5}" height="118.5" rx="12" fill="${C.base}" stroke="${C.border}" stroke-width="1.5"/>
+    <text x="${W / 2}" y="65" text-anchor="middle" fill="${C.muted}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="14">${escapeXml(message)}</text>
+  </svg>`
 }
 
-function buildSVG(items) {
-  if (!items.length) return buildFallbackSVG()
-
-  const cards = items.map((item, i) => buildCard(item, i % COLS, Math.floor(i / COLS))).join('\n')
+function build(items) {
+  if (!items.length) return fallback()
   return `<!-- auto-generated by .github/scripts/generate-recently-watched.mjs -->
 <svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BlackSpirits recently watched on Simkl">
   <defs>
@@ -158,31 +171,25 @@ function buildSVG(items) {
     </linearGradient>
   </defs>
   <rect x=".75" y=".75" width="${W - 1.5}" height="${H - 1.5}" rx="12" fill="${C.base}" stroke="${C.border}" stroke-width="1.5"/>
-  <rect x="22" y="20" width="88" height="3" rx="1.5" fill="url(#accent)"/>
-  <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
-    <text x="22" y="48" fill="${C.text}" font-size="20" font-weight="700">Recently Watched</text>
-    <text x="22" y="67" fill="${C.muted}" font-size="11.5">Latest 6 items from Simkl</text>
-    <text x="${W - 22}" y="48" text-anchor="end" fill="${C.blue}" font-size="10.5" font-weight="700">Auto-updated daily</text>
-  </g>
-  ${cards}
+  <rect x="20" y="18" width="78" height="3" rx="1.5" fill="url(#accent)"/>
+  <text x="20" y="46" fill="${C.text}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="19" font-weight="700">Recently Watched</text>
+  <text x="20" y="64" fill="${C.muted}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="10.5">Latest 4 items from Simkl</text>
+  <text x="${W - 20}" y="46" text-anchor="end" fill="${C.blue}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="10" font-weight="700">Auto-updated daily</text>
+  ${items.map(card).join('\n')}
 </svg>`
 }
 
 async function main() {
   mkdirSync(OUT_DIR, { recursive: true })
-  if (!CLIENT_ID || !ACCESS_TOKEN) {
-    throw new Error('SIMKL_CLIENT_ID or SIMKL_ACCESS_TOKEN not set')
-  }
-
+  if (!CLIENT_ID || !ACCESS_TOKEN) throw new Error('SIMKL_CLIENT_ID or SIMKL_ACCESS_TOKEN not set')
   const items = await fetchHistory()
-  const svg = buildSVG(items)
-  writeFileSync(OUT_FILE, svg, 'utf8')
+  writeFileSync(OUT_FILE, build(items), 'utf8')
   console.log(`Generated ${OUT_FILE} with ${items.length} items`)
 }
 
 main().catch((err) => {
   console.error(err)
   mkdirSync(OUT_DIR, { recursive: true })
-  writeFileSync(OUT_FILE, buildFallbackSVG('Failed to load Simkl history'), 'utf8')
+  writeFileSync(OUT_FILE, fallback('Failed to load Simkl history'), 'utf8')
   process.exit(1)
 })

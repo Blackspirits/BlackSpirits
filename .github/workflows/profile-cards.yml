@@ -1,19 +1,25 @@
-name: Update custom profile cards
+name: Update profile assets
 
 on:
   schedule:
     - cron: "10 4 * * *"
   workflow_dispatch:
   push:
+    branches: [main]
     paths:
+      - "README.md"
+      - "assets/profile-hero.svg"
+      - "assets/localization/projects.svg"
+      - "assets/tech/stack.svg"
       - "scripts/profile/**"
+      - ".github/scripts/generate-recently-watched.mjs"
       - ".github/workflows/profile-cards.yml"
 
 permissions:
   contents: write
 
 concurrency:
-  group: custom-profile-cards
+  group: profile-readme-assets
   cancel-in-progress: false
 
 jobs:
@@ -21,37 +27,46 @@ jobs:
     runs-on: ubuntu-24.04
 
     steps:
-      - uses: actions/checkout@v6
+      - name: Checkout repository
+        uses: actions/checkout@v6
         with:
           ref: main
 
-      - name: Generate custom profile cards
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      - name: Generate GitHub profile cards
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PROFILE_USERNAME: ${{ github.repository_owner }}
         run: python3 scripts/profile/generate.py
 
+      - name: Generate recently watched
+        env:
+          SIMKL_CLIENT_ID: ${{ secrets.SIMKL_CLIENT_ID }}
+          SIMKL_ACCESS_TOKEN: ${{ secrets.SIMKL_ACCESS_TOKEN }}
+        run: node .github/scripts/generate-recently-watched.mjs
+
       - name: Validate generated SVGs
         run: |
-          test -s assets/generated/profile-meta.svg
-          test -s assets/generated/profile-overview.svg
-          test -s assets/generated/profile-languages.svg
-          test -s assets/generated/profile-streak.svg
-          test -s assets/generated/profile-trophies.svg
-          test -s assets/generated/profile-activity.svg
+          for file in             profile-meta.svg             profile-overview.svg             profile-languages.svg             profile-streak.svg             profile-trophies.svg             profile-activity.svg             recently-watched.svg; do
+            test -s "assets/generated/$file"
+          done
 
-      - name: Commit generated cards
+      - name: Commit generated assets
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add             assets/generated/profile-meta.svg             assets/generated/profile-overview.svg             assets/generated/profile-languages.svg             assets/generated/profile-streak.svg             assets/generated/profile-trophies.svg             assets/generated/profile-activity.svg
+          git add assets/generated/profile-*.svg assets/generated/recently-watched.svg
 
           if git diff --cached --quiet; then
-            echo "No profile-card changes to commit."
+            echo "No generated profile changes to commit."
             exit 0
           fi
 
-          git commit -m "chore(readme): update custom profile cards"
+          git commit -m "chore(profile): update generated assets"
           git pull --rebase origin main
           git push origin HEAD:main

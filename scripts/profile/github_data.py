@@ -1,6 +1,9 @@
 from __future__ import annotations
 
-import json, os, re, urllib.parse, urllib.request
+import json
+import os
+import urllib.parse
+import urllib.request
 from collections import defaultdict
 from datetime import date, datetime, timedelta, timezone
 from theme import LANG_FALLBACK, PURPLE, calculate_rank
@@ -30,28 +33,50 @@ def _graphql(query,variables):
         raise RuntimeError("GitHub GraphQL error: "+json.dumps(payload["errors"],ensure_ascii=False))
     return payload["data"]
 
-def _profile_views():
-    url=(
-        "https://komarev.com/ghpvc/?username="
-        + urllib.parse.quote(USERNAME.lower())
-        + "&label=Profile%20Views&color=cba6f7&style=flat"
-    )
+def _repository_views():
+    """Return GitHub's real repository traffic for the last 14 days.
+
+    GitHub does not expose profile-page analytics. For the special profile
+    repository, repository traffic is the closest first-party metric, so the
+    card labels it explicitly as a 14-day repository view count.
+    """
     try:
-        req=urllib.request.Request(url,headers={"User-Agent":"BlackSpirits-profile-cards"})
-        with urllib.request.urlopen(req,timeout=20) as response:
-            svg=response.read().decode("utf-8","replace")
-        values=re.findall(r">([0-9][0-9.,]*[kKmM]?)</text>",svg)
-        return values[-1] if values else "—"
+        payload = _request(
+            f"https://api.github.com/repos/{USERNAME}/{USERNAME}/traffic/views?per=day"
+        )
+        return int(payload.get("count", 0)), int(payload.get("uniques", 0))
     except Exception:
-        return "—"
+        return 0, 0
+
 
 def _profile_last_update():
+    """Return the latest human-maintained profile commit, ignoring bot refreshes."""
     try:
-        payload=_request(f"https://api.github.com/repos/{USERNAME}/{USERNAME}/commits/main")
-        stamp=payload["commit"]["committer"]["date"]
-        return datetime.fromisoformat(stamp.replace("Z","+00:00"))
+        commits = _request(
+            f"https://api.github.com/repos/{USERNAME}/{USERNAME}/commits?sha=main&per_page=100"
+        )
+        automated_prefixes = (
+            "chore(readme): update",
+            "chore(profile): update",
+        )
+        for item in commits:
+            author_login = (item.get("author") or {}).get("login", "")
+            committer_login = (item.get("committer") or {}).get("login", "")
+            message = item["commit"]["message"].splitlines()[0].strip().lower()
+
+            if author_login.endswith("[bot]") or committer_login.endswith("[bot]"):
+                continue
+            if message.startswith(automated_prefixes):
+                continue
+
+            stamp = item["commit"]["committer"]["date"]
+            return datetime.fromisoformat(stamp.replace("Z", "+00:00"))
     except Exception:
-        return datetime.now(timezone.utc)
+        pass
+
+    return datetime.now(timezone.utc)
+
+
 
 REPO_QUERY=r"""
 query($login:String!,$cursor:String){
@@ -230,9 +255,12 @@ def build_data():
     peak_item=max(activity,key=lambda item:item["count"])
     account_years=max(0,(today-created.date()).days//365)
 
+    views_14d, unique_views_14d = _repository_views()
+
     return {
-        "profile_views":_profile_views(),
-        "last_update":_profile_last_update(),
+        "views_14d": views_14d,
+        "unique_views_14d": unique_views_14d,
+        "last_update": _profile_last_update(),
         "created":created.date(),
         "account_years":account_years,
         "stars":stars,

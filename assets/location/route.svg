@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="330" height="30" viewBox="0 0 330 30" role="img" aria-label="From Portugal, currently based in France">
-<defs><clipPath id="ptc"><circle cx="18" cy="15" r="11"/></clipPath><clipPath id="frc"><circle cx="205" cy="15" r="11"/></clipPath></defs>
-<g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
-<g clip-path="url(#ptc)"><rect x="7" y="4" width="22" height="22" fill="#ff0000"/><rect x="7" y="4" width="9" height="22" fill="#046a38"/><circle cx="16" cy="15" r="4.2" fill="none" stroke="#ffcc33" stroke-width="1.5"/><rect x="14.4" y="11.8" width="3.2" height="6.4" rx=".6" fill="#fff" stroke="#d81e05" stroke-width=".6"/></g><circle cx="18" cy="15" r="11.5" fill="none" stroke="#585b70"/>
-<text x="38" y="19" fill="#cdd6f4" font-size="12" font-weight="700">Portugal</text><text x="94" y="19" fill="#7f849c" font-size="10.5">from</text>
-<path d="M124 15h49m-6-5 6 5-6 5" fill="none" stroke="#89b4fa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<g clip-path="url(#frc)"><rect x="194" y="4" width="22" height="22" fill="#fff"/><rect x="194" y="4" width="7.33" height="22" fill="#002654"/><rect x="208.67" y="4" width="7.33" height="22" fill="#ed2939"/></g><circle cx="205" cy="15" r="11.5" fill="none" stroke="#585b70"/>
-<text x="225" y="19" fill="#cdd6f4" font-size="12" font-weight="700">France</text><text x="271" y="19" fill="#7f849c" font-size="10.5">currently</text>
-</g></svg>

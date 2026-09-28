@@ -45,7 +45,7 @@ def profile_meta(d,username):
     globe='''<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>'''
     code='''<path d="m8 9-3 3 3 3M16 9l3 3-3 3M14 5l-4 14"/>'''
     items=[
-        ("Views",str(d["profile_views"]),PURPLE,eye,164),
+        ("Views · 14d",compact(d["views_14d"]),PURPLE,eye,164),
         ("Followers",str(d["followers"]),YELLOW,users,164),
         ("Updated",updated,TEAL,clock,164),
         ("Website","blackspirits.github.io",BLUE,globe,218),
@@ -64,7 +64,7 @@ def profile_meta(d,username):
       <text x="40" y="28" fill="{TEXT}" font-size="11.2" font-weight="700">{escape(value)}</text>
     </g>''')
         x+=width+gap
-    return f'''<svg width="956" height="48" viewBox="0 0 956 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{escape(username)} profile summary">
+    return f'''<svg width="956" height="48" viewBox="0 0 956 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{escape(username)} profile summary: repository views over 14 days, followers, latest human profile update, website and open-source work">
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">{"".join(out)}</g>
 </svg>'''
 
@@ -132,12 +132,12 @@ def streak(d,username):
     created=d["created"]
     ring=163 if d["current"] else 0
     desc=f'{d["total"]} total contributions, current streak {d["current"]} days, longest streak {d["longest"]} days.'
-    return _head(956,235,f"{username} Contribution Streak",desc)+_frame(956,235)+f'''
+    return _head(956,185,f"{username} Contribution Streak",desc)+_frame(956,185)+f'''
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">Contribution Streak</text>
-    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Consistency across your GitHub history</text>
-    <line x1="318.5" y1="88" x2="318.5" y2="166" stroke="{SURFACE}"/>
-    <line x1="637.5" y1="88" x2="637.5" y2="166" stroke="{SURFACE}"/>
+    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Consistency across my GitHub history</text>
+    <line x1="318.5" y1="84" x2="318.5" y2="163" stroke="{SURFACE}"/>
+    <line x1="637.5" y1="84" x2="637.5" y2="163" stroke="{SURFACE}"/>
     <g text-anchor="middle">
       <g transform="translate(159 0)">
         <text x="0" y="116" fill="{TEXT}" font-size="30" font-weight="800">{compact(d["total"])}</text>
@@ -158,26 +158,8 @@ def streak(d,username):
         <text x="0" y="159" fill="{MUTED}" font-size="10.5">{_range(d["longest_start"],d["longest_end"])}</text>
       </g>
     </g>
-    <line x1="22" y1="184" x2="934" y2="184" stroke="{SURFACE}"/>
-    <g text-anchor="middle">
-      <g transform="translate(118 0)">
-        <text x="0" y="207" fill="{BLUE}" font-size="15" font-weight="800">{d["activity_total_31"]:,}</text>
-        <text x="0" y="222" fill="{MUTED}" font-size="9.5">Last 31 days</text>
-      </g>
-      <g transform="translate(358 0)">
-        <text x="0" y="207" fill="{TEAL}" font-size="15" font-weight="800">{d["active_days_31"]}/31</text>
-        <text x="0" y="222" fill="{MUTED}" font-size="9.5">Active days</text>
-      </g>
-      <g transform="translate(598 0)">
-        <text x="0" y="207" fill="{PURPLE}" font-size="15" font-weight="800">{d["average_31"]:.1f}</text>
-        <text x="0" y="222" fill="{MUTED}" font-size="9.5">Contributions / day</text>
-      </g>
-      <g transform="translate(838 0)">
-        <text x="0" y="207" fill="{PEACH}" font-size="15" font-weight="800">{d["peak_31"]}</text>
-        <text x="0" y="222" fill="{MUTED}" font-size="9.5">Peak · {_fmt(d["peak_date_31"])}</text>
-      </g>
-    </g>
   </g></svg>'''
+
 def trophies(d,username):
     cup='''<path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/>'''
     tier_names=("Bronze","Silver","Gold","Platinum","Diamond")
