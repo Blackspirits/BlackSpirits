@@ -1,10 +1,10 @@
-<svg width="956" height="48" viewBox="0 0 956 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Blackspirits profile summary">
+<svg width="956" height="48" viewBox="0 0 956 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Blackspirits profile summary: repository views over 14 days, followers, latest human profile update, website and open-source work">
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif"><g transform="translate(0.0 5)">
       <rect width="164" height="38" rx="9" fill="#181825" stroke="#45475a" stroke-width="1.2"/>
       <path d="M8 1.5a6.5 6.5 0 0 0-6.5 6.5v22A6.5 6.5 0 0 0 8 36.5" fill="none" stroke="#cba6f7" stroke-width="2.5" stroke-linecap="round"/>
       <g transform="translate(13 8) scale(.72)" fill="none" stroke="#cba6f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/></g>
-      <text x="40" y="15" fill="#7f849c" font-size="9.2" font-weight="600">Views</text>
-      <text x="40" y="28" fill="#cdd6f4" font-size="11.2" font-weight="700">3,129</text>
+      <text x="40" y="15" fill="#7f849c" font-size="9.2" font-weight="600">Views · 14d</text>
+      <text x="40" y="28" fill="#cdd6f4" font-size="11.2" font-weight="700">0</text>
     </g><g transform="translate(174.0 5)">
       <rect width="164" height="38" rx="9" fill="#181825" stroke="#45475a" stroke-width="1.2"/>
       <path d="M8 1.5a6.5 6.5 0 0 0-6.5 6.5v22A6.5 6.5 0 0 0 8 36.5" fill="none" stroke="#f9e2af" stroke-width="2.5" stroke-linecap="round"/>
