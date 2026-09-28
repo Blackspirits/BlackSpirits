@@ -32,7 +32,7 @@
     <text x="38" y="24" fill="#fab387" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="10.5" font-weight="700">Show</text>
     <text x="14" y="46" fill="#cdd6f4" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="13" font-weight="700">The Early Spring</text>
     <text x="14" y="67" fill="#a6adc8" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="10.5">2026</text>
-    <text x="284" y="67" text-anchor="end" fill="#7f849c" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="10.5">6d ago</text>
+    <text x="284" y="67" text-anchor="end" fill="#7f849c" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="10.5">1w ago</text>
   </g>
 <g transform="translate(638,88)">
     <rect width="296" height="78" rx="9" fill="#181825" stroke="#313244" stroke-width="1"/>
