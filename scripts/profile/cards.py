@@ -42,29 +42,25 @@ def profile_meta(d,username):
     eye='''<path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/>'''
     users='''<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>'''
     clock='''<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'''
-    globe='''<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>'''
-    code='''<path d="m8 9-3 3 3 3M16 9l3 3-3 3M14 5l-4 14"/>'''
     items=[
-        ("Views",str(d["profile_views"]),PURPLE,eye,164),
-        ("Followers",str(d["followers"]),YELLOW,users,164),
-        ("Updated",updated,TEAL,clock,164),
-        ("Website","blackspirits.github.io",BLUE,globe,218),
-        ("Open Source","100+ projects",PEACH,code,206),
+        ("Views",str(d["profile_views"]),PURPLE,eye,180),
+        ("Followers",str(d["followers"]),YELLOW,users,180),
+        ("Updated",updated,TEAL,clock,180),
     ]
-    gap=10
+    gap=12
     total=sum(item[4] for item in items)+gap*(len(items)-1)
-    x=(956-total)/2
+    x=(600-total)/2
     out=[]
     for label,value,color,icon,width in items:
         out.append(f'''<g transform="translate({x:.1f} 5)">
-      <rect width="{width}" height="38" rx="9" fill="{BG_DEEP}" stroke="{BORDER}" stroke-width="1.2"/>
-      <path d="M8 1.5a6.5 6.5 0 0 0-6.5 6.5v22A6.5 6.5 0 0 0 8 36.5" fill="none" stroke="{color}" stroke-width="2.5" stroke-linecap="round"/>
-      <g transform="translate(13 8) scale(.72)" fill="none" stroke="{color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{icon}</g>
-      <text x="40" y="15" fill="{MUTED}" font-size="9.2" font-weight="600">{escape(label)}</text>
-      <text x="40" y="28" fill="{TEXT}" font-size="11.2" font-weight="700">{escape(value)}</text>
+      <rect width="{width}" height="42" rx="10" fill="{BG_DEEP}" stroke="{BORDER}" stroke-width="1.2"/>
+      <path d="M8 1.5a6.5 6.5 0 0 0-6.5 6.5v26A6.5 6.5 0 0 0 8 40.5" fill="none" stroke="{color}" stroke-width="2.5" stroke-linecap="round"/>
+      <g transform="translate(14 9) scale(.75)" fill="none" stroke="{color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{icon}</g>
+      <text x="44" y="16" fill="{MUTED}" font-size="10.5" font-weight="600">{escape(label)}</text>
+      <text x="44" y="31" fill="{TEXT}" font-size="13" font-weight="700">{escape(value)}</text>
     </g>''')
         x+=width+gap
-    return f'''<svg width="956" height="48" viewBox="0 0 956 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{escape(username)} profile views, followers, latest human update, website and open-source activity">
+    return f'''<svg width="600" height="52" viewBox="0 0 600 52" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{escape(username)} profile views, followers and latest human update">
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">{"".join(out)}</g>
 </svg>'''
 
@@ -130,38 +126,32 @@ def languages(d,username):
 
 def streak(d,username):
     created=d["created"]
+    ring=163 if d["current"] else 0
     desc=f'{d["total"]} total contributions, current streak {d["current"]} days, longest streak {d["longest"]} days.'
-    return _head(956,185,f"{username} Contribution Streak",desc)+_frame(956,185)+f'''
+    return _head(720,190,f"{username} Contribution Streak",desc)+_frame(720,190)+f'''
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">Contribution Streak</text>
-    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Consistency across my GitHub history</text>
-    <line x1="318.5" y1="84" x2="318.5" y2="163" stroke="{SURFACE}"/>
-    <line x1="637.5" y1="84" x2="637.5" y2="163" stroke="{SURFACE}"/>
+    <text x="22" y="67" fill="{MUTED}" font-size="12" font-weight="500">Consistency across my GitHub history</text>
+    <line x1="240" y1="84" x2="240" y2="166" stroke="{SURFACE}"/>
+    <line x1="480" y1="84" x2="480" y2="166" stroke="{SURFACE}"/>
     <g text-anchor="middle">
-      <g transform="translate(159 0)">
-        <text x="0" y="116" fill="{TEXT}" font-size="30" font-weight="800">{compact(d["total"])}</text>
-        <text x="0" y="140" fill="{SUBTEXT}" font-size="13" font-weight="600">Total Contributions</text>
-        <text x="0" y="159" fill="{MUTED}" font-size="10.5">{created.day} {created.strftime("%b %Y")} · Present</text>
+      <g transform="translate(120 0)">
+        <text x="0" y="117" fill="{TEXT}" font-size="31" font-weight="800">{compact(d["total"])}</text>
+        <text x="0" y="142" fill="{SUBTEXT}" font-size="13" font-weight="600">Total Contributions</text>
+        <text x="0" y="161" fill="{MUTED}" font-size="11">{created.day} {created.strftime("%b %Y")} · Present</text>
       </g>
-      <g transform="translate(478 0)">
-        <path d="M0 70
-                 C-13 80 -20 94 -19 110
-                 C-18 128 -10 143 0 148
-                 C11 142 19 128 19 111
-                 C19 98 13 87 7 80
-                 C6 90 2 96 -4 100
-                 C-8 93 -6 80 0 70Z"
-              fill="{BG_DEEP}" stroke="{PEACH}" stroke-width="6"
-              stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M2 77 C1 83 -1 88 -5 92" fill="none" stroke="{PEACH}" stroke-width="3" stroke-linecap="round"/>
-        <text x="0" y="121" fill="{TEXT}" font-size="27" font-weight="800">{d["current"]}</text>
-        <text x="0" y="158" fill="{PURPLE}" font-size="12.5" font-weight="700">Current Streak</text>
-        <text x="0" y="174" fill="{MUTED}" font-size="10.5">{_range(d["current_start"],d["current_end"])}</text>
+      <g transform="translate(360 0)">
+        <circle cx="0" cy="110" r="31" fill="{BG_DEEP}" stroke="{SURFACE}" stroke-width="6"/>
+        <circle cx="0" cy="110" r="31" fill="none" stroke="{PEACH}" stroke-width="6" stroke-linecap="round" stroke-dasharray="{ring} {195-ring}" transform="rotate(-90 0 110)"/>
+        <path d="M0 74 C-5 79 -7 84 -4 89 C-1 85 2 83 4 78 C8 83 9 88 6 92 C12 89 14 83 11 77 C8 73 4 70 4 66 C1 68 -1 71 0 74Z" fill="{PEACH}"/>
+        <text x="0" y="118" fill="{TEXT}" font-size="27" font-weight="800">{d["current"]}</text>
+        <text x="0" y="160" fill="{PURPLE}" font-size="13" font-weight="700">Current Streak</text>
+        <text x="0" y="177" fill="{MUTED}" font-size="11">{_range(d["current_start"],d["current_end"])}</text>
       </g>
-      <g transform="translate(797 0)">
-        <text x="0" y="116" fill="{TEXT}" font-size="30" font-weight="800">{d["longest"]}</text>
-        <text x="0" y="140" fill="{SUBTEXT}" font-size="13" font-weight="600">Longest Streak</text>
-        <text x="0" y="159" fill="{MUTED}" font-size="10.5">{_range(d["longest_start"],d["longest_end"])}</text>
+      <g transform="translate(600 0)">
+        <text x="0" y="117" fill="{TEXT}" font-size="31" font-weight="800">{d["longest"]}</text>
+        <text x="0" y="142" fill="{SUBTEXT}" font-size="13" font-weight="600">Longest Streak</text>
+        <text x="0" y="161" fill="{MUTED}" font-size="11">{_range(d["longest_start"],d["longest_end"])}</text>
       </g>
     </g>
   </g></svg>'''
@@ -170,14 +160,14 @@ def trophies(d,username):
     cup='''<path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/>'''
     tier_names=("Bronze","Silver","Gold","Platinum","Diamond")
     items=[
-        ("Commits",d["commits"],compact(d["commits"]),(100,500,1000,5000,10000)),
+        ("Committer",d["commits"],compact(d["commits"]),(100,500,1000,5000,10000)),
         ("Pull Requests",d["prs"],compact(d["prs"]),(10,50,100,500,1000)),
-        ("Contributions",d["total"],compact(d["total"]),(250,1000,2500,5000,10000)),
-        ("Reviews",d["reviews"],compact(d["reviews"]),(1,10,50,200,500)),
+        ("Contributor",d["total"],compact(d["total"]),(250,1000,2500,5000,10000)),
+        ("Reviewer",d["reviews"],compact(d["reviews"]),(1,10,50,200,500)),
         ("Open Source",d["contrib_repos"],f'{d["contrib_repos"]} repos',(5,15,30,60,100)),
         ("GitHub Veteran",d["account_years"],f'{d["account_years"]} yrs',(1,3,5,10,15)),
     ]
-    positions=((22,88),(332,88),(642,88),(22,184),(332,184),(642,184))
+    positions=((22,88),(367,88),(22,180),(367,180),(22,272),(367,272))
     trophy_cards=[]
     for (x,y),(label,value,metric,thresholds) in zip(positions,items):
         tier,color,frac=_tier(value,thresholds)
@@ -185,35 +175,34 @@ def trophies(d,username):
         if idx < len(tier_names)-1:
             next_tier=tier_names[idx+1]
             next_value=thresholds[idx+1]
-            detail=f'{round(frac*100):.0f}% → {next_tier} at {compact(next_value)}'
+            detail=f'Next · {next_tier} at {compact(next_value)}'
         else:
             detail='Top tier reached'
         trophy_cards.append(f'''<g transform="translate({x} {y})">
-      <rect width="292" height="84" rx="11" fill="{BG_DEEP}" stroke="{BORDER}"/>
+      <rect width="331" height="80" rx="11" fill="{BG_DEEP}" stroke="{BORDER}"/>
       <g transform="translate(15 13) scale(.72)" fill="none" stroke="{color}" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">{cup}</g>
-      <text x="50" y="24" fill="{SUBTEXT}" font-size="10.5" font-weight="700">{escape(label)}</text>
-      <text x="50" y="51" fill="{TEXT}" font-size="22" font-weight="800">{escape(metric)}</text>
-      <text x="278" y="24" text-anchor="end" fill="{color}" font-size="10" font-weight="800">{tier}</text>
-      <text x="278" y="48" text-anchor="end" fill="{MUTED}" font-size="8.8">{escape(detail)}</text>
-      <rect x="14" y="70" width="264" height="4" rx="2" fill="{SURFACE}"/>
-      <rect x="14" y="70" width="{264*frac:.1f}" height="4" rx="2" fill="{color}"/>
+      <text x="50" y="23" fill="{SUBTEXT}" font-size="11" font-weight="700">{escape(label)}</text>
+      <text x="50" y="49" fill="{color}" font-size="20" font-weight="800">{tier}</text>
+      <text x="185" y="49" fill="{MUTED}" font-size="10.5">Current · {escape(metric)}</text>
+      <text x="317" y="23" text-anchor="end" fill="{MUTED}" font-size="9.5">{escape(detail)}</text>
+      <rect x="14" y="66" width="303" height="4" rx="2" fill="{SURFACE}"/>
+      <rect x="14" y="66" width="{303*frac:.1f}" height="4" rx="2" fill="{color}"/>
     </g>''')
-    return _head(956,326,f"{username} GitHub Trophies & Achievements","Custom five-tier trophies plus official GitHub achievements.")+_frame(956,326)+f'''
+    return _head(720,420,f"{username} GitHub Trophies & Achievements","Custom milestone tiers plus manually curated official GitHub achievements.")+_frame(720,420)+f'''
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">GitHub Trophies &amp; Achievements</text>
-    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Custom tiers · Bronze → Silver → Gold → Platinum → Diamond</text>
+    <text x="22" y="67" fill="{MUTED}" font-size="12" font-weight="500">Milestones · Bronze → Silver → Gold → Platinum → Diamond</text>
     {"".join(trophy_cards)}
-    <line x1="22" y1="278" x2="934" y2="278" stroke="{SURFACE}"/>
-    <text x="22" y="301" fill="{SUBTEXT}" font-size="10.5" font-weight="700">Official GitHub achievements</text>
-    <g transform="translate(190 287)"><rect width="134" height="28" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="15" cy="14" r="4" fill="{PURPLE}"/><text x="28" y="18" fill="{TEXT}" font-size="10.5" font-weight="700">Pull Shark ×3</text></g>
-    <g transform="translate(334 287)"><rect width="184" height="28" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="15" cy="14" r="4" fill="{BLUE}"/><text x="28" y="18" fill="{TEXT}" font-size="10.5" font-weight="700">Pair Extraordinaire ×3</text></g>
-    <text x="934" y="305" text-anchor="end" fill="{MUTED}" font-size="9.2">Trophy tiers are custom · achievements are GitHub-issued</text>
+    <line x1="22" y1="365" x2="698" y2="365" stroke="{SURFACE}"/>
+    <text x="22" y="390" fill="{SUBTEXT}" font-size="11" font-weight="700">Official GitHub achievements · manually curated</text>
+    <g transform="translate(246 375)"><rect width="132" height="28" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="15" cy="14" r="4" fill="{PURPLE}"/><text x="28" y="18" fill="{TEXT}" font-size="10.5" font-weight="700">Pull Shark ×3</text></g>
+    <g transform="translate(388 375)"><rect width="184" height="28" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="15" cy="14" r="4" fill="{BLUE}"/><text x="28" y="18" fill="{TEXT}" font-size="10.5" font-weight="700">Pair Extraordinaire ×3</text></g>
   </g></svg>'''
 
 def activity(d,username):
     data=d["activity"]
-    W,H=956,330
-    left,right,top,bottom=62,25,95,50
+    W,H=720,330
+    left,right,top,bottom=58,20,95,50
     pw=W-left-right
     ph=H-top-bottom
     peak=max((x["count"] for x in data),default=0)
@@ -229,11 +218,11 @@ def activity(d,username):
     for value in range(0,ymax+1,step):
         y=top+ph*(1-value/ymax)
         grid.append(f'<line x1="{left}" x2="{W-right}" y1="{y:.2f}" y2="{y:.2f}" stroke="{SURFACE}" stroke-width="1"/>')
-        labels.append(f'<text x="{left-12}" y="{y+4:.2f}" text-anchor="end" fill="{MUTED}" font-size="10.5">{value}</text>')
+        labels.append(f'<text x="{left-10}" y="{y+4:.2f}" text-anchor="end" fill="{MUTED}" font-size="11.5">{value}</text>')
     xlabels=[]
     for idx in (0,4,8,12,16,20,24,28,30):
         x,_=pts[idx]
-        xlabels.append(f'<text x="{x:.2f}" y="{H-24}" text-anchor="middle" fill="{MUTED}" font-size="10.5">{data[idx]["date"].day}</text>')
+        xlabels.append(f'<text x="{x:.2f}" y="{H-24}" text-anchor="middle" fill="{MUTED}" font-size="11.5">{data[idx]["date"].day}</text>')
     max_idx=max(range(len(data)),key=lambda i:data[i]["count"])
     points=[]
     for i,(x,y) in enumerate(pts):
@@ -247,11 +236,11 @@ def activity(d,username):
   {_frame(W,H)}
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">Contribution Activity</text>
-    <text x="22" y="67" fill="{MUTED}" font-size="11.5" font-weight="500">Last 31 days · {total:,} contributions in this window</text>
-    <text x="{W-right}" y="48" text-anchor="end" fill="{PEACH}" font-size="11.5" font-weight="700">Peak · {peak}</text>
-    <text x="{W-right}" y="66" text-anchor="end" fill="{MUTED}" font-size="10.5">{d["active_days_31"]} active days · {d["average_31"]:.1f}/day avg</text>
+    <text x="22" y="68" fill="{MUTED}" font-size="12" font-weight="500">Last 31 days · {total:,} contributions in this window</text>
+    <text x="{W-right}" y="48" text-anchor="end" fill="{PEACH}" font-size="12" font-weight="700">Peak · {peak}</text>
+    <text x="{W-right}" y="68" text-anchor="end" fill="{MUTED}" font-size="11">{d["active_days_31"]} active days · {d["average_31"]:.1f}/day avg</text>
     {"".join(grid)}{"".join(labels)}{"".join(xlabels)}
     <path d="{area}" fill="url(#area)"/><path d="{line}" fill="none" stroke="{PURPLE}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     {"".join(points)}
-    <g transform="translate({mx:.2f} {my:.2f})"><rect x="-25" y="-34" width="50" height="22" rx="7" fill="{BG_DEEP}" stroke="{PEACH}"/><text x="0" y="-19" text-anchor="middle" fill="{PEACH}" font-size="11" font-weight="700">{peak}</text></g>
+    <g transform="translate({mx:.2f} {my:.2f})"><rect x="-25" y="-34" width="50" height="22" rx="7" fill="{BG_DEEP}" stroke="{PEACH}"/><text x="0" y="-19" text-anchor="middle" fill="{PEACH}" font-size="11.5" font-weight="700">{peak}</text></g>
   </g></svg>'''

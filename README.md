@@ -21,7 +21,6 @@
 </p>
 
 <p align="center">
-  <a href="https://blackspirits.github.io">Portfolio</a> ·
   <a href="https://github.com/BlackSpirits/UserScripts-UserStyles">UserScripts</a> ·
   <a href="https://pipocas.tv">Pipocas.tv</a> ·
   <a href="https://www.thetvdb.com">TheTVDB</a> ·
@@ -36,7 +35,7 @@
 <img src="./assets/icons/localization.svg" alt="" width="17" /> European Portuguese (pt-PT) translator & reviewer with contributions across **100+ software and open-source projects**.  
 <img src="./assets/icons/tech.svg" alt="" width="17" /> Focused on automation, localization, media tooling and practical software.  
 <img src="./assets/icons/recent.svg" alt="" width="17" /> Contributor to media, subtitles and metadata communities.  
-<img src="./assets/icons/location-route.svg" alt="Portugal to France" height="24" /> From Portugal · currently based in France.  
+<img src="./assets/icons/location.svg" alt="" width="17" /> <img src="./assets/icons/pt-flag.svg" alt="Portugal" width="18" /> From Portugal · <img src="./assets/icons/fr-flag.svg" alt="France" width="18" /> currently based in France.  
 <img src="./assets/icons/travel.svg" alt="" width="17" /> Dreaming of exploring the world, one country at a time.
 
 
@@ -55,7 +54,7 @@ I contribute to software localization and linguistic review in **European Portug
   <img src="./assets/localization/projects.svg" alt="Mozilla · Proton · Bitwarden · Notepad++ · Subtitle Edit · AntennaPod · Stremio · MagicMirror² · Weblate" />
 </p>
 
-> Good localization should feel as if the product was originally written for its users — not translated for them.
+> Good localization should feel as if the product were originally written for its users — not translated for them.
 
 <p align="center">
   <a href="https://blackspirits.github.io/">
@@ -117,17 +116,17 @@ Moderator and metadata contributor focused on Portuguese accuracy and consistenc
   </a>
 </p>
 
-### <sub><img src="./assets/icons/idea.svg" alt="" width="19" /></sub> Did you know?
-
-- <img src="./assets/icons/recent.svg" alt="" width="16" /> I watch over **100 movies and TV series every year** — from timeless classics to fresh releases.
-- <img src="./assets/icons/userscripts.svg" alt="" width="16" /> I love tweaking code for fun — the best bugs are the ones you make yourself.
-- <img src="./assets/icons/korean-flag.svg" alt="South Korea" width="18" /> Currently learning Korean — **한글 배우는 중!**
-
 <p align="center">
   <a href="https://simkl.com/598901/dashboard/">
     <img src="./assets/buttons/simkl-history.svg" alt="View full history on Simkl" />
   </a>
 </p>
+
+### <sub><img src="./assets/icons/idea.svg" alt="" width="19" /></sub> Did you know?
+
+- <img src="./assets/icons/recent.svg" alt="" width="16" /> I watch over **100 movies and TV series every year** — from timeless classics to fresh releases.
+- <img src="./assets/icons/userscripts.svg" alt="" width="16" /> I love tweaking code for fun — the best bugs are the ones you make yourself.
+- <img src="./assets/icons/korean-flag.svg" alt="South Korea" width="18" /> Currently learning Korean — **한글 배우는 중!**
 
 <p align="center"><em>Stay creative. Keep coding.</em></p>
 
@@ -141,7 +140,13 @@ Moderator and metadata contributor focused on Portuguese accuracy and consistenc
 
 ## <sub><img src="./assets/icons/stats.svg" alt="" width="22" /></sub> GitHub
 
-<p align="center"><img src="./assets/generated/profile-overview.svg" alt="GitHub Overview" width="48.8%" /><img src="./assets/spacer.svg" alt="" width="2.4%" height="1" /><img src="./assets/generated/profile-languages.svg" alt="Top Languages" width="48.8%" /></p>
+<p align="center">
+  <img src="./assets/generated/profile-overview.svg" alt="GitHub Overview" />
+</p>
+
+<p align="center">
+  <img src="./assets/generated/profile-languages.svg" alt="Top Languages" />
+</p>
 
 <p align="center">
   <img src="./assets/generated/profile-streak.svg" alt="GitHub Contribution Streak" width="100%" />

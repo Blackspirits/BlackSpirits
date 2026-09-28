@@ -44,6 +44,7 @@ jobs:
         run: python3 scripts/profile/generate.py
 
       - name: Generate recently watched
+        continue-on-error: true
         env:
           SIMKL_CLIENT_ID: ${{ secrets.SIMKL_CLIENT_ID }}
           SIMKL_ACCESS_TOKEN: ${{ secrets.SIMKL_ACCESS_TOKEN }}

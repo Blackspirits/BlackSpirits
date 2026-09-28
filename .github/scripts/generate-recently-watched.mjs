@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { writeFileSync, mkdirSync } from 'fs'
+import { writeFileSync, mkdirSync, existsSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
@@ -188,8 +188,12 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error(err)
+  console.error('Simkl refresh failed; keeping the last good card:', err)
   mkdirSync(OUT_DIR, { recursive: true })
-  writeFileSync(OUT_FILE, fallback('Failed to load Simkl history'), 'utf8')
-  process.exit(1)
+
+  if (!existsSync(OUT_FILE)) {
+    writeFileSync(OUT_FILE, fallback('Simkl history temporarily unavailable'), 'utf8')
+  }
+
+  process.exitCode = 0
 })
