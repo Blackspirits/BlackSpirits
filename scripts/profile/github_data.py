@@ -294,7 +294,10 @@ def build_data():
     window_total=sum(item["count"] for item in activity)
     active_days=sum(1 for item in activity if item["count"]>0)
     peak_item=max(activity,key=lambda item:item["count"])
-    account_years=max(0,(today-created.date()).days//365)
+    account_years=max(
+        0,
+        today.year-created.year-((today.month,today.day)<(created.month,created.day)),
+    )
 
     return {
         "profile_views": _profile_views(),
