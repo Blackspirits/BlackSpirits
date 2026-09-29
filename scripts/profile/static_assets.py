@@ -33,7 +33,7 @@ from theme import (  # noqa: E402
 
 # Lucide icons (24×24, stroke based) shared by buttons and cards.
 LUCIDE = {
-    "arrow": '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
+    "arrow": '<path d="M4 5l7 7-7 7"/><path d="M9 12h12"/>',
     "code": '<path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/>',
     "globe": '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
     "history": '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/>',
