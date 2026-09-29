@@ -342,26 +342,20 @@ def flag(label: str, body: str) -> str:
 
 # --------------------------------------------------------------------------- tagline globe
 
-def globe_icon() -> str:
-    """A small tilted globe seen slightly from above: rim, meridians, a parallel
-    and a lilac equator. Parallels are the front (lower) halves of ellipses."""
-    r, elev = 9.2, math.radians(22)
-
-    def parallel(lat: float, color: str, width: float) -> str:
-        phi = math.radians(lat)
-        cy = 12 - r * math.sin(phi) * math.cos(elev)
-        rx = r * math.cos(phi)
-        ry = rx * math.sin(elev)
-        return (f'<path d="M{12 - rx:.2f} {cy:.2f}A{rx:.2f} {ry:.2f} 0 0 0 {12 + rx:.2f} {cy:.2f}" '
-                f'stroke="{color}" stroke-width="{width}"/>')
-
+def globe_icon(width: float = 1.5) -> str:
+    """Front-facing globe (rim, centre meridian, meridian ellipse, equator and
+    two curved parallels) stroked with one cyan → blue → lilac → peach gradient."""
+    sky = "#89dceb"
+    grad = (f'<linearGradient id="g" gradientUnits="userSpaceOnUse" x1="2" y1="8" x2="22" y2="16">'
+            f'<stop offset="0" stop-color="{sky}"/><stop offset=".45" stop-color="{BLUE}"/>'
+            f'<stop offset=".8" stop-color="{PURPLE}"/><stop offset="1" stop-color="{PEACH}"/></linearGradient>')
+    shapes = ('<circle cx="12" cy="12" r="10"/>'
+              '<ellipse cx="12" cy="12" rx="4.6" ry="10"/>'
+              '<path d="M12 2v20"/><path d="M2 12h20"/>'
+              '<path d="M4 6q8 5.2 16 0"/><path d="M4 18q8-5.2 16 0"/>')
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" '
-            f'stroke-linecap="round" role="img" aria-label="Globe">'
-            f'<defs><linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{TEAL}"/>'
-            f'<stop offset="1" stop-color="{BLUE}"/></linearGradient></defs>'
-            f'<g transform="rotate(-16 12 12)"><ellipse cx="12" cy="12" rx="4.3" ry="{r}" stroke="{BLUE}" stroke-width="1.3"/>'
-            f'{parallel(42, BLUE, 1.3)}{parallel(0, PURPLE, 1.5)}</g>'
-            f'<circle cx="12" cy="12" r="{r + .3:g}" stroke="url(#rim)" stroke-width="1.8"/></svg>\n')
+            f'role="img" aria-label="Globe"><defs>{grad}</defs>'
+            f'<g stroke="url(#g)" stroke-width="{width}" stroke-linecap="round" stroke-linejoin="round">{shapes}</g></svg>\n')
 
 
 # --------------------------------------------------------------------------- section icons
