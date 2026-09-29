@@ -28,7 +28,7 @@
 <img src="./assets/icons/localization.svg" alt="" width="17" /> European Portuguese (pt-PT) translator & reviewer with contributions across **100+ software and open-source projects**.  
 <img src="./assets/icons/tech.svg" alt="" width="17" /> Focused on automation, localization, media tooling and practical software.  
 <img src="./assets/icons/recent.svg" alt="" width="17" /> Contributor to media, subtitles and metadata communities.  
-<img src="./assets/icons/location.svg" alt="" width="17" /> <img src="./assets/icons/pt-flag.svg" alt="Portugal" width="18" /> From Portugal · <img src="./assets/icons/fr-flag.svg" alt="France" width="18" /> currently based in France.  
+<img src="./assets/icons/location.svg" alt="" width="17" /> Born in Portugal <img src="./assets/icons/pt-flag.svg" alt="Portugal" height="13" />, now based in France <img src="./assets/icons/fr-flag.svg" alt="France" height="13" />.  
 <img src="./assets/icons/travel.svg" alt="" width="17" /> Dreaming of exploring the world, one country at a time.
 
 
@@ -99,7 +99,7 @@ I contribute to software localization and linguistic review in **European Portug
 
 - <img src="./assets/icons/recent.svg" alt="" width="16" /> I watch over **100 movies and TV series every year** — from timeless classics to fresh releases.
 - <img src="./assets/icons/userscripts.svg" alt="" width="16" /> I love tweaking code for fun — the best bugs are the ones you make yourself.
-- <img src="./assets/icons/korean-flag.svg" alt="South Korea" width="18" /> Currently learning Korean — **한글 배우는 중!**
+- <img src="./assets/icons/korean-flag.svg" alt="South Korea" height="13" /> Currently learning Korean — **한글 배우는 중!**
 
 <div align="center"><img src="./assets/divider.svg" alt="" aria-hidden="true" /></div>
 

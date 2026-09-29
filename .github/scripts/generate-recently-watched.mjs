@@ -134,7 +134,6 @@ const FONT = 'Segoe UI, Ubuntu, Arial, sans-serif'
 function card(item, index) {
   const x = PAD + index * (CARD_W + GAP)
   const posterX = (CARD_W - POSTER_W) / 2
-  const color = item.type === 'movie' ? C.blue : C.peach
   const title = escapeXml(truncate(item.title, 17))
   const meta = escapeXml(`${item.type === 'movie' ? 'Movie' : 'Series'}${item.year ? ` · ${item.year}` : ''}`)
   const when = escapeXml(relativeDate(item.watchedAt))
@@ -149,7 +148,6 @@ function card(item, index) {
     <defs><clipPath id="${clipId}"><rect x="${posterX}" width="${POSTER_W}" height="${POSTER_H}" rx="9"/></clipPath></defs>
     ${artwork}
     <rect x="${posterX}" width="${POSTER_W}" height="${POSTER_H}" rx="9" fill="none" stroke="${C.grid}"/>
-    <circle cx="${posterX + 11}" cy="11" r="4.5" fill="${color}" stroke="${C.deep}" stroke-width="1.5"/>
     <text x="${CARD_W / 2}" y="${POSTER_H + 24}" text-anchor="middle" fill="${C.text}" font-size="12.5" font-weight="700">${title}</text>
     <text x="${CARD_W / 2}" y="${POSTER_H + 42}" text-anchor="middle" fill="${C.subtext}" font-size="11">${meta}</text>
     <text x="${CARD_W / 2}" y="${POSTER_H + 59}" text-anchor="middle" fill="${C.muted}" font-size="11">${when}</text>

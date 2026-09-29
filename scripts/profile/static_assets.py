@@ -15,6 +15,7 @@ Brand logos live in logos.py.
 from __future__ import annotations
 
 import base64
+import math
 import sys
 from pathlib import Path
 from xml.sax.saxutils import escape
@@ -37,10 +38,14 @@ LUCIDE = {
     "code": '<path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/>',
     "globe": '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
     "history": '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/>',
-    "card": '<rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/>',
-    "coffee": '<path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/>',
     "mail": '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/>',
     "heart": '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>',
+}
+
+# Hand-drawn stroke glyphs on an 18×18 grid, closer to the brands than Lucide.
+GLYPH18 = {
+    "stripe": '<rect x="1" y="2" width="16" height="12" rx="2"/><path d="M1 6h16M4 10h4"/>',
+    "bmc": '<path d="M4 2h10l-1 13H5L4 2Z"/><path d="M3 5h12M7 0h4"/>',
 }
 
 # Filled brand glyphs (24×24).
@@ -88,10 +93,10 @@ def frame(w: float, h: float, title: str, subtitle: str) -> str:
 BUTTONS = {
     "localization-portfolio": ("Localization Portfolio", PURPLE, "globe"),
     "simkl-history": ("Full History on Simkl", BLUE, "history"),
-    "stripe": ("Stripe", PURPLE, "card"),
+    "stripe": ("Stripe", PURPLE, "stripe"),
     "paypal": ("PayPal", BLUE, "paypal"),
     "kofi": ("Ko-fi", RED, "kofi"),
-    "buy-me-a-coffee": ("Buy Me a Coffee", YELLOW, "coffee"),
+    "buy-me-a-coffee": ("Buy Me a Coffee", YELLOW, "bmc"),
     "email": ("Email", TEAL, "mail"),
 }
 
@@ -100,8 +105,13 @@ def button(label: str, color: str, glyph: str) -> str:
     h = 38
     text_x = 38
     w = round(text_x + text_width(label, 13) + 12 + 14 + 14)
-    mark = (f'<g transform="translate(12 10) scale(.75)" fill="{color}">{BRAND[glyph]}</g>' if glyph in BRAND
-            else icon(glyph, color, 12, 10, 18, 2.1))
+    if glyph in BRAND:
+        mark = f'<g transform="translate(12 10) scale(.75)" fill="{color}">{BRAND[glyph]}</g>'
+    elif glyph in GLYPH18:
+        mark = (f'<g transform="translate(12 11)" fill="none" stroke="{color}" stroke-width="1.7" '
+                f'stroke-linecap="round" stroke-linejoin="round">{GLYPH18[glyph]}</g>')
+    else:
+        mark = icon(glyph, color, 12, 10, 18, 2.1)
     body = (f'<rect x=".75" y=".75" width="{w - 1.5}" height="{h - 1.5}" rx="9" fill="#232334" stroke="{BORDER}" stroke-width="1.5"/>'
             f'<path d="M9 1.5a7.5 7.5 0 0 0-7.5 7.5v20A7.5 7.5 0 0 0 9 36.5" fill="none" stroke="{color}" stroke-width="3" stroke-linecap="round"/>'
             f'{mark}'
@@ -124,6 +134,7 @@ WORK = {
 }
 LOGOS_DIR = ROOT / "assets" / "logos"
 FRAMED_LOGOS = {"thetvdb.png"}
+LOGO_TILES = {"pipocas.png": "#fbb150"}  # brand background behind a transparent logo
 
 
 def raster(name: str) -> str:
@@ -139,8 +150,9 @@ def work_mark(mark: str, color: str) -> str:
                 f'<image href="{raster(mark)}" x="18" y="18" width="40" height="40" clip-path="url(#mark)"/>'
                 f'<rect x="18.5" y="18.5" width="39" height="39" rx="9.5" fill="none" stroke="{BORDER}"/>')
     tile = f'<rect x="18" y="18" width="40" height="40" rx="10" fill="{color}" fill-opacity=".12" stroke="{color}" stroke-opacity=".35"/>'
-    if mark.endswith(".png"):
-        return tile + f'<image href="{raster(mark)}" x="23" y="23" width="30" height="30"/>'
+    if mark in LOGO_TILES:
+        return (f'<rect x="18" y="18" width="40" height="40" rx="10" fill="{LOGO_TILES[mark]}"/>'
+                f'<image href="{raster(mark)}" x="22" y="22" width="32" height="32"/>')
     return tile + icon(mark, color, 27, 27, 22, 1.9)
 WORK_W = (CARD_W - 2 * 12) / 3
 
@@ -240,7 +252,7 @@ def stack(logos: list[tuple[str, float, str]]) -> str:
 # --------------------------------------------------------------------------- hero banner
 
 HERO_W, HERO_H = 1200, 360
-HERO_PILLS = (("Developer", PURPLE), ("Owner & Admin · Pipocas.tv", BLUE), ("Moderator · TheTVDB", PEACH))
+HERO_PILLS = (("Programmer", PURPLE), ("Owner / Admin Pipocas.tv", BLUE), ("Mod TheTVDB", PEACH))
 
 
 def hero() -> str:
@@ -268,11 +280,11 @@ def hero() -> str:
   <circle cx="{ring_x}" cy="{ring_y}" r="170" fill="{BLUE}" opacity=".08" filter="url(#soft)"/>
   <circle cx="720" cy="330" r="130" fill="{PEACH}" opacity=".06" filter="url(#soft)"/>
   <g font-family="{sans}">
-    <text x="80" y="92" fill="{MUTED}" font-family="{mono}" font-size="15" font-weight="600" letter-spacing="1.5">PORTUGAL → FRANCE · CINEMA, TV &amp; MUSIC · TRAVEL</text>
+    <text x="80" y="92" fill="{MUTED}" font-family="{mono}" font-size="17" font-weight="600" letter-spacing="1.2">CINEMA, TV &amp; MUSIC · ADVENTURE &amp; TRAVEL · PORTUGAL</text>
     <text x="80" y="150" fill="{TEXT}" font-size="46" font-weight="800">Hello, World! I’m BlackSpirits</text>
-    <text x="80" y="193" fill="{SUBTEXT}" font-size="20" font-weight="500">pt-PT translator &amp; reviewer · open-source contributor · automation</text>
+    <text x="80" y="193" fill="{SUBTEXT}" font-size="20" font-weight="500">Developer · open-source contributor · pt-PT translator &amp; reviewer</text>
     {"".join(pills)}
-    <text x="80" y="310" fill="#9399b2" font-family="{mono}" font-size="16" font-weight="700">JavaScript · TypeScript · Python · C# · Userscripts · Localization</text>
+    <text x="80" y="312" fill="#9399b2" font-family="{mono}" font-size="18" font-weight="700">JavaScript · TypeScript · Python · C# · Userscripts · Media &amp; Metadata</text>
   </g>
   <g transform="translate({ring_x} {ring_y})">
     <circle r="92" fill="none" stroke="url(#ring)" stroke-width="2" opacity=".35"/>
@@ -285,6 +297,56 @@ def hero() -> str:
 </g>
 <rect x=".5" y=".5" width="{HERO_W - 1}" height="{HERO_H - 1}" rx="24" fill="none" stroke="{TEXT}" stroke-opacity=".16"/>'''
     return svg(HERO_W, HERO_H, "BlackSpirits — Portuguese developer, open-source contributor and pt-PT translator & reviewer", body)
+
+
+# --------------------------------------------------------------------------- flags
+
+# 3:2 flags, simplified so they stay legible at 14px high.
+FLAG_W, FLAG_H = 30, 20
+FLAGS = {
+    "pt-flag": ("Portugal",
+                '<rect width="12" height="20" fill="#046A38"/><rect x="12" width="18" height="20" fill="#DA291C"/>'
+                '<circle cx="12" cy="10" r="5.2" fill="none" stroke="#FFD100" stroke-width="1.6"/>'
+                '<path d="M9.6 6.9h4.8v4.3c0 1.6-1.1 2.5-2.4 2.9-1.3-.4-2.4-1.3-2.4-2.9Z" fill="#fff" stroke="#DA291C" stroke-width=".9"/>'
+                '<path d="M12 8.6v3.4M10.8 10.3h2.4" stroke="#003399" stroke-width="1.1" stroke-linecap="round"/>'),
+    "fr-flag": ("France",
+                '<rect width="10" height="20" fill="#002654"/><rect x="10" width="10" height="20" fill="#fff"/>'
+                '<rect x="20" width="10" height="20" fill="#ED2939"/>'),
+    "korean-flag": ("South Korea", None),  # drawn by korean_flag()
+}
+
+
+def korean_flag() -> str:
+    """Taegeuk tilted along the flag diagonal, with the four trigrams around it."""
+    cx, cy = FLAG_W / 2, FLAG_H / 2
+    angle = math.degrees(math.atan2(FLAG_H, FLAG_W))
+    body = [f'<rect width="{FLAG_W}" height="{FLAG_H}" fill="#fff"/>',
+            f'<g transform="translate({cx:g} {cy:g}) rotate({angle:.1f})">'
+            '<path d="M-5 0A5 5 0 0 1 5 0A2.5 2.5 0 0 0 0 0A2.5 2.5 0 0 1-5 0Z" fill="#CD2E3A"/>'
+            '<path d="M-5 0A5 5 0 0 0 5 0A2.5 2.5 0 0 0 0 0A2.5 2.5 0 0 1-5 0Z" fill="#0047A0"/></g>']
+    # (corner direction, bars from the centre outwards: True = solid, False = broken)
+    trigrams = (((-1, -1), (True, True, True)), ((1, 1), (False, False, False)),
+                ((1, -1), (False, True, False)), ((-1, 1), (True, False, True)))
+    diag = math.hypot(FLAG_W, FLAG_H)
+    for (sx, sy), bars in trigrams:
+        ux, uy = sx * FLAG_W / diag, sy * FLAG_H / diag      # towards the corner
+        px, py = -uy, ux                                      # along each bar
+        for i, solid in enumerate(bars):
+            d = 8.2 + i * 1.9
+            bx, by = cx + ux * d, cy + uy * d
+            half, gap = 2.6, 0.45
+            spans = ((-half, half),) if solid else ((-half, -gap), (gap, half))
+            for s0, s1 in spans:
+                body.append(f'<path d="M{bx + px * s0:.2f} {by + py * s0:.2f}L{bx + px * s1:.2f} {by + py * s1:.2f}" '
+                            'stroke="#000" stroke-width="1.15"/>')
+    return "".join(body)
+
+
+def flag(label: str, body: str) -> str:
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{FLAG_W}" height="{FLAG_H}" viewBox="0 0 {FLAG_W} {FLAG_H}" '
+            f'role="img" aria-label="{label}"><defs><clipPath id="f"><rect width="{FLAG_W}" height="{FLAG_H}" rx="3"/></clipPath></defs>'
+            f'<g clip-path="url(#f)">{body}</g>'
+            f'<rect x=".5" y=".5" width="{FLAG_W - 1}" height="{FLAG_H - 1}" rx="2.5" fill="none" stroke="#000" stroke-opacity=".25"/></svg>\n')
 
 
 # --------------------------------------------------------------------------- section icons
@@ -312,6 +374,8 @@ def main() -> None:
     (assets / "tech" / "stack.svg").write_text(stack(STACK), encoding="utf-8")
 
     (assets / "profile-hero.svg").write_text(hero(), encoding="utf-8")
+    for name, (label, body) in FLAGS.items():
+        (assets / "icons" / f"{name}.svg").write_text(flag(label, body or korean_flag()), encoding="utf-8")
 
     for name, (glyph, color) in SECTION_ICONS.items():
         (assets / "icons" / f"{name}.svg").write_text(section_icon(glyph, color), encoding="utf-8")
