@@ -4,7 +4,7 @@
       <path d="M8 1.5a6.5 6.5 0 0 0-6.5 6.5v26A6.5 6.5 0 0 0 8 40.5" fill="none" stroke="#cba6f7" stroke-width="2.5" stroke-linecap="round"/>
       <g transform="translate(14 9) scale(.75)" fill="none" stroke="#cba6f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/></g>
       <text x="44" y="16" fill="#7f849c" font-size="10.5" font-weight="600">Views</text>
-      <text x="44" y="31" fill="#cdd6f4" font-size="13" font-weight="700">3,134</text>
+      <text x="44" y="31" fill="#cdd6f4" font-size="13" font-weight="700">3,143</text>
     </g><g transform="translate(178.0 5)">
       <rect width="164" height="42" rx="10" fill="#181825" stroke="#45475a" stroke-width="1.2"/>
       <path d="M8 1.5a6.5 6.5 0 0 0-6.5 6.5v26A6.5 6.5 0 0 0 8 40.5" fill="none" stroke="#f9e2af" stroke-width="2.5" stroke-linecap="round"/>
