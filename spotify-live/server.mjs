@@ -129,6 +129,7 @@ function render({ artist = 'Spotify', song = 'Nothing playing right now', status
 
 async function getCard() {
   const response = await fetch(SOURCE, {
+    signal: AbortSignal.timeout(10000),
     headers: {
       'User-Agent': 'BlackSpirits-live-spotify-card',
       'Cache-Control': 'no-cache',

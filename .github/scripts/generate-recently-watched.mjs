@@ -56,6 +56,7 @@ function relativeDate(iso) {
 
 async function simklGet(path) {
   const res = await fetch(`https://api.simkl.com${path}`, {
+    signal: AbortSignal.timeout(20000),
     headers: {
       'simkl-api-key': CLIENT_ID,
       'Authorization': `Bearer ${ACCESS_TOKEN}`,
@@ -76,7 +77,7 @@ async function imageDataUrl(poster) {
   const url = posterUrl(poster)
   if (!url) return ''
   try {
-    const res = await fetch(url)
+    const res = await fetch(url, { signal: AbortSignal.timeout(15000) })
     if (!res.ok) return ''
     const type = res.headers.get('content-type') || 'image/webp'
     const bytes = Buffer.from(await res.arrayBuffer())
