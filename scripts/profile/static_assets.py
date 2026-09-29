@@ -342,7 +342,7 @@ def flag(label: str, body: str) -> str:
 
 # --------------------------------------------------------------------------- tagline globe
 
-def globe_icon(width: float = 1.5, tilt: float = -18, elevation: float = 16) -> str:
+def globe_icon(width: float = 1.7, grid: float = 1.25, tilt: float = -18, elevation: float = 16) -> str:
     """A wireframe globe seen slightly from above and tilted on its axis.
 
     Meridians and parallels are projected from a real sphere and only their
@@ -360,7 +360,7 @@ def globe_icon(width: float = 1.5, tilt: float = -18, elevation: float = 16) -> 
         y, z = y * math.cos(e) - z * math.sin(e), y * math.sin(e) + z * math.cos(e)
         return 12 + x, 12 - y, z
 
-    def visible_path(points: list[tuple[float, float, float]]) -> str:
+    def visible_path(points: list[tuple[float, float, float]], extra: str = "") -> str:
         runs, run = [], []
         for x, y, z in points:
             if z >= -0.05:
@@ -370,7 +370,7 @@ def globe_icon(width: float = 1.5, tilt: float = -18, elevation: float = 16) -> 
                 run = []
         if run:
             runs.append(run)
-        return "".join(f'<path d="M{"L".join(run)}"/>' for run in runs if len(run) > 1)
+        return "".join(f'<path d="M{"L".join(run)}"{extra}/>' for run in runs if len(run) > 1)
 
     steps = [i * 3 for i in range(121)]
     lines = []
@@ -380,7 +380,8 @@ def globe_icon(width: float = 1.5, tilt: float = -18, elevation: float = 16) -> 
         pts = [project(lat, -180 + t) for t in steps]
         # Rotate the ring so the hidden stretch sits at the ends of the list.
         hidden = next((i for i, p in enumerate(pts) if p[2] < 0), 0)
-        lines.append(visible_path(pts[hidden:] + pts[:hidden]))
+        # The southern parallel sits in the densest corner; keep it quieter.
+        lines.append(visible_path(pts[hidden:] + pts[:hidden], ' stroke-opacity=".55"' if lat < 0 else ""))
 
     sky = "#89dceb"
     grad = (f'<linearGradient id="g" gradientUnits="userSpaceOnUse" x1="2" y1="8" x2="22" y2="16">'
@@ -388,9 +389,9 @@ def globe_icon(width: float = 1.5, tilt: float = -18, elevation: float = 16) -> 
             f'<stop offset=".8" stop-color="{PURPLE}"/><stop offset="1" stop-color="{PEACH}"/></linearGradient>')
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" '
             f'role="img" aria-label="Globe"><defs>{grad}</defs>'
-            f'<g stroke="url(#g)" stroke-width="{width}" stroke-linecap="round" stroke-linejoin="round">'
-            f'<g transform="rotate({tilt} 12 12)">{"".join(lines)}</g>'
-            f'<circle cx="12" cy="12" r="{r:g}"/></g></svg>\n')
+            f'<g stroke="url(#g)" stroke-linecap="round" stroke-linejoin="round">'
+            f'<g transform="rotate({tilt} 12 12)" stroke-width="{grid}">{"".join(lines)}</g>'
+            f'<circle cx="12" cy="12" r="{r:g}" stroke-width="{width}"/></g></svg>\n')
 
 
 # --------------------------------------------------------------------------- section icons
