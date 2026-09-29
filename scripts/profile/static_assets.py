@@ -340,10 +340,33 @@ def flag(label: str, body: str) -> str:
             f'<rect x=".5" y=".5" width="{FLAG_W - 1}" height="{FLAG_H - 1}" rx="2.5" fill="none" stroke="#000" stroke-opacity=".25"/></svg>\n')
 
 
+# --------------------------------------------------------------------------- tagline globe
+
+def globe_icon() -> str:
+    """A small tilted globe seen slightly from above: rim, meridians, a parallel
+    and a lilac equator. Parallels are the front (lower) halves of ellipses."""
+    r, elev = 9.2, math.radians(22)
+
+    def parallel(lat: float, color: str, width: float) -> str:
+        phi = math.radians(lat)
+        cy = 12 - r * math.sin(phi) * math.cos(elev)
+        rx = r * math.cos(phi)
+        ry = rx * math.sin(elev)
+        return (f'<path d="M{12 - rx:.2f} {cy:.2f}A{rx:.2f} {ry:.2f} 0 0 0 {12 + rx:.2f} {cy:.2f}" '
+                f'stroke="{color}" stroke-width="{width}"/>')
+
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" '
+            f'stroke-linecap="round" role="img" aria-label="Globe">'
+            f'<defs><linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{TEAL}"/>'
+            f'<stop offset="1" stop-color="{BLUE}"/></linearGradient></defs>'
+            f'<g transform="rotate(-16 12 12)"><ellipse cx="12" cy="12" rx="4.3" ry="{r}" stroke="{BLUE}" stroke-width="1.3"/>'
+            f'{parallel(42, BLUE, 1.3)}{parallel(0, PURPLE, 1.5)}</g>'
+            f'<circle cx="12" cy="12" r="{r + .3:g}" stroke="url(#rim)" stroke-width="1.8"/></svg>\n')
+
+
 # --------------------------------------------------------------------------- section icons
 
-SECTION_ICONS = {"support": ("heart", RED), "coffee": ("coffee", YELLOW), "wave": ("wave", PEACH),
-                 "globe": ("globe", BLUE)}
+SECTION_ICONS = {"support": ("heart", RED), "coffee": ("coffee", YELLOW), "wave": ("wave", PEACH)}
 
 
 def section_icon(glyph: str, color: str) -> str:
@@ -371,6 +394,7 @@ def main() -> None:
     for name, (label, body) in FLAGS.items():
         (assets / "icons" / f"{name}.svg").write_text(flag(label, body or korean_flag()), encoding="utf-8")
 
+    (assets / "icons" / "globe.svg").write_text(globe_icon(), encoding="utf-8")
     for name, (glyph, color) in SECTION_ICONS.items():
         (assets / "icons" / f"{name}.svg").write_text(section_icon(glyph, color), encoding="utf-8")
     print("Static assets written.")
