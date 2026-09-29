@@ -13,7 +13,7 @@
     <g transform="translate(616 124)">
       <circle r="46" fill="#181825" stroke="#45475a" stroke-width="1.5"/>
       <circle r="36" fill="none" stroke="#313244" stroke-width="7"/>
-      <circle r="36" fill="none" stroke="#fab387" stroke-width="7" stroke-linecap="round" stroke-dasharray="158.3 67.9" transform="rotate(-90)"/>
+      <circle r="36" fill="none" stroke="#fab387" stroke-width="7" stroke-linecap="round" stroke-dasharray="144.5 81.7" transform="rotate(-90)"/>
       <text y="9" text-anchor="middle" fill="#cdd6f4" font-size="26" font-weight="800">A-</text>
       <text y="66" text-anchor="middle" fill="#fab387" font-size="11" font-weight="700" letter-spacing=".6">PROFILE RANK</text>
     </g>

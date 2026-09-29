@@ -70,6 +70,9 @@ function coverFrom(svg) {
   return tag.slice(from, end).replace(/\s+/g, '')
 }
 
+// Simple Icons "spotify" mark (24×24).
+const SPOTIFY_ICON = 'M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z'
+
 // Same 720px canvas as the other profile cards, so GitHub scales them alike.
 const W = 720
 const H = 258
@@ -101,8 +104,9 @@ function render({ artist = 'Spotify', song = 'Nothing playing right now', status
           '</rect>'
       }).join('')
     : '<line x1="' + TEXT_X + '" y1="' + (bottom - 12) + '" x2="' + (W - 22) + '" y2="' + (bottom - 12) + '" stroke="' + C.surface + '"/>'
-  const spotifyLogo = '<circle r="20" fill="' + C.green + '"/>' +
-    '<path d="M-10.5 -5c7.5-2.4 16-1.6 22.4 1.6M-8.8 1.6c5.6-1.6 12.8-.8 18.4 1.6M-7.2 7.2c4.4-.8 9.6-.3 13.6 1.2" fill="none" stroke="' + C.deep + '" stroke-width="2.6" stroke-linecap="round"/>'
+  // Official Spotify icon: brand green with black sound waves.
+  const spotifyLogo = '<circle r="19" fill="#000"/>' +
+    '<path transform="translate(-20 -20) scale(1.6667)" fill="#1ED760" d="' + SPOTIFY_ICON + '"/>'
   return '<svg width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Spotify ' +
     esc(status) + ': ' + esc(songText) + ' by ' + esc(artistText) + '">' +
     '<defs><linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="' + C.purple + '"/><stop offset=".55" stop-color="' + C.blue + '"/><stop offset="1" stop-color="' + C.peach + '"/></linearGradient></defs>' +
@@ -112,7 +116,7 @@ function render({ artist = 'Spotify', song = 'Nothing playing right now', status
     '<text x="22" y="48" fill="' + C.text + '" font-size="20" font-weight="700">Spotify</text>' +
     '<text x="22" y="68" fill="' + C.muted + '" font-size="12">Now playing / recently played</text>' +
     coverMarkup +
-    '<text x="' + TEXT_X + '" y="110" fill="' + C.green + '" font-size="11.5" font-weight="800" letter-spacing=".8">' + esc(status).toUpperCase() + '</text>' +
+    '<text x="' + TEXT_X + '" y="110" fill="#1ED760" font-size="11.5" font-weight="800" letter-spacing=".8">' + esc(status).toUpperCase() + '</text>' +
     '<text x="' + TEXT_X + '" y="146" fill="' + C.text + '" font-size="28" font-weight="800">' + esc(songText) + '</text>' +
     '<text x="' + TEXT_X + '" y="174" fill="' + C.sub + '" font-size="15" font-weight="650">' + esc(artistText) + '</text>' +
     waveform +

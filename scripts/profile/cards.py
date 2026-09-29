@@ -129,11 +129,16 @@ def overview(d,username):
     {"".join(legend)}
   </g></svg>'''
 
+# Material "whatshot" flame, the same mark github-readme-streak-stats uses.
+FLAME=("M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36"
+       "C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67z"
+       "M11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58"
+       ".39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z")
+
 def streak(d,username):
     created=d["created"]
-    ring=163 if d["current"] else 0
     desc=f'{d["total"]} total contributions, current streak {d["current"]} days, longest streak {d["longest"]} days.'
-    return _head(720,190,f"{username} Contribution Streak",desc)+_frame(720,190)+f'''
+    return _head(720,200,f"{username} Contribution Streak",desc)+_frame(720,200)+f'''
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">Contribution Streak</text>
     <text x="22" y="67" fill="{MUTED}" font-size="12" font-weight="500">Consistency across my GitHub history</text>
@@ -146,12 +151,15 @@ def streak(d,username):
         <text x="0" y="161" fill="{MUTED}" font-size="11">{created.day} {created.strftime("%b %Y")} · Present</text>
       </g>
       <g transform="translate(360 0)">
-        <circle cx="0" cy="110" r="31" fill="{BG_DEEP}" stroke="{SURFACE}" stroke-width="6"/>
-        <circle cx="0" cy="110" r="31" fill="none" stroke="{PEACH}" stroke-width="6" stroke-linecap="round" stroke-dasharray="{ring} {195-ring}" transform="rotate(-90 0 110)"/>
-        <path d="M0 74 C-5 79 -7 84 -4 89 C-1 85 2 83 4 78 C8 83 9 88 6 92 C12 89 14 83 11 77 C8 73 4 70 4 66 C1 68 -1 71 0 74Z" fill="{PEACH}"/>
-        <text x="0" y="118" fill="{TEXT}" font-size="27" font-weight="800">{d["current"]}</text>
-        <text x="0" y="160" fill="{PURPLE}" font-size="13" font-weight="700">Current Streak</text>
-        <text x="0" y="177" fill="{MUTED}" font-size="11">{_range(d["current_start"],d["current_end"])}</text>
+        <defs><mask id="ring-gap" maskUnits="userSpaceOnUse" x="-60" y="50" width="120" height="120">
+          <rect x="-60" y="50" width="120" height="120" fill="#fff"/>
+          <ellipse cx="0" cy="78" rx="14" ry="17" fill="#000"/>
+        </mask></defs>
+        <circle cx="0" cy="112" r="34" fill="none" stroke="{PEACH}" stroke-width="5" mask="url(#ring-gap)"/>
+        <path transform="translate(-12 63)" fill="{PEACH}" d="{FLAME}"/>
+        <text x="0" y="121" fill="{TEXT}" font-size="27" font-weight="800">{d["current"]}</text>
+        <text x="0" y="164" fill="{PURPLE}" font-size="13" font-weight="700">Current Streak</text>
+        <text x="0" y="181" fill="{MUTED}" font-size="11">{_range(d["current_start"],d["current_end"])}</text>
       </g>
       <g transform="translate(600 0)">
         <text x="0" y="117" fill="{TEXT}" font-size="31" font-weight="800">{d["longest"]}</text>

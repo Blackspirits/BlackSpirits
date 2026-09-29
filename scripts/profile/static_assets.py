@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """Build the hand-curated README assets from the shared theme.
 
+Covers the hero banner, buttons, project cards, the localization grid and the
+stack. The hero also ships as profile-hero.webp, a fallback rendered from the
+SVG; re-export it after changing the banner.
+
 These assets do not depend on live data, so the scheduled workflow never runs
 this script. Run it after editing a label, a colour or a layout:
 
@@ -10,6 +14,7 @@ Brand logos live in logos.py.
 """
 from __future__ import annotations
 
+import base64
 import sys
 from pathlib import Path
 from xml.sax.saxutils import escape
@@ -30,8 +35,6 @@ RED = "#f38ba8"
 LUCIDE = {
     "arrow": '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
     "code": '<path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/>',
-    "popcorn": '<path d="M18 8a2 2 0 0 0 0-4 2 2 0 0 0-4 0 2 2 0 0 0-4 0 2 2 0 0 0-4 0 2 2 0 0 0 0 4"/><path d="M10 22 9 8"/><path d="m14 22 1-14"/><path d="M20 8c.5 0 .9.4.8 1l-2.6 12c-.1.5-.7 1-1.2 1H7c-.6 0-1.1-.4-1.2-1L3.2 9c-.1-.6.3-1 .8-1Z"/>',
-    "tv": '<rect width="20" height="15" x="2" y="7" rx="2"/><path d="m17 2-5 5-5-5"/>',
     "globe": '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
     "history": '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/>',
     "card": '<rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/>',
@@ -109,14 +112,36 @@ def button(label: str, color: str, glyph: str) -> str:
 
 # --------------------------------------------------------------------------- selected work
 
+# The mark is a Lucide icon name, or a raster logo in assets/logos/ that is
+# embedded so the card stays self-contained when GitHub serves it as an image.
 WORK = {
     "userscripts": ("UserScripts", "Maintainer", GREEN, "code",
                     ("Browser tools for automation,", "media and everyday UX."), "View repository"),
-    "pipocas": ("Pipocas.tv", "Owner · Admin", PEACH, "popcorn",
+    "pipocas": ("Pipocas.tv", "Owner · Admin", PEACH, "pipocas.png",
                 ("Portuguese subtitle community:", "development and moderation."), "Visit pipocas.tv"),
-    "thetvdb": ("TheTVDB", "Moderator", TEAL, "tv",
+    "thetvdb": ("TheTVDB", "Moderator", TEAL, "thetvdb.png",
                 ("Keeping Portuguese metadata", "accurate and consistent."), "Visit thetvdb.com"),
 }
+LOGOS_DIR = ROOT / "assets" / "logos"
+FRAMED_LOGOS = {"thetvdb.png"}
+
+
+def raster(name: str) -> str:
+    data = base64.b64encode((LOGOS_DIR / name).read_bytes()).decode()
+    return f"data:image/png;base64,{data}"
+
+
+def work_mark(mark: str, color: str) -> str:
+    """The 40px tile in the top-left corner of a work card."""
+    if mark in FRAMED_LOGOS:
+        # TheTVDB's app icon already carries its own dark tile.
+        return (f'<defs><clipPath id="mark"><rect x="18" y="18" width="40" height="40" rx="10"/></clipPath></defs>'
+                f'<image href="{raster(mark)}" x="18" y="18" width="40" height="40" clip-path="url(#mark)"/>'
+                f'<rect x="18.5" y="18.5" width="39" height="39" rx="9.5" fill="none" stroke="{BORDER}"/>')
+    tile = f'<rect x="18" y="18" width="40" height="40" rx="10" fill="{color}" fill-opacity=".12" stroke="{color}" stroke-opacity=".35"/>'
+    if mark.endswith(".png"):
+        return tile + f'<image href="{raster(mark)}" x="23" y="23" width="30" height="30"/>'
+    return tile + icon(mark, color, 27, 27, 22, 1.9)
 WORK_W = (CARD_W - 2 * 12) / 3
 
 
@@ -124,11 +149,10 @@ def work_card(title: str, role: str, color: str, glyph: str, lines: tuple[str, s
     w, h = WORK_W, 156
     body = [
         f'<rect x=".75" y=".75" width="{w - 1.5:g}" height="{h - 1.5}" rx="12" fill="{BG}" stroke="{BORDER}" stroke-width="1.5"/>',
-        f'<rect x="18" y="18" width="38" height="38" rx="10" fill="{color}" fill-opacity=".12" stroke="{color}" stroke-opacity=".35"/>',
-        icon(glyph, color, 26, 26, 22, 1.9),
+        work_mark(glyph, color),
         f'<g font-family="{FONT}">',
-        f'<text x="68" y="34" fill="{TEXT}" font-size="15" font-weight="700">{escape(title)}</text>',
-        f'<text x="68" y="52" fill="{color}" font-size="12" font-weight="600">{escape(role)}</text>',
+        f'<text x="70" y="35" fill="{TEXT}" font-size="15" font-weight="700">{escape(title)}</text>',
+        f'<text x="70" y="53" fill="{color}" font-size="12" font-weight="600">{escape(role)}</text>',
         f'<text x="18" y="86" fill="{SUBTEXT}" font-size="12.5">{escape(lines[0])}</text>',
         f'<text x="18" y="104" fill="{SUBTEXT}" font-size="12.5">{escape(lines[1])}</text>',
         f'<line x1="18" y1="120.5" x2="{w - 18:g}" y2="120.5" stroke="#313244"/>',
@@ -213,6 +237,56 @@ def stack(logos: list[tuple[str, float, str]]) -> str:
                f'<g font-family="{FONT}">{body}</g>', ACCENT)
 
 
+# --------------------------------------------------------------------------- hero banner
+
+HERO_W, HERO_H = 1200, 360
+HERO_PILLS = (("Developer", PURPLE), ("Owner & Admin · Pipocas.tv", BLUE), ("Moderator · TheTVDB", PEACH))
+
+
+def hero() -> str:
+    """Left column for who I am, right column for where to find me."""
+    sans = "system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Liberation Sans,Arial,sans-serif"
+    mono = "ui-monospace,SFMono-Regular,Menlo,Consolas,Liberation Mono,monospace"
+    x = 80
+    pills = []
+    for label, color in HERO_PILLS:
+        # Heavy system fonts run ~15% wider than the Arial Bold table.
+        w = round(text_width(label, 16) * 1.15 + 36)
+        pills.append(f'<g transform="translate({x} 222)"><rect width="{w}" height="38" rx="12" fill="{color}"/>'
+                     f'<text x="{w / 2:g}" y="25" text-anchor="middle" fill="#11111b" font-family="{sans}" font-size="16" font-weight="800">{escape(label)}</text></g>')
+        x += w + 14
+    ring_x, ring_y = 1030, 150
+    body = f'''<defs>
+  <clipPath id="round"><rect width="{HERO_W}" height="{HERO_H}" rx="24"/></clipPath>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#181825"/><stop offset="1" stop-color="{BG}"/></linearGradient>
+  <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{PURPLE}"/><stop offset=".5" stop-color="{BLUE}"/><stop offset="1" stop-color="{PEACH}"/></linearGradient>
+  <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="40"/></filter>
+</defs>
+<g clip-path="url(#round)">
+  <rect width="{HERO_W}" height="{HERO_H}" fill="url(#bg)"/>
+  <circle cx="180" cy="60" r="150" fill="#b4befe" opacity=".10" filter="url(#soft)"/>
+  <circle cx="{ring_x}" cy="{ring_y}" r="170" fill="{BLUE}" opacity=".08" filter="url(#soft)"/>
+  <circle cx="720" cy="330" r="130" fill="{PEACH}" opacity=".06" filter="url(#soft)"/>
+  <g font-family="{sans}">
+    <text x="80" y="92" fill="{MUTED}" font-family="{mono}" font-size="15" font-weight="600" letter-spacing="1.5">PORTUGAL → FRANCE · CINEMA, TV &amp; MUSIC · TRAVEL</text>
+    <text x="80" y="150" fill="{TEXT}" font-size="46" font-weight="800">Hello, World! I’m BlackSpirits</text>
+    <text x="80" y="193" fill="{SUBTEXT}" font-size="20" font-weight="500">pt-PT translator &amp; reviewer · open-source contributor · automation</text>
+    {"".join(pills)}
+    <text x="80" y="310" fill="#9399b2" font-family="{mono}" font-size="16" font-weight="700">JavaScript · TypeScript · Python · C# · Userscripts · Localization</text>
+  </g>
+  <g transform="translate({ring_x} {ring_y})">
+    <circle r="92" fill="none" stroke="url(#ring)" stroke-width="2" opacity=".35"/>
+    <circle r="62" fill="none" stroke="url(#ring)" stroke-width="13"/>
+  </g>
+  <g font-family="{sans}" text-anchor="middle">
+    <text x="{ring_x}" y="{ring_y + 140}" fill="{PURPLE}" font-size="17" font-weight="700">blackspirits.github.io</text>
+    <text x="{ring_x}" y="{ring_y + 164}" fill="{MUTED}" font-size="14" font-weight="600">@blackspirits</text>
+  </g>
+</g>
+<rect x=".5" y=".5" width="{HERO_W - 1}" height="{HERO_H - 1}" rx="24" fill="none" stroke="{TEXT}" stroke-opacity=".16"/>'''
+    return svg(HERO_W, HERO_H, "BlackSpirits — Portuguese developer, open-source contributor and pt-PT translator & reviewer", body)
+
+
 # --------------------------------------------------------------------------- section icons
 
 SECTION_ICONS = {"support": ("heart", RED)}
@@ -236,6 +310,8 @@ def main() -> None:
         raise SystemExit("STACK_ROWS does not match the logos in logos.py.")
     (assets / "localization" / "projects.svg").write_text(projects(PROJECTS), encoding="utf-8")
     (assets / "tech" / "stack.svg").write_text(stack(STACK), encoding="utf-8")
+
+    (assets / "profile-hero.svg").write_text(hero(), encoding="utf-8")
 
     for name, (glyph, color) in SECTION_ICONS.items():
         (assets / "icons" / f"{name}.svg").write_text(section_icon(glyph, color), encoding="utf-8")
