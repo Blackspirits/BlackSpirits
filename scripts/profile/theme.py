@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import math
 from pathlib import Path
 
 # theme.json is the single source of truth, shared with the Node generators.
@@ -44,12 +45,16 @@ LANG_FALLBACK = {
 
 
 def compact(n: int) -> str:
+    """Short count, truncated rather than rounded so 9,967 reads 9.9k and never
+    claims a threshold (10.0k) that has not been reached yet."""
     if n < 1000:
         return f"{n:,}"
     if n < 1_000_000:
         value = n / 1000
-        return f"{value:.1f}k" if value < 100 else f"{value:.0f}k"
-    return f"{n / 1_000_000:.1f}m"
+        if value < 100:
+            return f"{math.floor(value * 10) / 10:.1f}k"
+        return f"{math.floor(value)}k"
+    return f"{math.floor(n / 100_000) / 10:.1f}m"
 
 
 def _exp(x):
