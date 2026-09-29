@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { writeFileSync, mkdirSync, existsSync } from 'fs'
+import { writeFileSync, mkdirSync, existsSync, readFileSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath, pathToFileURL } from 'url'
 
@@ -12,17 +12,19 @@ const CLIENT_ID = process.env.SIMKL_CLIENT_ID
 const ACCESS_TOKEN = process.env.SIMKL_ACCESS_TOKEN
 const LIMIT = 5
 
+// Colours come from the shared profile theme.
+const THEME = JSON.parse(readFileSync(join(ROOT, 'scripts', 'profile', 'theme.json'), 'utf8'))
 const C = {
-  base: '#1e1e2e',
-  deep: '#181825',
-  border: '#45475a',
-  grid: '#313244',
-  muted: '#7f849c',
-  text: '#cdd6f4',
-  subtext: '#a6adc8',
-  blue: '#89b4fa',
-  purple: '#cba6f7',
-  peach: '#fab387',
+  base: THEME.bg,
+  deep: THEME.bgDeep,
+  border: THEME.border,
+  grid: THEME.surface,
+  muted: THEME.muted,
+  text: THEME.text,
+  subtext: THEME.subtext,
+  blue: THEME.blue,
+  purple: THEME.purple,
+  peach: THEME.peach,
 }
 
 function escapeXml(str) {
@@ -121,7 +123,7 @@ async function fetchHistory() {
 }
 
 // Same canvas width as every other profile card, so GitHub scales them alike.
-const W = 720
+const W = THEME.cardWidth
 const H = 340
 const PAD = 22
 const GAP = 12
@@ -129,7 +131,7 @@ const TOP = 88
 const CARD_W = (W - PAD * 2 - GAP * 4) / 5
 const POSTER_W = 118
 const POSTER_H = 174
-const FONT = 'Segoe UI, Ubuntu, Arial, sans-serif'
+const FONT = THEME.font
 
 function card(item, index) {
   const x = PAD + index * (CARD_W + GAP)
@@ -157,7 +159,7 @@ function card(item, index) {
 function fallback(message = 'No recent history available') {
   return `<svg width="${W}" height="120" viewBox="0 0 ${W} 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${escapeXml(message)}">
     <rect x=".75" y=".75" width="${W - 1.5}" height="118.5" rx="12" fill="${C.base}" stroke="${C.border}" stroke-width="1.5"/>
-    <text x="${W / 2}" y="65" text-anchor="middle" fill="${C.muted}" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="14">${escapeXml(message)}</text>
+    <text x="${W / 2}" y="65" text-anchor="middle" fill="${C.muted}" font-family="${FONT}" font-size="14">${escapeXml(message)}</text>
   </svg>`
 }
 

@@ -15,6 +15,7 @@ Brand logos live in logos.py.
 from __future__ import annotations
 
 import base64
+import json
 import math
 import sys
 from pathlib import Path
@@ -26,11 +27,9 @@ sys.path.insert(0, str(HERE))
 
 from logos import PROJECTS, STACK  # noqa: E402
 from theme import (  # noqa: E402
-    BG, BG_DEEP, BORDER, BLUE, CARD_W, FONT, GREEN, MUTED, PEACH, PURPLE,
-    SUBTEXT, TEAL, TEXT, YELLOW, text_width,
+    BG, BG_DEEP, BORDER, BLUE, CARD_W, FONT, GREEN, MUTED, PEACH, PURPLE, RED,
+    SUBTEXT, TEAL, TEXT, THEME, YELLOW, text_width,
 )
-
-RED = "#f38ba8"
 
 # Lucide icons (24×24, stroke based) shared by buttons and cards.
 LUCIDE = {
@@ -53,17 +52,6 @@ BRAND = {
     "paypal": '<path d="M15.607 4.653H8.941L6.645 19.251H1.82L4.862 0h7.995c3.754 0 6.375 2.294 6.473 5.513-.648-.478-2.105-.86-3.722-.86m6.57 5.546c0 3.41-3.01 6.853-6.958 6.853h-2.493L11.595 24H6.74l1.845-11.538h3.592c4.208 0 7.346-3.634 7.153-6.949a5.24 5.24 0 0 1 2.848 4.686M9.653 5.546h6.408c.907 0 1.942.222 2.363.541-.195 2.741-2.655 5.483-6.441 5.483H8.714Z"/>',
     "kofi": '<path d="M11.351 2.715c-2.7 0-4.986.025-6.83.26C2.078 3.285 0 5.154 0 8.61c0 3.506.182 6.13 1.585 8.493 1.584 2.701 4.233 4.182 7.662 4.182h.83c4.209 0 6.494-2.234 7.637-4a9.5 9.5 0 0 0 1.091-2.338C21.792 14.688 24 12.22 24 9.208v-.415c0-3.247-2.13-5.507-5.792-5.87-1.558-.156-2.65-.208-6.857-.208m0 1.947c4.208 0 5.09.052 6.571.182 2.624.311 4.13 1.584 4.13 4v.39c0 2.156-1.792 3.844-3.87 3.844h-.935l-.156.649c-.208 1.013-.597 1.818-1.039 2.546-.909 1.428-2.545 3.064-5.922 3.064h-.805c-2.571 0-4.831-.883-6.078-3.195-1.09-2-1.298-4.155-1.298-7.506 0-2.181.857-3.402 3.012-3.714 1.533-.233 3.559-.26 6.39-.26m6.547 2.287c-.416 0-.65.234-.65.546v2.935c0 .311.234.545.65.545 1.324 0 2.051-.754 2.051-2s-.727-2.026-2.052-2.026m-10.39.182c-1.818 0-3.013 1.48-3.013 3.142 0 1.533.858 2.857 1.949 3.897.727.701 1.87 1.429 2.649 1.896a1.47 1.47 0 0 0 1.507 0c.78-.467 1.922-1.195 2.623-1.896 1.117-1.039 1.974-2.364 1.974-3.897 0-1.662-1.247-3.142-3.039-3.142-1.065 0-1.792.545-2.338 1.298-.493-.753-1.246-1.298-2.312-1.298"/>',
 }
-
-# Two-tone Python mark on an 18×18 grid; the halves are separated by a
-# background-coloured outline so they read as interlocking at small sizes.
-PYTHON_LOGO = (
-    f'<g transform="translate(10 8)">'
-    f'<g fill="#3776ab"><rect x="4.5" y="1" width="7" height="7.2" rx="2"/><rect x="1.5" y="5.4" width="6.6" height="6.2" rx="2"/></g>'
-    f'<g fill="#ffd343" stroke="{BG_DEEP}" stroke-width="1.6"><rect x="6.5" y="9.8" width="7" height="7.2" rx="2"/><rect x="9.9" y="6.4" width="6.6" height="6.2" rx="2"/></g>'
-    f'<g fill="#ffd343"><rect x="6.5" y="9.8" width="7" height="7.2" rx="2"/><rect x="9.9" y="6.4" width="6.6" height="6.2" rx="2"/></g>'
-    f'<circle cx="6.6" cy="3" r=".85" fill="#fff"/><circle cx="11.4" cy="15" r=".85" fill="#3776ab"/>'
-    f'</g>'
-)
 
 
 def icon(name: str, color: str, x: float, y: float, size: float = 18, width: float = 2) -> str:
@@ -236,7 +224,7 @@ def stack(logos: list[tuple[str, float, str]]) -> str:
         for size in _balanced_lines(widths, room, gap):
             x = x0
             for (name, native, logo), w in zip(chips[start:start + size], widths[start:start + size]):
-                mark = PYTHON_LOGO if name == "Python" else place_logo(logo, native, 10, 8, 18)
+                mark = place_logo(logo, native, 10, 8, 18)
                 rows_svg.append(f'<g transform="translate({x} {y})"><rect x=".5" y=".5" width="{w - 1}" height="{chip_h - 1}" rx="9" fill="{BG_DEEP}" stroke="{BORDER}"/>'
                                 f'{mark}<text x="38" y="21.5" fill="{TEXT}" font-size="12.5" font-weight="650">{escape(name)}</text></g>')
                 x += w + gap
@@ -374,6 +362,8 @@ def main() -> None:
     (assets / "tech" / "stack.svg").write_text(stack(STACK), encoding="utf-8")
 
     (assets / "profile-hero.svg").write_text(hero(), encoding="utf-8")
+    # The Spotify service deploys from spotify-live/ alone, so it gets its own copy.
+    (ROOT / "spotify-live" / "theme.json").write_text(json.dumps(THEME, indent=2) + "\n", encoding="utf-8")
     for name, (label, body) in FLAGS.items():
         (assets / "icons" / f"{name}.svg").write_text(flag(label, body or korean_flag()), encoding="utf-8")
 

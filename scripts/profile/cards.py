@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import math
 from xml.sax.saxutils import escape
-from theme import BG,BG_DEEP,SURFACE,BORDER,TEXT,SUBTEXT,MUTED,PURPLE,BLUE,PEACH,TEAL,YELLOW,FONT,CARD_W,compact,text_width
+from theme import BG,BG_DEEP,SURFACE,BORDER,TEXT,SUBTEXT,MUTED,PURPLE,BLUE,PEACH,TEAL,YELLOW,SILVER,FONT,CARD_W,compact,text_width
 
 def _head(w,h,title,desc):
     return f'''<svg width="{w}" height="{h}" viewBox="0 0 {w} {h}" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
@@ -25,7 +25,7 @@ def _range(a,b):
 
 def _tier(value,thresholds):
     names=("Bronze","Silver","Gold","Platinum","Diamond")
-    colors=("#fab387","#bac2de","#f9e2af","#cba6f7","#89b4fa")
+    colors=(PEACH,SILVER,YELLOW,PURPLE,BLUE)
     idx=0
     for i,t in enumerate(thresholds):
         if value>=t:
@@ -139,7 +139,7 @@ def streak(d,username):
     created=d["created"]
     desc=f'{d["total"]} total contributions, current streak {d["current"]} days, longest streak {d["longest"]} days.'
     return _head(720,200,f"{username} Contribution Streak",desc)+_frame(720,200)+f'''
-  <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
+  <g font-family="{FONT}">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">Contribution Streak</text>
     <text x="22" y="67" fill="{MUTED}" font-size="12" font-weight="500">Consistency across my GitHub history</text>
     <line x1="240" y1="84" x2="240" y2="166" stroke="{SURFACE}"/>
@@ -211,7 +211,7 @@ def trophies(d,username):
         badges.append(f'<g transform="translate({bx:.1f} 377)"><rect width="{bw:.1f}" height="28" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="15" cy="14" r="4" fill="{color}"/><text x="28" y="18.5" fill="{TEXT}" font-size="11.5" font-weight="700">{escape(name)}</text></g>')
         bx+=bw+10
     return _head(720,420,f"{username} GitHub Trophies & Achievements","Custom milestone tiers plus manually curated official GitHub achievements.")+_frame(720,420)+f'''
-  <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
+  <g font-family="{FONT}">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">GitHub Trophies &amp; Achievements</text>
     <text x="22" y="67" fill="{MUTED}" font-size="12" font-weight="500">Milestones · Bronze → Silver → Gold → Platinum → Diamond</text>
     {"".join(trophy_cards)}
@@ -255,7 +255,7 @@ def activity(d,username):
   <defs><linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{PURPLE}"/><stop offset=".55" stop-color="{BLUE}"/><stop offset="1" stop-color="{PEACH}"/></linearGradient>
     <linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{PURPLE}" stop-opacity=".28"/><stop offset="1" stop-color="{PURPLE}" stop-opacity="0"/></linearGradient></defs>
   {_frame(W,H)}
-  <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
+  <g font-family="{FONT}">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">Contribution Activity</text>
     <text x="22" y="68" fill="{MUTED}" font-size="12" font-weight="500">Last 31 days · {total:,} contributions in this window</text>
     <text x="{W-right}" y="48" text-anchor="end" fill="{PEACH}" font-size="12" font-weight="700">Peak · {peak}</text>

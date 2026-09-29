@@ -1,26 +1,35 @@
 from __future__ import annotations
 
-BG = "#1e1e2e"
-BG_DEEP = "#181825"
-SURFACE = "#313244"
-BORDER = "#45475a"
+import json
+from pathlib import Path
 
-TEXT = "#cdd6f4"
-SUBTEXT = "#a6adc8"
-MUTED = "#7f849c"
+# theme.json is the single source of truth, shared with the Node generators.
+THEME = json.loads((Path(__file__).with_name("theme.json")).read_text(encoding="utf-8"))
 
-PURPLE = "#cba6f7"
-BLUE = "#89b4fa"
-PEACH = "#fab387"
-TEAL = "#94e2d5"
-YELLOW = "#f9e2af"
-GREEN = "#a6e3a1"
-PINK = "#f5c2e7"
+BG = THEME["bg"]
+BG_DEEP = THEME["bgDeep"]
+SURFACE = THEME["surface"]
+BORDER = THEME["border"]
 
-FONT = "Segoe UI, Ubuntu, Arial, sans-serif"
+TEXT = THEME["text"]
+SUBTEXT = THEME["subtext"]
+MUTED = THEME["muted"]
+
+PURPLE = THEME["purple"]
+BLUE = THEME["blue"]
+PEACH = THEME["peach"]
+TEAL = THEME["teal"]
+YELLOW = THEME["yellow"]
+GREEN = THEME["green"]
+PINK = THEME["pink"]
+RED = THEME["red"]
+SILVER = THEME["silver"]
+
+FONT = THEME["font"]
 
 # Every card shares one canvas width so GitHub scales them identically.
-CARD_W = 720
+CARD_W = THEME["cardWidth"]
+
 
 LANG_FALLBACK = {
     "JavaScript": "#f1e05a",

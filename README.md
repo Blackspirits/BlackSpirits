@@ -68,9 +68,9 @@ I contribute to software localization and linguistic review in **European Portug
 ## <sub><img src="./assets/icons/work.svg" alt="" width="22" /></sub> Selected Work
 
 <p align="center">
-  <a href="https://github.com/BlackSpirits/UserScripts-UserStyles"><img src="./assets/work/userscripts.svg" alt="UserScripts — browser tools for automation, media and everyday UX. View repository." width="32%" /></a>
-  <a href="https://pipocas.tv"><img src="./assets/work/pipocas.svg" alt="Pipocas.tv — owner and admin of a Portuguese subtitle community. Visit pipocas.tv." width="32%" /></a>
-  <a href="https://www.thetvdb.com"><img src="./assets/work/thetvdb.svg" alt="TheTVDB — moderator keeping Portuguese metadata accurate and consistent. Visit thetvdb.com." width="32%" /></a>
+  <a href="https://github.com/BlackSpirits/UserScripts-UserStyles"><img src="./assets/work/userscripts.svg" alt="UserScripts — browser tools for automation, media and everyday UX. View repository." width="270" /></a>
+  <a href="https://pipocas.tv"><img src="./assets/work/pipocas.svg" alt="Pipocas.tv — owner and admin of a Portuguese subtitle community. Visit pipocas.tv." width="270" /></a>
+  <a href="https://www.thetvdb.com"><img src="./assets/work/thetvdb.svg" alt="TheTVDB — moderator keeping Portuguese metadata accurate and consistent. Visit thetvdb.com." width="270" /></a>
 </p>
 
 <div align="center"><img src="./assets/divider.svg" alt="" aria-hidden="true" /></div>

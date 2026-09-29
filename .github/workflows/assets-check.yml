@@ -1,0 +1,46 @@
+name: Check profile assets
+
+# Fails when a committed SVG no longer matches what the generators produce,
+# e.g. after editing theme.json or a label without re-running static_assets.py.
+on:
+  push:
+    paths:
+      - "scripts/profile/**"
+      - "assets/**"
+      - "spotify-live/**"
+      - ".github/scripts/**"
+      - ".github/workflows/assets-check.yml"
+  pull_request:
+    paths:
+      - "scripts/profile/**"
+      - "assets/**"
+      - "spotify-live/**"
+      - ".github/scripts/**"
+      - ".github/workflows/assets-check.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+
+      - name: Syntax check
+        run: |
+          python3 -m py_compile scripts/profile/*.py
+          node --check .github/scripts/generate-recently-watched.mjs
+          node --check spotify-live/server.mjs
+
+      - name: Regenerate static assets
+        run: python3 scripts/profile/static_assets.py
+
+      - name: Committed assets are up to date
+        run: |
+          if ! git diff --exit-code --stat || [ -n "$(git status --porcelain)" ]; then
+            git status --short
+            echo "::error::Static assets are stale. Run: python3 scripts/profile/static_assets.py"
+            exit 1
+          fi

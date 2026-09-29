@@ -1,4 +1,5 @@
 import http from 'node:http'
+import { readFileSync } from 'node:fs'
 
 const PORT = process.env.PORT || 10000
 const UID = '11175393066'
@@ -7,18 +8,20 @@ const SOURCE =
   UID +
   '&cover_image=true&theme=default&background_color=1e1e2e&bar_color=cba6f7&bar_color_cover=false&border_radius=12&show_offline=false'
 
+// Copy of scripts/profile/theme.json, written by static_assets.py.
+const THEME = JSON.parse(readFileSync(new URL('./theme.json', import.meta.url), 'utf8'))
 const C = {
-  bg: '#1e1e2e',
-  deep: '#181825',
-  border: '#45475a',
-  surface: '#313244',
-  text: '#cdd6f4',
-  sub: '#a6adc8',
-  muted: '#7f849c',
-  green: '#a6e3a1',
-  blue: '#89b4fa',
-  purple: '#cba6f7',
-  peach: '#fab387',
+  bg: THEME.bg,
+  deep: THEME.bgDeep,
+  border: THEME.border,
+  surface: THEME.surface,
+  text: THEME.text,
+  sub: THEME.subtext,
+  muted: THEME.muted,
+  green: THEME.green,
+  blue: THEME.blue,
+  purple: THEME.purple,
+  peach: THEME.peach,
 }
 
 function decodeEntities(s = '') {
@@ -74,7 +77,7 @@ function coverFrom(svg) {
 const SPOTIFY_ICON = 'M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z'
 
 // Same 720px canvas as the other profile cards, so GitHub scales them alike.
-const W = 720
+const W = THEME.cardWidth
 const H = 258
 const COVER = { x: 22, y: 86, size: 150 }
 const TEXT_X = 196
@@ -112,7 +115,7 @@ function render({ artist = 'Spotify', song = 'Nothing playing right now', status
     '<defs><linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="' + C.purple + '"/><stop offset=".55" stop-color="' + C.blue + '"/><stop offset="1" stop-color="' + C.peach + '"/></linearGradient></defs>' +
     '<rect x=".75" y=".75" width="' + (W - 1.5) + '" height="' + (H - 1.5) + '" rx="12" fill="' + C.bg + '" stroke="' + C.border + '" stroke-width="1.5"/>' +
     '<rect x="22" y="20" width="88" height="3" rx="1.5" fill="url(#accent)"/>' +
-    '<g font-family="Segoe UI, Ubuntu, Arial, sans-serif">' +
+    '<g font-family="' + THEME.font + '">' +
     '<text x="22" y="48" fill="' + C.text + '" font-size="20" font-weight="700">Spotify</text>' +
     '<text x="22" y="68" fill="' + C.muted + '" font-size="12">Now playing / recently played</text>' +
     coverMarkup +
