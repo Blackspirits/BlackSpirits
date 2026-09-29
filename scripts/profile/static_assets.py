@@ -342,21 +342,23 @@ def flag(label: str, body: str) -> str:
 
 # --------------------------------------------------------------------------- tagline globe
 
-def globe_icon(width: float = 1.5, tilt: float = -20) -> str:
+def globe_icon(width: float = 1.7, inner: float = 1.25, tilt: float = -20) -> str:
     """Classic globe grid (rim, centre meridian, meridian ellipse, equator and
     two curved parallels) tilted on its axis, stroked with one
-    cyan -> blue -> lilac -> peach gradient."""
+    cyan -> blue -> lilac -> peach gradient. The rim is heavier than the grid
+    and the lower parallel is quieter, so it stays readable at 20px."""
     grid = ('<ellipse cx="12" cy="12" rx="4.6" ry="10"/>'
             '<path d="M12 2v20"/><path d="M2 12h20"/>'
-            '<path d="M4 6q8 5.2 16 0"/><path d="M4 18q8-5.2 16 0"/>')
+            '<path d="M4 6q8 5.2 16 0"/><path d="M4 18q8-5.2 16 0" stroke-opacity=".55"/>')
     sky = "#89dceb"
     grad = (f'<linearGradient id="g" gradientUnits="userSpaceOnUse" x1="2" y1="8" x2="22" y2="16">'
             f'<stop offset="0" stop-color="{sky}"/><stop offset=".45" stop-color="{BLUE}"/>'
             f'<stop offset=".8" stop-color="{PURPLE}"/><stop offset="1" stop-color="{PEACH}"/></linearGradient>')
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" '
             f'role="img" aria-label="Globe"><defs>{grad}</defs>'
-            f'<g stroke="url(#g)" stroke-width="{width}" stroke-linecap="round" stroke-linejoin="round">'
-            f'<circle cx="12" cy="12" r="10"/><g transform="rotate({tilt} 12 12)">{grid}</g></g></svg>\n')
+            f'<g stroke="url(#g)" stroke-linecap="round" stroke-linejoin="round">'
+            f'<circle cx="12" cy="12" r="10" stroke-width="{width}"/>'
+            f'<g transform="rotate({tilt} 12 12)" stroke-width="{inner}">{grid}</g></g></svg>\n')
 
 
 # --------------------------------------------------------------------------- section icons
