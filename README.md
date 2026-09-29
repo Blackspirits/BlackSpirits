@@ -13,7 +13,7 @@
   </a>
 </p>
 
-<h3 align="center">Born to explore. Coded to connect. 🌍</h3>
+<h3 align="center">Born to explore. Coded to connect. <sub><img src="./assets/icons/globe.svg" alt="" height="20" /></sub></h3>
 
 <p align="center">
   <img src="./assets/generated/profile-meta.svg" alt="Profile views, followers, latest profile update and open-source role" width="100%" />
@@ -98,7 +98,7 @@ I contribute to software localization and linguistic review in **European Portug
 ### <sub><img src="./assets/icons/idea.svg" alt="" width="19" /></sub> Did you know?
 
 - <img src="./assets/icons/recent.svg" alt="" width="16" /> I watch over **100 movies and TV series every year** — from timeless classics to fresh releases.
-- <img src="./assets/icons/userscripts.svg" alt="" width="16" /> I love tweaking code for fun — the best bugs are the ones you make yourself.
+- <img src="./assets/icons/userscripts.svg" alt="" width="16" /> If a website gets in my way, I write a userscript to fix it.
 - <img src="./assets/icons/korean-flag.svg" alt="South Korea" height="13" /> Currently learning Korean — **한글 배우는 중!**
 
 <div align="center"><img src="./assets/divider.svg" alt="" aria-hidden="true" /></div>

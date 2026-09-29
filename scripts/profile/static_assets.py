@@ -342,7 +342,8 @@ def flag(label: str, body: str) -> str:
 
 # --------------------------------------------------------------------------- section icons
 
-SECTION_ICONS = {"support": ("heart", RED), "coffee": ("coffee", YELLOW), "wave": ("wave", PEACH)}
+SECTION_ICONS = {"support": ("heart", RED), "coffee": ("coffee", YELLOW), "wave": ("wave", PEACH),
+                 "globe": ("globe", BLUE)}
 
 
 def section_icon(glyph: str, color: str) -> str:

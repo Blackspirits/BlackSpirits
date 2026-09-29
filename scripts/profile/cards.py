@@ -203,21 +203,24 @@ def trophies(d,username):
       <rect x="14" y="66" width="303" height="4" rx="2" fill="{SURFACE}"/>
       <rect x="14" y="66" width="{303*frac:.1f}" height="4" rx="2" fill="{color}"/>
     </g>''')
-    # Scraped from the public profile by github_data._achievements(); the list
-    # below is only the fallback when that page cannot be read.
+    # Scraped from the public profile on each run; generate.py falls back to the
+    # last successful read, and FALLBACK_ACHIEVEMENTS only covers a first run
+    # with no cache at all. Badges wrap onto extra rows as more are earned.
     earned=d.get("achievements") or FALLBACK_ACHIEVEMENTS
     palette=(PURPLE,BLUE,TEAL,PEACH,YELLOW)
     ach_label="Official achievements"
-    bx=22+text_width(ach_label,12)+16
+    row_x=22+text_width(ach_label,12)+16
+    bx,by=row_x,377
     badges=[]
     for i,(name,count) in enumerate(earned):
         label=f"{name} ×{count}" if count>1 else name
         bw=text_width(label,11.5)+42
-        if bx+bw>698:
-            break
-        badges.append(f'<g transform="translate({bx:.1f} 377)"><rect width="{bw:.1f}" height="28" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="15" cy="14" r="4" fill="{palette[i%len(palette)]}"/><text x="28" y="18.5" fill="{TEXT}" font-size="11.5" font-weight="700">{escape(label)}</text></g>')
+        if bx+bw>698 and bx>row_x:
+            bx,by=row_x,by+38
+        badges.append(f'<g transform="translate({bx:.1f} {by})"><rect width="{bw:.1f}" height="28" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="15" cy="14" r="4" fill="{palette[i%len(palette)]}"/><text x="28" y="18.5" fill="{TEXT}" font-size="11.5" font-weight="700">{escape(label)}</text></g>')
         bx+=bw+10
-    return _head(720,420,f"{username} GitHub Trophies & Achievements","Custom milestone tiers plus the official GitHub achievements on the profile.")+_frame(720,420)+f'''
+    H=by+28+15
+    return _head(720,H,f"{username} GitHub Trophies & Achievements","Custom milestone tiers plus the official GitHub achievements on the profile.")+_frame(720,H)+f'''
   <g font-family="{FONT}">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">GitHub Trophies &amp; Achievements</text>
     <text x="22" y="67" fill="{MUTED}" font-size="12" font-weight="500">Milestones · Bronze → Silver → Gold → Platinum → Diamond</text>
