@@ -1,13 +1,1 @@
-<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="South Korea">
-  <rect x=".75" y=".75" width="22.5" height="22.5" rx="6" fill="#ffffff" stroke="#45475a" stroke-width="1.5"/>
-  <g transform="translate(12 12)">
-    <path d="M0-5a5 5 0 0 1 0 10 2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 0 0-5Z" fill="#cd2e3a"/>
-    <path d="M0 5A5 5 0 0 1 0-5a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 0 0 5Z" fill="#0047a0"/>
-  </g>
-  <g stroke="#181825" stroke-width="1.1" stroke-linecap="round">
-    <path d="M5.2 5.8 7.6 3.4M4.2 4.8 6.6 2.4M6.2 6.8 8.6 4.4"/>
-    <path d="m16.4 20.6 2.4-2.4m-3.4 1.4 2.4-2.4m-.4 4.4 2.4-2.4"/>
-    <path d="m17.8 3.3 2.4 2.4m-3.4-1.4 2.4 2.4m-4.4-1.4 2.4 2.4"/>
-    <path d="m3.8 18.2 2.4 2.4m-1.4-3.4 2.4 2.4m-4.4-1.4 2.4 2.4"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 30 20" role="img" aria-label="South Korea"><defs><clipPath id="f"><rect width="30" height="20" rx="3"/></clipPath></defs><g clip-path="url(#f)"><rect width="30" height="20" fill="#fff"/><g transform="translate(15 10) rotate(33.7)"><path d="M-5 0A5 5 0 0 1 5 0A2.5 2.5 0 0 0 0 0A2.5 2.5 0 0 1-5 0Z" fill="#CD2E3A"/><path d="M-5 0A5 5 0 0 0 5 0A2.5 2.5 0 0 0 0 0A2.5 2.5 0 0 1-5 0Z" fill="#0047A0"/></g><path d="M6.73 7.61L9.62 3.29" stroke="#000" stroke-width="1.15"/><path d="M5.15 6.56L8.04 2.23" stroke="#000" stroke-width="1.15"/><path d="M3.57 5.51L6.46 1.18" stroke="#000" stroke-width="1.15"/><path d="M23.27 12.39L22.07 14.17" stroke="#000" stroke-width="1.15"/><path d="M21.57 14.92L20.38 16.71" stroke="#000" stroke-width="1.15"/><path d="M24.85 13.44L23.65 15.23" stroke="#000" stroke-width="1.15"/><path d="M23.15 15.98L21.96 17.77" stroke="#000" stroke-width="1.15"/><path d="M26.43 14.49L25.23 16.28" stroke="#000" stroke-width="1.15"/><path d="M24.73 17.03L23.54 18.82" stroke="#000" stroke-width="1.15"/><path d="M20.38 3.29L21.57 5.08" stroke="#000" stroke-width="1.15"/><path d="M22.07 5.83L23.27 7.61" stroke="#000" stroke-width="1.15"/><path d="M21.96 2.23L24.85 6.56" stroke="#000" stroke-width="1.15"/><path d="M23.54 1.18L24.73 2.97" stroke="#000" stroke-width="1.15"/><path d="M25.23 3.72L26.43 5.51" stroke="#000" stroke-width="1.15"/><path d="M9.62 16.71L6.73 12.39" stroke="#000" stroke-width="1.15"/><path d="M8.04 17.77L6.85 15.98" stroke="#000" stroke-width="1.15"/><path d="M6.35 15.23L5.15 13.44" stroke="#000" stroke-width="1.15"/><path d="M6.46 18.82L3.57 14.49" stroke="#000" stroke-width="1.15"/></g><rect x=".5" y=".5" width="29" height="19" rx="2.5" fill="none" stroke="#000" stroke-opacity=".25"/></svg>

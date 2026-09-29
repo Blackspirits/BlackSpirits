@@ -1,29 +1,25 @@
-<svg width="467" height="195" viewBox="0 0 467 195" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Blackspirits GitHub Overview</title><desc id="desc">5 stars, 9928 commits, 754 pull requests, 42 issues, 98 public repositories, 16 followers, rank A-.</desc>
+<svg width="720" height="290" viewBox="0 0 720 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Blackspirits GitHub Overview</title><desc id="desc">5 stars, 9928 commits, 754 pull requests, 42 issues, 98 public repositories, 16 followers, rank A-. Languages: JavaScript 67.0%, Python 13.8%, CSS 10.2%, HTML 9.1%.</desc>
   <defs><linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
     <stop offset="0" stop-color="#cba6f7"/><stop offset=".55" stop-color="#89b4fa"/><stop offset="1" stop-color="#fab387"/>
-  </linearGradient></defs><rect x=".75" y=".75" width="465.5" height="193.5" rx="12" fill="#1e1e2e" stroke="#45475a" stroke-width="1.5"/>
+  </linearGradient></defs>
+  <clipPath id="bar"><rect x="22" y="236" width="676" height="10" rx="5"/></clipPath><rect x=".75" y=".75" width="718.5" height="288.5" rx="12" fill="#1e1e2e" stroke="#45475a" stroke-width="1.5"/>
   <rect x="22" y="20" width="88" height="3" rx="1.5" fill="url(#accent)"/>
   <g font-family="Segoe UI, Ubuntu, Arial, sans-serif">
     <text x="22" y="48" fill="#cdd6f4" font-size="20" font-weight="700">GitHub Overview</text>
-    <text x="22" y="67" fill="#7f849c" font-size="11.5" font-weight="500">@Blackspirits · GitHub since 2015</text>
-    <g transform="translate(22 89)">
-      <g><text x="0" y="14" fill="#cba6f7" font-size="19" font-weight="750">5</text><text x="0" y="32" fill="#a6adc8" font-size="11.5">Stars</text></g>
-      <g transform="translate(82 0)"><text x="0" y="14" fill="#89b4fa" font-size="19" font-weight="750">9.9k</text><text x="0" y="32" fill="#a6adc8" font-size="11.5">Commits</text></g>
-      <g transform="translate(178 0)"><text x="0" y="14" fill="#94e2d5" font-size="19" font-weight="750">754</text><text x="0" y="32" fill="#a6adc8" font-size="11.5">Pull requests</text></g>
-      <g transform="translate(260 0)"><text x="0" y="14" fill="#f9e2af" font-size="19" font-weight="750">42</text><text x="0" y="32" fill="#a6adc8" font-size="11.5">Issues</text></g>
+    <text x="22" y="68" fill="#7f849c" font-size="12" font-weight="500">@Blackspirits · GitHub since 2015</text>
+    <g transform="translate(22 92)"><text y="18" fill="#cba6f7" font-size="24" font-weight="800">5</text><text y="38" fill="#a6adc8" font-size="12">Stars</text></g><g transform="translate(144 92)"><text y="18" fill="#89b4fa" font-size="24" font-weight="800">9.9k</text><text y="38" fill="#a6adc8" font-size="12">Commits</text></g><g transform="translate(266 92)"><text y="18" fill="#94e2d5" font-size="24" font-weight="800">754</text><text y="38" fill="#a6adc8" font-size="12">Pull requests</text></g><g transform="translate(388 92)"><text y="18" fill="#f9e2af" font-size="24" font-weight="800">42</text><text y="38" fill="#a6adc8" font-size="12">Issues</text></g><g transform="translate(22 152)"><text y="12" fill="#cdd6f4" font-size="14" font-weight="700">44</text><text y="30" fill="#7f849c" font-size="11">Repos contributed to</text></g><g transform="translate(185 152)"><text y="12" fill="#cdd6f4" font-size="14" font-weight="700">98</text><text y="30" fill="#7f849c" font-size="11">Public repos</text></g><g transform="translate(348 152)"><text y="12" fill="#cdd6f4" font-size="14" font-weight="700">16</text><text y="30" fill="#7f849c" font-size="11">Followers</text></g>
+    <line x1="22" y1="140.5" x2="500" y2="140.5" stroke="#313244"/>
+    <g transform="translate(616 124)">
+      <circle r="46" fill="#181825" stroke="#45475a" stroke-width="1.5"/>
+      <circle r="36" fill="none" stroke="#313244" stroke-width="7"/>
+      <circle r="36" fill="none" stroke="#fab387" stroke-width="7" stroke-linecap="round" stroke-dasharray="144.5 81.7" transform="rotate(-90)"/>
+      <text y="9" text-anchor="middle" fill="#cdd6f4" font-size="26" font-weight="800">A-</text>
+      <text y="66" text-anchor="middle" fill="#fab387" font-size="11" font-weight="700" letter-spacing=".6">PROFILE RANK</text>
     </g>
-    <line x1="22" y1="137.5" x2="330" y2="137.5" stroke="#313244"/>
-    <g transform="translate(22 146)">
-      <g><text x="0" y="10" fill="#cdd6f4" font-size="12.5" font-weight="700">44</text><text x="0" y="26" fill="#7f849c" font-size="9.5">Contributed</text></g>
-      <g transform="translate(100 0)"><text x="0" y="10" fill="#cdd6f4" font-size="12.5" font-weight="700">98</text><text x="0" y="26" fill="#7f849c" font-size="9.5">Public repos</text></g>
-      <g transform="translate(205 0)"><text x="0" y="10" fill="#cdd6f4" font-size="12.5" font-weight="700">16</text><text x="0" y="26" fill="#7f849c" font-size="9.5">Followers</text></g>
-    </g>
-    <g transform="translate(407 98)">
-      <circle cx="0" cy="0" r="42" fill="#181825" stroke="#45475a" stroke-width="1.5"/>
-      <circle cx="0" cy="0" r="34" fill="none" stroke="#313244" stroke-width="7"/>
-      <circle cx="0" cy="0" r="34" fill="none" stroke="#fab387" stroke-width="7" stroke-linecap="round" stroke-dasharray="136.5 77.2" transform="rotate(-90)"/>
-      <text x="0" y="7" text-anchor="middle" fill="#cdd6f4" font-size="25" font-weight="800">A-</text>
-      <text x="0" y="60" text-anchor="middle" fill="#fab387" font-size="10.5" font-weight="700">PROFILE RANK</text>
-    </g>
+    <line x1="22" y1="202.5" x2="698" y2="202.5" stroke="#313244"/>
+    <text x="22" y="224" fill="#a6adc8" font-size="12.5" font-weight="700">Languages</text>
+    <text x="698" y="224" text-anchor="end" fill="#7f849c" font-size="11.5">Top 4 of 4 · by code size</text>
+    <g clip-path="url(#bar)"><rect x="22.00" y="236" width="452.85" height="10" fill="#f1e05a"/><rect x="474.85" y="236" width="93.29" height="10" fill="#3572A5"/><rect x="568.14" y="236" width="68.61" height="10" fill="#663399"/><rect x="636.75" y="236" width="61.25" height="10" fill="#e34c26"/></g>
+    <circle cx="27.0" cy="266" r="5" fill="#f1e05a"/><text x="38.0" y="270.5" fill="#cdd6f4" font-size="12.5" font-weight="700">JavaScript</text><text x="107.2" y="270.5" fill="#7f849c" font-size="12">67.0%</text><circle cx="196.0" cy="266" r="5" fill="#3572A5"/><text x="207.0" y="270.5" fill="#cdd6f4" font-size="12.5" font-weight="700">Python</text><text x="255.4" y="270.5" fill="#7f849c" font-size="12">13.8%</text><circle cx="365.0" cy="266" r="5" fill="#663399"/><text x="376.0" y="270.5" fill="#cdd6f4" font-size="12.5" font-weight="700">CSS</text><text x="407.7" y="270.5" fill="#7f849c" font-size="12">10.2%</text><circle cx="534.0" cy="266" r="5" fill="#e34c26"/><text x="545.0" y="270.5" fill="#cdd6f4" font-size="12.5" font-weight="700">HTML</text><text x="585.7" y="270.5" fill="#7f849c" font-size="12">9.1%</text>
   </g></svg>

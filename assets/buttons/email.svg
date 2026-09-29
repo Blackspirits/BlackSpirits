@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100" height="38" viewBox="0 0 100 38" role="img" aria-label="Email">
-  <rect x=".75" y=".75" width="98.5" height="36.5" rx="9" fill="#232334" stroke="#45475a" stroke-width="1.5"/>
-  <path d="M9 1.5a7.5 7.5 0 0 0-7.5 7.5v20A7.5 7.5 0 0 0 9 36.5" fill="none" stroke="#94e2d5" stroke-width="3" stroke-linecap="round"/>
-  <g transform="translate(12 11)" fill="none" stroke="#94e2d5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="16" height="12" rx="2"/><path d="m2 5 7 5 7-5"/></g>
-  <text x="36" y="23" fill="#cdd6f4" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="13" font-weight="650">Email</text>
-  <path d="M74 15l4 4-4 4M77 19h7" fill="none" stroke="#94e2d5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="113" height="38" viewBox="0 0 113 38" role="img" aria-label="Email"><rect x=".75" y=".75" width="111.5" height="36.5" rx="9" fill="#232334" stroke="#45475a" stroke-width="1.5"/><path d="M9 1.5a7.5 7.5 0 0 0-7.5 7.5v20A7.5 7.5 0 0 0 9 36.5" fill="none" stroke="#94e2d5" stroke-width="3" stroke-linecap="round"/><g transform="translate(12 10) scale(0.7500)" fill="none" stroke="#94e2d5" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/></g><text x="38" y="23.5" fill="#cdd6f4" font-family="Segoe UI, Ubuntu, Arial, sans-serif" font-size="13" font-weight="650">Email</text><g transform="translate(85 12) scale(0.5833)" fill="none" stroke="#94e2d5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></g></svg>

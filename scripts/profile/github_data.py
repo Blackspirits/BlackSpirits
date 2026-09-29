@@ -5,6 +5,7 @@ import os
 import re
 import urllib.parse
 import urllib.request
+from html import unescape
 from collections import defaultdict
 from datetime import date, datetime, timedelta, timezone
 from theme import LANG_FALLBACK, PURPLE, calculate_rank
@@ -58,6 +59,35 @@ def _profile_views():
         return values[-1] if values else "—"
     except Exception:
         return "—"
+
+
+def _achievements():
+    """Official GitHub achievements as (name, tier count) pairs.
+
+    The API does not expose achievements, so this reads the public
+    achievements tab. It returns [] on any failure and the card falls back
+    to the last known list.
+    """
+    url=f"https://github.com/{urllib.parse.quote(USERNAME)}?tab=achievements"
+    try:
+        req=urllib.request.Request(url,headers={"User-Agent":"BlackSpirits-profile-cards","Accept":"text/html"})
+        with urllib.request.urlopen(req,timeout=20) as response:
+            html=response.read().decode("utf-8","replace")
+    except Exception as exc:
+        print(f"::warning title=Achievements unavailable::{exc}")
+        return []
+    found=[]
+    marks=list(re.finditer(r'alt="Achievement: ([^"]+)"',html))
+    for i,mark in enumerate(marks):
+        name=unescape(mark.group(1)).strip()
+        if any(name==n for n,_ in found):
+            continue
+        end=marks[i+1].start() if i+1<len(marks) else mark.end()+1500
+        tier=re.search(r'achievement-tier-label[^>]*>\s*x(\d+)\s*<',html[mark.end():end])
+        found.append((name,int(tier.group(1)) if tier else 1))
+    if not found:
+        print("::warning title=Achievements unavailable::no achievements found in the profile page")
+    return found
 
 
 def _profile_last_update():
@@ -264,11 +294,15 @@ def build_data():
     window_total=sum(item["count"] for item in activity)
     active_days=sum(1 for item in activity if item["count"]>0)
     peak_item=max(activity,key=lambda item:item["count"])
-    account_years=max(0,(today-created.date()).days//365)
+    account_years=max(
+        0,
+        today.year-created.year-((today.month,today.day)<(created.month,created.day)),
+    )
 
     return {
         "profile_views": _profile_views(),
         "last_update": _profile_last_update(),
+        "achievements": _achievements(),
         "created":created.date(),
         "account_years":account_years,
         "stars":stars,

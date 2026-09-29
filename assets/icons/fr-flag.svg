@@ -1,9 +1,1 @@
-<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="France">
-  <defs><clipPath id="r"><rect x=".75" y=".75" width="22.5" height="22.5" rx="6"/></clipPath></defs>
-  <g clip-path="url(#r)">
-    <rect x=".75" y=".75" width="7.5" height="22.5" fill="#002654"/>
-    <rect x="8.25" y=".75" width="7.5" height="22.5" fill="#ffffff"/>
-    <rect x="15.75" y=".75" width="7.5" height="22.5" fill="#ED2939"/>
-  </g>
-  <rect x=".75" y=".75" width="22.5" height="22.5" rx="6" fill="none" stroke="#45475a" stroke-width="1.5"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 30 20" role="img" aria-label="France"><defs><clipPath id="f"><rect width="30" height="20" rx="3"/></clipPath></defs><g clip-path="url(#f)"><rect width="10" height="20" fill="#002654"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#ED2939"/></g><rect x=".5" y=".5" width="29" height="19" rx="2.5" fill="none" stroke="#000" stroke-opacity=".25"/></svg>
