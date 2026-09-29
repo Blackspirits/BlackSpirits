@@ -126,7 +126,7 @@ I contribute to software localization and linguistic review in **European Portug
 ## <sub><img src="./assets/icons/support.svg" alt="" width="22" /></sub> Support & Contact
 
 <p align="center">
-  If you find my work useful, a coffee goes a long way ☕
+  If you find my work useful, a coffee goes a long way <img src="./assets/icons/coffee.svg" alt="" height="16" />
 </p>
 
 <p align="center">
@@ -138,7 +138,7 @@ I contribute to software localization and linguistic review in **European Portug
 </p>
 
 <p align="center">
-  Thanks for visiting! Feel free to explore, contribute — or just say hi 👋<br/>
+  Thanks for visiting! Feel free to explore, contribute — or just say hi <img src="./assets/icons/wave.svg" alt="" height="16" /><br/>
   <sub><em>Stay creative. Keep coding.</em></sub>
 </p>
 

@@ -169,6 +169,8 @@ def streak(d,username):
     </g>
   </g></svg>'''
 
+FALLBACK_ACHIEVEMENTS=(("Pull Shark",3),("Pair Extraordinaire",3))
+
 def trophies(d,username):
     cup='''<path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/>'''
     tier_names=("Bronze","Silver","Gold","Platinum","Diamond")
@@ -201,16 +203,21 @@ def trophies(d,username):
       <rect x="14" y="66" width="303" height="4" rx="2" fill="{SURFACE}"/>
       <rect x="14" y="66" width="{303*frac:.1f}" height="4" rx="2" fill="{color}"/>
     </g>''')
-    # Official achievements are not exposed by the API, so they are curated here.
-    achievements=(("Pull Shark ×3",PURPLE),("Pair Extraordinaire ×3",BLUE))
+    # Scraped from the public profile by github_data._achievements(); the list
+    # below is only the fallback when that page cannot be read.
+    earned=d.get("achievements") or FALLBACK_ACHIEVEMENTS
+    palette=(PURPLE,BLUE,TEAL,PEACH,YELLOW)
     ach_label="Official achievements"
     bx=22+text_width(ach_label,12)+16
     badges=[]
-    for name,color in achievements:
-        bw=text_width(name,11.5)+42
-        badges.append(f'<g transform="translate({bx:.1f} 377)"><rect width="{bw:.1f}" height="28" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="15" cy="14" r="4" fill="{color}"/><text x="28" y="18.5" fill="{TEXT}" font-size="11.5" font-weight="700">{escape(name)}</text></g>')
+    for i,(name,count) in enumerate(earned):
+        label=f"{name} ×{count}" if count>1 else name
+        bw=text_width(label,11.5)+42
+        if bx+bw>698:
+            break
+        badges.append(f'<g transform="translate({bx:.1f} 377)"><rect width="{bw:.1f}" height="28" rx="8" fill="{BG_DEEP}" stroke="{BORDER}"/><circle cx="15" cy="14" r="4" fill="{palette[i%len(palette)]}"/><text x="28" y="18.5" fill="{TEXT}" font-size="11.5" font-weight="700">{escape(label)}</text></g>')
         bx+=bw+10
-    return _head(720,420,f"{username} GitHub Trophies & Achievements","Custom milestone tiers plus manually curated official GitHub achievements.")+_frame(720,420)+f'''
+    return _head(720,420,f"{username} GitHub Trophies & Achievements","Custom milestone tiers plus the official GitHub achievements on the profile.")+_frame(720,420)+f'''
   <g font-family="{FONT}">
     <text x="22" y="48" fill="{TEXT}" font-size="20" font-weight="700">GitHub Trophies &amp; Achievements</text>
     <text x="22" y="67" fill="{MUTED}" font-size="12" font-weight="500">Milestones · Bronze → Silver → Gold → Platinum → Diamond</text>
