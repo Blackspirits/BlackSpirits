@@ -590,7 +590,7 @@ async function getLegacyData() {
       ? 'Now playing'
       : svg.includes('Recently played on')
         ? 'Recently played'
-        : 'Spotify',
+        : 'Offline',
     cover: legacyCoverFrom(svg),
   }
 }
