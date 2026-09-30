@@ -91,7 +91,7 @@ I contribute to software localization and linguistic review in **European Portug
 
 <p align="center">
   <a href="https://open.spotify.com/user/11175393066">
-    <img src="https://blackspirits-spotify-card.onrender.com/card.svg" alt="Spotify now playing or recently played" width="100%" />
+    <img src="https://blackspirits-spotify-card.onrender.com/card.svg" alt="Spotify now playing, paused or recently played" width="100%" />
   </a>
 </p>
 
