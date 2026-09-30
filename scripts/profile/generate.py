@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from pathlib import Path
+from datetime import datetime, timezone
 import json, os, sys
 
 HERE=Path(__file__).resolve().parent
@@ -36,7 +37,23 @@ def main():
     }
     for name,svg in files.items():
         (OUT/name).write_text(svg,encoding="utf-8")
-    print("Generated:",", ".join(files))
+
+    stats={
+        "schema_version":1,
+        "username":USERNAME,
+        "generated_at":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),
+        "commits":int(data["commits"]),
+        "pull_requests":int(data["prs"]),
+        "contributed_repositories":int(data["contrib_repos"]),
+        "public_repositories":int(data["public_repos"]),
+        "followers":int(data["followers"]),
+        "stars":int(data["stars"]),
+    }
+    (OUT/"profile-stats.json").write_text(
+        json.dumps(stats,indent=2,sort_keys=True)+"\n",
+        encoding="utf-8",
+    )
+    print("Generated:",", ".join(files),", profile-stats.json")
 
 if __name__=="__main__":
     main()
