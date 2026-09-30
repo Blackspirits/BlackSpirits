@@ -38,10 +38,10 @@ def main():
     for name,svg in files.items():
         (OUT/name).write_text(svg,encoding="utf-8")
 
-    stats={
+    stats_path=OUT/"profile-stats.json"
+    stats_core={
         "schema_version":1,
         "username":USERNAME,
-        "generated_at":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),
         "commits":int(data["commits"]),
         "pull_requests":int(data["prs"]),
         "contributed_repositories":int(data["contrib_repos"]),
@@ -49,7 +49,21 @@ def main():
         "followers":int(data["followers"]),
         "stars":int(data["stars"]),
     }
-    (OUT/"profile-stats.json").write_text(
+
+    previous={}
+    try:
+        previous=json.loads(stats_path.read_text(encoding="utf-8"))
+    except (OSError,ValueError,TypeError):
+        pass
+
+    previous_core={key:value for key,value in previous.items() if key!="generated_at"}
+    if previous_core==stats_core and previous.get("generated_at"):
+        generated_at=previous["generated_at"]
+    else:
+        generated_at=datetime.now(timezone.utc).isoformat().replace("+00:00","Z")
+
+    stats={**stats_core,"generated_at":generated_at}
+    stats_path.write_text(
         json.dumps(stats,indent=2,sort_keys=True)+"\n",
         encoding="utf-8",
     )
