@@ -46,15 +46,36 @@ function spotifyConfigured() {
 }
 
 function decodeEntities(s = '') {
-  return s
-    .replaceAll('&amp;', '&')
-    .replaceAll('&quot;', '"')
-    .replaceAll('&#39;', "'")
-    .replaceAll('&apos;', "'")
-    .replaceAll('&lt;', '<')
-    .replaceAll('&gt;', '>')
-    .replace(/<[^>]+>/g, '')
-    .trim()
+  let value = String(s)
+
+  // Legacy upstream data can be encoded more than once (for example,
+  // &amp;#x27;). Decode a few bounded passes so numeric and named entities
+  // become real Unicode before the SVG layer escapes them again.
+  for (let pass = 0; pass < 3; pass++) {
+    const next = value
+      .replace(/&#x([0-9a-f]+);?/gi, (_, hex) => {
+        const codePoint = Number.parseInt(hex, 16)
+        return Number.isFinite(codePoint) && codePoint <= 0x10ffff
+          ? String.fromCodePoint(codePoint)
+          : _
+      })
+      .replace(/&#([0-9]+);?/g, (_, decimal) => {
+        const codePoint = Number.parseInt(decimal, 10)
+        return Number.isFinite(codePoint) && codePoint <= 0x10ffff
+          ? String.fromCodePoint(codePoint)
+          : _
+      })
+      .replaceAll('&amp;', '&')
+      .replaceAll('&quot;', '"')
+      .replaceAll('&apos;', "'")
+      .replaceAll('&lt;', '<')
+      .replaceAll('&gt;', '>')
+
+    if (next === value) break
+    value = next
+  }
+
+  return value.replace(/<[^>]+>/g, '').trim()
 }
 
 function esc(s = '') {
