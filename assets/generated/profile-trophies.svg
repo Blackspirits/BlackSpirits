@@ -15,16 +15,16 @@
       <text x="317" y="49" text-anchor="end" fill="#a6adc8" font-size="12">9.9k</text>
       <text x="317" y="23" text-anchor="end" fill="#7f849c" font-size="11">Next · Diamond at 10.0k</text>
       <rect x="14" y="66" width="303" height="4" rx="2" fill="#313244"/>
-      <rect x="14" y="66" width="301.4" height="4" rx="2" fill="#cba6f7"/>
+      <rect x="14" y="66" width="301.5" height="4" rx="2" fill="#cba6f7"/>
     </g><g transform="translate(367 88)">
       <rect width="331" height="80" rx="11" fill="#181825" stroke="#45475a"/>
       <g transform="translate(15 13) scale(.72)" fill="none" stroke="#cba6f7" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></g>
       <text x="50" y="23" fill="#a6adc8" font-size="11" font-weight="700">Pull Requests</text>
       <text x="50" y="49" fill="#cba6f7" font-size="20" font-weight="800">Platinum</text>
-      <text x="317" y="49" text-anchor="end" fill="#a6adc8" font-size="12">769</text>
+      <text x="317" y="49" text-anchor="end" fill="#a6adc8" font-size="12">771</text>
       <text x="317" y="23" text-anchor="end" fill="#7f849c" font-size="11">Next · Diamond at 1.0k</text>
       <rect x="14" y="66" width="303" height="4" rx="2" fill="#313244"/>
-      <rect x="14" y="66" width="163.0" height="4" rx="2" fill="#cba6f7"/>
+      <rect x="14" y="66" width="164.2" height="4" rx="2" fill="#cba6f7"/>
     </g><g transform="translate(22 180)">
       <rect width="331" height="80" rx="11" fill="#181825" stroke="#45475a"/>
       <g transform="translate(15 13) scale(.72)" fill="none" stroke="#f9e2af" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></g>
@@ -33,7 +33,7 @@
       <text x="317" y="49" text-anchor="end" fill="#a6adc8" font-size="12">3.4k</text>
       <text x="317" y="23" text-anchor="end" fill="#7f849c" font-size="11">Next · Platinum at 5.0k</text>
       <rect x="14" y="66" width="303" height="4" rx="2" fill="#313244"/>
-      <rect x="14" y="66" width="113.9" height="4" rx="2" fill="#f9e2af"/>
+      <rect x="14" y="66" width="114.2" height="4" rx="2" fill="#f9e2af"/>
     </g><g transform="translate(367 180)">
       <rect width="331" height="80" rx="11" fill="#181825" stroke="#45475a"/>
       <g transform="translate(15 13) scale(.72)" fill="none" stroke="#f9e2af" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></g>
