@@ -142,4 +142,9 @@ I contribute to software localization and linguistic review in **European Portug
   <sub><em>Stay creative. Keep coding.</em></sub>
 </p>
 
+<p align="center">
+  <img src="./assets/icons/footer-care.svg" alt="" height="18" />
+  <strong>Built with code, coffee &amp; care.</strong>
+</p>
+
 <p align="right"><a href="#top">↑ Back to top</a></p>
