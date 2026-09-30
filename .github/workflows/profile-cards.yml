@@ -56,13 +56,15 @@ jobs:
           for file in             profile-meta.svg             profile-overview.svg             profile-streak.svg             profile-trophies.svg             profile-activity.svg             recently-watched.svg; do
             test -s "assets/generated/$file"
           done
+          test -s assets/generated/profile-stats.json
+          python3 -m json.tool assets/generated/profile-stats.json >/dev/null
 
       - name: Commit generated assets
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add assets/generated/profile-*.svg assets/generated/recently-watched.svg assets/generated/achievements.json
+          git add assets/generated/profile-*.svg assets/generated/profile-stats.json assets/generated/recently-watched.svg assets/generated/achievements.json
 
           if git diff --cached --quiet; then
             echo "No generated profile changes to commit."
