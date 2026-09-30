@@ -1,5 +1,5 @@
 <svg width="720" height="200" viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Blackspirits Contribution Streak</title><desc id="desc">3427 total contributions, current streak 21 days, longest streak 21 days.</desc>
+  <title id="title">Blackspirits Contribution Streak</title><desc id="desc">3428 total contributions, current streak 22 days, longest streak 22 days.</desc>
   <defs><linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
     <stop offset="0" stop-color="#cba6f7"/><stop offset=".55" stop-color="#89b4fa"/><stop offset="1" stop-color="#fab387"/>
   </linearGradient></defs><rect x=".75" y=".75" width="718.5" height="198.5" rx="12" fill="#1e1e2e" stroke="#45475a" stroke-width="1.5"/>
@@ -22,14 +22,14 @@
         </mask></defs>
         <circle cx="0" cy="112" r="34" fill="none" stroke="#fab387" stroke-width="5" mask="url(#ring-gap)"/>
         <path transform="translate(-12 63)" fill="#fab387" d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/>
-        <text x="0" y="121" fill="#cdd6f4" font-size="27" font-weight="800">21</text>
+        <text x="0" y="121" fill="#cdd6f4" font-size="27" font-weight="800">22</text>
         <text x="0" y="164" fill="#cba6f7" font-size="13" font-weight="700">Current Streak</text>
-        <text x="0" y="181" fill="#7f849c" font-size="11">9 Sep · 29 Sep</text>
+        <text x="0" y="181" fill="#7f849c" font-size="11">9 Sep · 30 Sep</text>
       </g>
       <g transform="translate(600 0)">
-        <text x="0" y="117" fill="#cdd6f4" font-size="31" font-weight="800">21</text>
+        <text x="0" y="117" fill="#cdd6f4" font-size="31" font-weight="800">22</text>
         <text x="0" y="142" fill="#a6adc8" font-size="13" font-weight="600">Longest Streak</text>
-        <text x="0" y="161" fill="#7f849c" font-size="11">9 Sep · 29 Sep</text>
+        <text x="0" y="161" fill="#7f849c" font-size="11">9 Sep · 30 Sep</text>
       </g>
     </g>
   </g></svg>
