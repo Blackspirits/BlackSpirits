@@ -151,6 +151,41 @@ function redirect(res, target) {
   res.end()
 }
 
+function loginPage(message = '') {
+  const note = message
+    ? '<p style="color:#f38ba8;font-weight:700">' + escapeHtml(message) + '</p>'
+    : '<p style="color:#a6adc8">Enter the Render <code>LOGIN_SECRET</code> to continue to Spotify authorization.</p>'
+
+  return (
+    '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
+    '<title>Spotify authorization</title></head>' +
+    '<body style="font-family:system-ui;background:#11111b;color:#cdd6f4;padding:32px;max-width:560px;margin:40px auto">' +
+    '<h1>Spotify authorization</h1>' +
+    note +
+    '<form method="post" action="/login" autocomplete="off">' +
+    '<label for="token" style="display:block;margin:20px 0 8px;color:#bac2de">LOGIN_SECRET</label>' +
+    '<input id="token" name="token" type="password" required autofocus ' +
+    'style="box-sizing:border-box;width:100%;padding:12px 14px;border-radius:8px;border:1px solid #45475a;background:#181825;color:#cdd6f4">' +
+    '<button type="submit" style="margin-top:16px;padding:10px 16px;border:0;border-radius:8px;background:#cba6f7;color:#11111b;font-weight:800;cursor:pointer">' +
+    'Continue with Spotify</button></form>' +
+    '<p style="margin-top:20px;color:#7f849c;font-size:.9rem">The secret is sent in the request body, not stored in the URL or browser history.</p>' +
+    '</body></html>'
+  )
+}
+
+async function readFormBody(req, maxBytes = 4096) {
+  let body = ''
+  for await (const chunk of req) {
+    body += chunk
+    if (Buffer.byteLength(body, 'utf8') > maxBytes) {
+      const error = new Error('request too large')
+      error.code = 'TOO_LARGE'
+      throw error
+    }
+  }
+  return new URLSearchParams(body)
+}
+
 function signState(timestamp) {
   return crypto.createHmac('sha256', LOGIN_SECRET).update(timestamp).digest('hex')
 }
@@ -632,9 +667,30 @@ const server = http.createServer(async (req, res) => {
   }
 
   if (url.pathname === '/login') {
-    if (!LOGIN_SECRET || url.searchParams.get('token') !== LOGIN_SECRET) {
-      return html(res, 403, '<h1>Forbidden</h1>')
+    if (!LOGIN_SECRET) {
+      return html(res, 503, '<h1>LOGIN_SECRET is not configured.</h1>')
     }
+
+    if (req.method === 'GET') {
+      return html(res, 200, loginPage())
+    }
+
+    if (req.method !== 'POST') {
+      res.writeHead(405, { Allow: 'GET, POST' })
+      return res.end()
+    }
+
+    let form
+    try {
+      form = await readFormBody(req)
+    } catch (error) {
+      return html(res, error.code === 'TOO_LARGE' ? 413 : 400, loginPage('Invalid login request.'))
+    }
+
+    if (form.get('token') !== LOGIN_SECRET) {
+      return html(res, 403, loginPage('Incorrect LOGIN_SECRET.'))
+    }
+
     if (!CLIENT_ID || !CLIENT_SECRET) {
       return html(res, 503, '<h1>Spotify client credentials are not configured.</h1>')
     }
