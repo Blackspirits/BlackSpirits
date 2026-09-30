@@ -7,7 +7,7 @@ const UID = '11175393066'
 const LEGACY_SOURCE =
   'https://spotify-github-profile.kittinanx.com/api/view?uid=' +
   UID +
-  '&cover_image=true&theme=default&background_color=1e1e2e&bar_color=cba6f7&bar_color_cover=false&border_radius=12&show_offline=false'
+  '&cover_image=true&theme=default&background_color=1e1e2e&bar_color=cba6f7&bar_color_cover=false&border_radius=12&show_offline=true'
 
 const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID || ''
 const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET || ''
