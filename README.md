@@ -90,8 +90,8 @@ I contribute to software localization and linguistic review in **European Portug
 </p>
 
 <p align="center">
-  <a href="https://open.spotify.com/user/11175393066">
-    <img src="https://blackspirits-spotify-card.onrender.com/card.svg" alt="Spotify now playing or recently played" width="100%" />
+  <a href="https://blackspirits-spotify-card.onrender.com/open">
+    <img src="https://blackspirits-spotify-card.onrender.com/card.svg" alt="Spotify now playing, paused or recently played" width="100%" />
   </a>
 </p>
 
